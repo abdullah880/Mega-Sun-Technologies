@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Mega Sun Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0B3C5D",
+              secondary: "#F4B400",
+              accent: "#2E7D32",
+              background: "#F7F9FC",
+              surface: "#FFFFFF",
+              textPrimary: "#1F2933",
+              textSecondary: "#4B5563",
+              border: "#E5E7EB",
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            animation: {
+              "pulse-glow": "pulseGlow 2s ease-in-out infinite",
+              "slide-in": "slideIn 0.5s ease-out",
+              "fade-in": "fadeIn 0.8s ease-out",
+              float: "float 6s ease-in-out infinite",
+              "bounce-subtle": "bounceSubtle 1.5s ease-in-out infinite",
+            },
+            keyframes: {
+              pulseGlow: {
+                "0%, 100%": { boxShadow: "0 0 20px rgba(244, 180, 0, 0.4)" },
+                "50%": { boxShadow: "0 0 30px rgba(244, 180, 0, 0.7)" },
+              },
+              slideIn: {
+                "0%": { opacity: "0", transform: "translateY(30px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-15px)" },
+              },
+              bounceSubtle: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-5px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>"
+    />
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .contact-bg {
+        background: linear-gradient(
+          135deg,
+          rgba(11, 60, 93, 0.03) 0%,
+          rgba(244, 180, 0, 0.03) 50%,
+          rgba(46, 125, 50, 0.03) 100%
+        );
+      }
+
+      .contact-form-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-form-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(
+          circle,
+          rgba(244, 180, 0, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        transform: translate(50%, -50%);
+      }
+
+      .contact-form-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(
+          circle,
+          rgba(46, 125, 50, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        transform: translate(-50%, 50%);
+      }
+
+      .input-focus-effect:focus {
+        border-color: #f4b400;
+        box-shadow: 0 0 0 3px rgba(244, 180, 0, 0.1);
+      }
+
+      .trust-badge {
+        transition: all 0.3s ease;
+        border-left: 4px solid #2e7d32;
+      }
+
+      .trust-badge:hover {
+        border-left-color: #f4b400;
+        transform: translateX(5px);
+      }
+
+      .contact-option-card {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-option-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(11, 60, 93, 0.1);
+      }
+
+      .contact-option-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #0b3c5d, #f4b400);
+      }
+
+      .whatsapp-btn {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        transition: all 0.3s ease;
+      }
+
+      .whatsapp-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+      }
+
+      /* .sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.97);
+      } */
+
+      .sticky-nav {
+        position: sticky;
+        top: 20px;
+
+        width: calc(100% - 2rem);
+        max-width: 1536px;
+        margin: 0 auto;
+
+        z-index: 50;
+
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        background-color: rgba(255, 255, 255, 0.5);
+
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+        transition: box-shadow 0.3s ease, background-color 0.3s ease;
+      }
+
+      .floating-sun {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(
+          circle,
+          rgba(244, 180, 0, 0.2) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+        z-index: 0;
+      }
+
+      .success-message {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        z-index: 100;
+        transform: translateX(400px);
+        transition: transform 0.5s ease;
+      }
+
+      .success-message.show {
+        transform: translateX(0);
+      }
+
+      @media (max-width: 768px) {
+        .success-message {
+          top: 80px;
+          right: 10px;
+          left: 10px;
+          transform: translateY(-100px);
+        }
+
+        .success-message.show {
+          transform: translateY(0);
+        }
+      }
+
+      .form-step-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #e5e7eb;
+        transition: all 0.3s ease;
+      }
+
+      .form-step-indicator.active {
+        background-color: #f4b400;
+        transform: scale(1.2);
+      }
+
+      .progress-line {
+        height: 3px;
+        background-color: #e5e7eb;
+        border-radius: 1.5px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #0b3c5d, #f4b400);
+        border-radius: 1.5px;
+        transition: width 0.5s ease;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-textPrimary font-poppins">
+    <!-- Navigation -->
+    <header class="sticky-nav shadow-sm">
+      <nav
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <div
+            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
+          >
+            <i class="fas fa-sun text-primary text-xl"></i>
+          </div>
+          <div>
+            <h1 class="text-xl font-bold text-primary">
+              Mega Sun Technologies
+            </h1>
+            <p class="text-xs text-textSecondary">Solar Energy Experts</p>
+          </div>
+        </div>
+
+        <div class="hidden md:flex space-x-8 items-center">
+          <a
+            href="index.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Home</a
+          >
+          <a
+            href="solutions.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Solutions</a
+          >
+          <a
+            href="how-it-works.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >How It Works</a
+          >
+          <a
+            href="our-projects.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Projects</a
+          >
+          <a
+            href="why-choose-us.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Why Choose Us</a
+          >
+          <a
+            href="FAQs.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >FAQs</a
+          >
+          <a
+            href="contact.html"
+            class="bg-secondary text-primary font-bold py-2 px-6 rounded-lg hover:bg-yellow-300 transition-all pulse-soft"
+            >Free Site Survey</a
+          >
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-primary">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-surface shadow-lg px-4 py-6"
+      >
+        <div class="flex flex-col space-y-4">
+          <a
+            href="index.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Home</a
+          >
+          <a
+            href="solutions.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Solutions</a
+          >
+          <a
+            href="how-it-works.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >How It Works</a
+          >
+          <a
+            href="our-projects.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Projects</a
+          >
+          <a
+            href="why-choose-us.html"
+            class="font-medium hover:font-medium text-secondary transition-colors py-2"
+            >Why Choose Us</a
+          >
+          <a
+            href="FAQs.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >FAQs</a
+          >
+          <a
+            href="contact.html"
+            class="bg-secondary text-primary font-bold py-2 px-6 rounded-lg hover:bg-yellow-300 transition-all pulse-soft"
+            >Free Site Survey</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Success Message (Hidden by default) -->
+    <div
+      id="success-message"
+      class="hidden success-message bg-surface rounded-xl p-6 shadow-2xl max-w-md border border-accent"
+    >
+      <div class="flex items-start">
+        <div class="mr-4">
+          <div
+            class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center"
+          >
+            <i class="fas fa-check-circle text-accent text-2xl"></i>
+          </div>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-bold text-primary text-lg mb-2">Thank You!</h3>
+          <p class="text-textSecondary mb-4">
+            Your free solar survey request has been submitted successfully. Our
+            solar expert will contact you within 24 hours.
+          </p>
+          <button
+            id="close-success"
+            class="text-accent font-medium hover:text-green-700 transition-colors"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      class="contact-bg pt-12 pb-16 md:pt-20 md:pb-24 relative overflow-hidden"
+    >
+      <div class="floating-sun" style="top: 10%; right: 5%"></div>
+      <div
+        class="floating-sun"
+        style="bottom: 15%; left: 5%; animation-delay: 1s"
+      ></div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-12">
+            <div
+              class="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium mb-6 animate-fade-in"
+            >
+              <i class="fas fa-calendar-check mr-2"></i> Limited Free Surveys
+              This Month
+            </div>
+            <h1
+              class="text-4xl md:text-5xl font-bold text-primary leading-tight mb-6 animate-slide-in"
+            >
+              Book Your Free Solar Site Survey
+            </h1>
+            <p
+              class="text-xl text-textSecondary mb-10 max-w-3xl mx-auto animate-slide-in"
+            >
+              Get a personalized assessment of your solar potential with no
+              obligation. See exactly how much you could save.
+            </p>
+
+            <div class="flex justify-center animate-slide-in">
+              <div
+                class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-full"
+              >
+                <i class="fas fa-clock mr-3"></i>
+                <span
+                  >Average wait time: <strong>2-3 days</strong> for survey
+                  scheduling</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Progress Indicator -->
+          <div class="max-w-2xl mx-auto mb-12 animate-fade-in">
+            <div class="flex justify-between items-center mb-4">
+              <div class="text-center">
+                <div class="form-step-indicator active mx-auto mb-2"></div>
+                <div class="text-sm font-medium text-primary">Contact Info</div>
+              </div>
+              <div class="flex-1 mx-4">
+                <div class="progress-line">
+                  <div class="progress-fill" style="width: 33%"></div>
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="form-step-indicator mx-auto mb-2"></div>
+                <div class="text-sm text-textSecondary">Property Details</div>
+              </div>
+              <div class="flex-1 mx-4">
+                <div class="progress-line">
+                  <div class="progress-fill" style="width: 0%"></div>
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="form-step-indicator mx-auto mb-2"></div>
+                <div class="text-sm text-textSecondary">Confirmation</div>
+              </div>
+            </div>
+            <div class="text-center text-textSecondary text-sm">
+              <i class="fas fa-lock mr-2"></i>
+              Your information is secure and encrypted
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section id="contact" class="py-12 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid lg:grid-cols-3 gap-10">
+          <!-- Contact Form -->
+          <div class="lg:col-span-2">
+            <div
+              id="form"
+              class="contact-form-card bg-surface rounded-2xl p-8 md:p-10 shadow-2xl relative z-10 animate-slide-in"
+            >
+              <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-primary mb-4">
+                  Complete This Short Form
+                </h2>
+                <p class="text-textSecondary">
+                  It only takes 2 minutes to get your free solar assessment
+                </p>
+              </div>
+
+              <form id="contact-form">
+                <!-- Step 1: Contact Information -->
+                <div id="step-1" class="form-step">
+                  <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                      <label
+                        class="block text-primary font-bold mb-2"
+                        for="name"
+                      >
+                        Full Name <span class="text-red-500">*</span>
+                      </label>
+                      <div class="relative">
+                        <div class="absolute left-4 top-4 text-textSecondary">
+                          <i class="fas fa-user"></i>
+                        </div>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          required
+                          class="input-focus-effect w-full pl-12 p-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                          placeholder="John Smith"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label
+                        class="block text-primary font-bold mb-2"
+                        for="phone"
+                      >
+                        Phone Number <span class="text-red-500">*</span>
+                      </label>
+                      <div class="relative">
+                        <div class="absolute left-4 top-4 text-textSecondary">
+                          <i class="fas fa-phone"></i>
+                        </div>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          required
+                          class="input-focus-effect w-full pl-12 p-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                          placeholder="(555) 123-4567"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-8">
+                    <label
+                      class="block text-primary font-bold mb-2"
+                      for="email"
+                    >
+                      Email Address <span class="text-red-500">*</span>
+                    </label>
+                    <div class="relative">
+                      <div class="absolute left-4 top-4 text-textSecondary">
+                        <i class="fas fa-envelope"></i>
+                      </div>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        class="input-focus-effect w-full pl-12 p-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="mb-10">
+                    <label
+                      class="block text-primary font-bold mb-2"
+                      for="location"
+                    >
+                      Location (City/Area) <span class="text-red-500">*</span>
+                    </label>
+                    <div class="relative">
+                      <div class="absolute left-4 top-4 text-textSecondary">
+                        <i class="fas fa-map-marker-alt"></i>
+                      </div>
+                      <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        required
+                        class="input-focus-effect w-full pl-12 p-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                        placeholder="Sun City, SC"
+                      />
+                      <div class="absolute right-4 top-4">
+                        <i class="fas fa-map-pin text-secondary"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="text-right">
+                    <button
+                      type="button"
+                      id="next-step-1"
+                      class="bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-yellow-300 transition-all animate-bounce-subtle"
+                    >
+                      Next: Property Details
+                      <i class="ml-2 fas fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Step 2: Property Details -->
+                <div id="step-2" class="form-step hidden">
+                  <div class="mb-8">
+                    <label class="block text-primary font-bold mb-4">
+                      Property Type <span class="text-red-500">*</span>
+                    </label>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      <div class="relative">
+                        <input
+                          type="radio"
+                          id="home"
+                          name="property_type"
+                          value="home"
+                          class="hidden peer"
+                          required
+                        />
+                        <label
+                          for="home"
+                          class="flex flex-col items-center justify-center p-6 border-2 border-border rounded-xl cursor-pointer hover:border-secondary hover:bg-yellow-50 transition-all peer-checked:border-secondary peer-checked:bg-yellow-50"
+                        >
+                          <i class="fas fa-home text-3xl text-primary mb-3"></i>
+                          <span class="font-medium text-primary">Home</span>
+                        </label>
+                      </div>
+
+                      <div class="relative">
+                        <input
+                          type="radio"
+                          id="business"
+                          name="property_type"
+                          value="business"
+                          class="hidden peer"
+                        />
+                        <label
+                          for="business"
+                          class="flex flex-col items-center justify-center p-6 border-2 border-border rounded-xl cursor-pointer hover:border-secondary hover:bg-yellow-50 transition-all peer-checked:border-secondary peer-checked:bg-yellow-50"
+                        >
+                          <i
+                            class="fas fa-building text-3xl text-primary mb-3"
+                          ></i>
+                          <span class="font-medium text-primary">Business</span>
+                        </label>
+                      </div>
+
+                      <div class="relative">
+                        <input
+                          type="radio"
+                          id="farm"
+                          name="property_type"
+                          value="farm"
+                          class="hidden peer"
+                        />
+                        <label
+                          for="farm"
+                          class="flex flex-col items-center justify-center p-6 border-2 border-border rounded-xl cursor-pointer hover:border-secondary hover:bg-yellow-50 transition-all peer-checked:border-secondary peer-checked:bg-yellow-50"
+                        >
+                          <i
+                            class="fas fa-tractor text-3xl text-primary mb-3"
+                          ></i>
+                          <span class="font-medium text-primary">Farm</span>
+                        </label>
+                      </div>
+
+                      <div class="relative">
+                        <input
+                          type="radio"
+                          id="other"
+                          name="property_type"
+                          value="other"
+                          class="hidden peer"
+                        />
+                        <label
+                          for="other"
+                          class="flex flex-col items-center justify-center p-6 border-2 border-border rounded-xl cursor-pointer hover:border-secondary hover:bg-yellow-50 transition-all peer-checked:border-secondary peer-checked:bg-yellow-50"
+                        >
+                          <i
+                            class="fas fa-warehouse text-3xl text-primary mb-3"
+                          ></i>
+                          <span class="font-medium text-primary">Other</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-10">
+                    <label class="block text-primary font-bold mb-4">
+                      Average Monthly Electricity Bill
+                      <span class="text-red-500">*</span>
+                    </label>
+                    <div class="space-y-4">
+                      <div class="relative">
+                        <input
+                          type="radio"
+                          id="bill-0-100"
+                          name="monthly_bill"
+                          value="0-100"
+                          class="hidden peer"
+                          required
+                        />
+                        <label
+                          for="bill-0-100"
+                          class="flex items-center p-4 border-2 border-border rounded-xl cursor-pointer hover:border-accent hover:bg-green-50 transition-all peer-checked:border-accent peer-checked:bg-green-50"
+                        >
+                          <div class="mr-4">
+                            <div
+                              class="w-8 h-8 rounded-full border-2 border-border flex items-center justify-center peer-checked:border-accent"
+                            >
+                              <div
+                                class="w-4 h-4 rounded-full bg-accent hidden peer-checked:block"
+                              ></div>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="font-medium text-primary">
+                              Under $100
+                            </div>
+                            <div class="text-sm text-textSecondary">
+                              Small home or apartment
+                            </div>
+                          </div>
+                        </label>
+                      </div>
+
+                      <div class="relative">
+                        <input
+                          type="radio"
+                          id="bill-100-300"
+                          name="monthly_bill"
+                          value="100-300"
+                          class="hidden peer"
+                        />
+                        <label
+                          for="bill-100-300"
+                          class="flex items-center p-4 border-2 border-border rounded-xl cursor-pointer hover:border-accent hover:bg-green-50 transition-all peer-checked:border-accent peer-checked:bg-green-50"
+                        >
+                          <div class="mr-4">
+                            <div
+                              class="w-8 h-8 rounded-full border-2 border-border flex items-center justify-center peer-checked:border-accent"
+                            >
+                              <div
+                                class="w-4 h-4 rounded-full bg-accent hidden peer-checked:block"
+                              ></div>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="font-medium text-primary">
+                              $100 - $300
+                            </div>
+                            <div class="text-sm text-textSecondary">
+                              Average home or small office
+                            </div>
+                          </div>
+                        </label>
+                      </div>
+
+                      <div class="relative">
+                        <input
+                          type="radio"
+                          id="bill-300-600"
+                          name="monthly_bill"
+                          value="300-600"
+                          class="hidden peer"
+                        />
+                        <label
+                          for="bill-300-600"
+                          class="flex items-center p-4 border-2 border-border rounded-xl cursor-pointer hover:border-accent hover:bg-green-50 transition-all peer-checked:border-accent peer-checked:bg-green-50"
+                        >
+                          <div class="mr-4">
+                            <div
+                              class="w-8 h-8 rounded-full border-2 border-border flex items-center justify-center peer-checked:border-accent"
+                            >
+                              <div
+                                class="w-4 h-4 rounded-full bg-accent hidden peer-checked:block"
+                              ></div>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="font-medium text-primary">
+                              $300 - $600
+                            </div>
+                            <div class="text-sm text-textSecondary">
+                              Large home or medium business
+                            </div>
+                          </div>
+                        </label>
+                      </div>
+
+                      <div class="relative">
+                        <input
+                          type="radio"
+                          id="bill-600-plus"
+                          name="monthly_bill"
+                          value="600+"
+                          class="hidden peer"
+                        />
+                        <label
+                          for="bill-600-plus"
+                          class="flex items-center p-4 border-2 border-border rounded-xl cursor-pointer hover:border-accent hover:bg-green-50 transition-all peer-checked:border-accent peer-checked:bg-green-50"
+                        >
+                          <div class="mr-4">
+                            <div
+                              class="w-8 h-8 rounded-full border-2 border-border flex items-center justify-center peer-checked:border-accent"
+                            >
+                              <div
+                                class="w-4 h-4 rounded-full bg-accent hidden peer-checked:block"
+                              ></div>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="font-medium text-primary">$600+</div>
+                            <div class="text-sm text-textSecondary">
+                              Large business or commercial
+                            </div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex justify-between">
+                    <button
+                      type="button"
+                      id="prev-step-2"
+                      class="bg-white text-primary font-bold py-4 px-8 rounded-lg text-lg border-2 border-primary hover:bg-primary hover:text-white transition-all"
+                    >
+                      <i class="fas fa-arrow-left mr-2"></i>
+                      Back
+                    </button>
+                    <button
+                      type="button"
+                      id="next-step-2"
+                      class="bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-yellow-300 transition-all"
+                    >
+                      Next: Review & Submit
+                      <i class="ml-2 fas fa-check-circle"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Step 3: Review & Submit -->
+                <div id="step-3" class="form-step hidden">
+                  <div class="bg-background rounded-xl p-6 mb-8">
+                    <h3 class="text-xl font-bold text-primary mb-4">
+                      Review Your Information
+                    </h3>
+
+                    <div class="space-y-4">
+                      <div
+                        class="flex justify-between pb-3 border-b border-border"
+                      >
+                        <span class="text-textSecondary">Name:</span>
+                        <span
+                          class="font-medium text-primary"
+                          id="review-name"
+                        ></span>
+                      </div>
+                      <div
+                        class="flex justify-between pb-3 border-b border-border"
+                      >
+                        <span class="text-textSecondary">Phone:</span>
+                        <span
+                          class="font-medium text-primary"
+                          id="review-phone"
+                        ></span>
+                      </div>
+                      <div
+                        class="flex justify-between pb-3 border-b border-border"
+                      >
+                        <span class="text-textSecondary">Email:</span>
+                        <span
+                          class="font-medium text-primary"
+                          id="review-email"
+                        ></span>
+                      </div>
+                      <div
+                        class="flex justify-between pb-3 border-b border-border"
+                      >
+                        <span class="text-textSecondary">Location:</span>
+                        <span
+                          class="font-medium text-primary"
+                          id="review-location"
+                        ></span>
+                      </div>
+                      <div
+                        class="flex justify-between pb-3 border-b border-border"
+                      >
+                        <span class="text-textSecondary">Property Type:</span>
+                        <span
+                          class="font-medium text-primary"
+                          id="review-property-type"
+                        ></span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-textSecondary">Monthly Bill:</span>
+                        <span
+                          class="font-medium text-primary"
+                          id="review-monthly-bill"
+                        ></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-8">
+                    <div class="flex items-start">
+                      <div class="mr-4">
+                        <input
+                          type="checkbox"
+                          id="consent"
+                          name="consent"
+                          required
+                          class="w-5 h-5 text-secondary focus:ring-secondary rounded"
+                        />
+                      </div>
+                      <div>
+                        <label for="consent" class="text-textSecondary">
+                          I agree to receive a free solar site survey and
+                          related communications from Mega Sun Technologies. I
+                          understand that I can opt out at any time and that
+                          this is a no-obligation assessment.
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex justify-between">
+                    <button
+                      type="button"
+                      id="prev-step-3"
+                      class="bg-white text-primary font-bold py-4 px-8 rounded-lg text-lg border-2 border-primary hover:bg-primary hover:text-white transition-all"
+                    >
+                      <i class="fas fa-arrow-left mr-2"></i>
+                      Back
+                    </button>
+                    <button
+                      type="submit"
+                      class="bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-yellow-300 transition-all pulse-glow"
+                    >
+                      <i class="fas fa-paper-plane mr-2"></i>
+                      Submit & Book My Free Survey
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              <div class="mt-10 pt-8 border-t border-border">
+                <div class="flex items-center text-textSecondary text-sm">
+                  <i class="fas fa-shield-alt text-accent mr-3 text-lg"></i>
+                  <span
+                    >Your information is protected with 256-bit SSL
+                    encryption</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trust Reassurance & Contact Options -->
+          <div class="space-y-10">
+            <!-- Trust Reassurance -->
+            <div class="bg-surface rounded-2xl p-8 shadow-lg">
+              <h3 class="text-2xl font-bold text-primary mb-6">
+                Why Choose Our Free Survey
+              </h3>
+
+              <div class="space-y-6">
+                <div class="trust-badge bg-background p-6 rounded-xl">
+                  <div class="flex items-center mb-3">
+                    <div
+                      class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center mr-4"
+                    >
+                      <i class="fas fa-handshake text-accent text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-primary text-lg">
+                      No Obligation
+                    </h4>
+                  </div>
+                  <p class="text-textSecondary">
+                    Get your personalized solar assessment with absolutely no
+                    commitment to purchase.
+                  </p>
+                </div>
+
+                <div class="trust-badge bg-background p-6 rounded-xl">
+                  <div class="flex items-center mb-3">
+                    <div
+                      class="w-12 h-12 rounded-full bg-yellow-50 flex items-center justify-center mr-4"
+                    >
+                      <i class="fas fa-ban text-secondary text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-primary text-lg">No Spam</h4>
+                  </div>
+                  <p class="text-textSecondary">
+                    We respect your privacy. No aggressive sales calls or spam
+                    emails.
+                  </p>
+                </div>
+
+                <div class="trust-badge bg-background p-6 rounded-xl">
+                  <div class="flex items-center mb-3">
+                    <div
+                      class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mr-4"
+                    >
+                      <i class="fas fa-chart-line text-primary text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-primary text-lg">
+                      Honest Assessment
+                    </h4>
+                  </div>
+                  <p class="text-textSecondary">
+                    We'll tell you exactly what solar can do for you—no
+                    exaggeration or pressure tactics.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-8 p-4 bg-primary/5 rounded-xl">
+                <div class="flex items-center">
+                  <i class="fas fa-users text-primary text-2xl mr-4"></i>
+                  <div>
+                    <p class="font-bold text-primary">
+                      500+ free surveys completed this year
+                    </p>
+                    <p class="text-textSecondary text-sm">
+                      Join thousands of satisfied customers
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Contact Options -->
+            <div class="bg-surface rounded-2xl p-8 shadow-lg">
+              <h3 class="text-2xl font-bold text-primary mb-6">
+                Other Ways to Contact Us
+              </h3>
+
+              <div class="space-y-6">
+                <div class="contact-option-card bg-background rounded-xl p-6">
+                  <div class="flex items-center mb-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mr-4"
+                    >
+                      <i class="fas fa-phone text-primary text-xl"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-primary">Phone Call</h4>
+                      <p class="text-textSecondary text-sm">
+                        Speak directly with our solar experts
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href="tel:555123SOLAR"
+                    class="block text-center bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-800 transition-all"
+                  >
+                    <i class="fas fa-phone mr-2"></i>
+                    Call (555) 123-SOLAR
+                  </a>
+                  <div class="mt-3 text-center text-textSecondary text-sm">
+                    <i class="fas fa-clock mr-1"></i>
+                    Mon-Fri 8am-6pm, Sat 9am-4pm
+                  </div>
+                </div>
+
+                <div class="contact-option-card bg-background rounded-xl p-6">
+                  <div class="flex items-center mb-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center mr-4"
+                    >
+                      <i class="fab fa-whatsapp text-green-500 text-xl"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-primary">WhatsApp</h4>
+                      <p class="text-textSecondary text-sm">
+                        Quick chat & photo sharing
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href="https://wa.me/15551234567?text=Hi%20Mega%20Sun%20Technologies,%20I'm%20interested%20in%20a%20free%20solar%20survey"
+                    target="_blank"
+                    class="block text-center whatsapp-btn text-white font-bold py-3 px-6 rounded-lg"
+                  >
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    Chat on WhatsApp
+                  </a>
+                  <div class="mt-3 text-center text-textSecondary text-sm">
+                    <i class="fas fa-reply mr-1"></i>
+                    Typically respond within 15 minutes
+                  </div>
+                </div>
+
+                <div class="contact-option-card bg-background rounded-xl p-6">
+                  <div class="flex items-center mb-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mr-4"
+                    >
+                      <i class="fas fa-envelope text-red-500 text-xl"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-primary">Email</h4>
+                      <p class="text-textSecondary text-sm">
+                        For detailed inquiries
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href="mailto:survey@megasuntech.com"
+                    class="block text-center bg-white text-primary font-bold py-3 px-6 rounded-lg border-2 border-primary hover:bg-primary hover:text-white transition-all"
+                  >
+                    <i class="fas fa-envelope mr-2"></i>
+                    Email survey@megasuntech.com
+                  </a>
+                  <div class="mt-3 text-center text-textSecondary text-sm">
+                    <i class="fas fa-history mr-1"></i>
+                    Response within 24 hours
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8 p-4 bg-accent/10 rounded-xl">
+                <div class="flex items-center">
+                  <i
+                    class="fas fa-map-marker-alt text-accent text-2xl mr-4"
+                  ></i>
+                  <div>
+                    <p class="font-bold text-primary">Visit Our Office</p>
+                    <p class="text-textSecondary text-sm">
+                      123 Solar Street, Sun City, SC 12345
+                    </p>
+                    <p class="text-textSecondary text-sm">
+                      Open Mon-Fri 8am-6pm
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div
+              class="bg-gradient-to-r from-primary to-accent rounded-2xl p-8 text-white"
+            >
+              <h3 class="text-2xl font-bold mb-6">What Happens Next</h3>
+
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center"
+                    >
+                      <span class="font-bold">1</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">We Contact You</h4>
+                    <p class="text-white/80 text-sm">
+                      Within 24 hours to confirm survey details
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center"
+                    >
+                      <span class="font-bold">2</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">Free Site Survey</h4>
+                    <p class="text-white/80 text-sm">
+                      60-90 minute assessment at your property
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center"
+                    >
+                      <span class="font-bold">3</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">Custom Solar Plan</h4>
+                    <p class="text-white/80 text-sm">
+                      Personalized proposal with savings estimate
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8 text-center">
+                <div
+                  class="inline-flex items-center px-4 py-2 bg-white/20 rounded-full"
+                >
+                  <i class="fas fa-star mr-2"></i>
+                  <span>4.9/5 average customer rating</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-6">
+              <div
+                class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
+              >
+                <i class="fas fa-sun text-primary text-xl"></i>
+              </div>
+              <div>
+                <h2 class="text-xl font-bold">Mega Sun Technologies</h2>
+              </div>
+            </div>
+            <p class="text-white/80">
+              Providing reliable solar solutions for homeowners and businesses
+              since 2013.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="solutions.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Solutions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="how-it-works.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >How It Works</a
+                >
+              </li>
+              <li>
+                <a
+                  href="our-projects.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  href="why-choose-us.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Why Choose Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="FAQs.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >FAQs</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Contact Info</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt text-secondary mr-3 mt-1"></i>
+                <span>123 Solar Street, Sun City, SC 12345</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone text-secondary mr-3"></i>
+                <span>(555) 123-SOLAR</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope text-secondary mr-3"></i>
+                <span>info@megasuntech.com</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Business Hours</h3>
+            <ul class="space-y-2 text-white/80">
+              <li class="flex justify-between">
+                <span>Mon-Fri:</span>
+                <span>8:00 AM - 6:00 PM</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Saturday:</span>
+                <span>9:00 AM - 4:00 PM</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Sunday:</span>
+                <span>Closed</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-white/20 text-center text-white/70">
+          <p>&copy; 2023 Mega Sun Technologies. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a
+      href="https://wa.me/15551234567?text=Hi%20Mega%20Sun%20Technologies,%20I'm%20interested%20in%20a%20free%20solar%20survey"
+      target="_blank"
+      class="fixed bottom-6 right-6 w-16 h-16 rounded-full whatsapp-btn flex items-center justify-center shadow-2xl z-40 animate-bounce-subtle"
+    >
+      <i class="fab fa-whatsapp text-white text-2xl"></i>
+    </a>
+
+    <!-- Back to top button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-28 right-6 w-12 h-12 rounded-full bg-secondary text-primary flex items-center justify-center shadow-lg hover:shadow-xl transition-all opacity-0 z-40"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = document.querySelectorAll("#mobile-menu a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Multi-step form functionality
+      const step1 = document.getElementById("step-1");
+      const step2 = document.getElementById("step-2");
+      const step3 = document.getElementById("step-3");
+      const nextStep1Btn = document.getElementById("next-step-1");
+      const nextStep2Btn = document.getElementById("next-step-2");
+      const prevStep2Btn = document.getElementById("prev-step-2");
+      const prevStep3Btn = document.getElementById("prev-step-3");
+
+      // Form step indicators
+      const stepIndicators = document.querySelectorAll(".form-step-indicator");
+      const progressFill = document.querySelector(".progress-fill");
+
+      // Review fields
+      const reviewName = document.getElementById("review-name");
+      const reviewPhone = document.getElementById("review-phone");
+      const reviewEmail = document.getElementById("review-email");
+      const reviewLocation = document.getElementById("review-location");
+      const reviewPropertyType = document.getElementById(
+        "review-property-type"
+      );
+      const reviewMonthlyBill = document.getElementById("review-monthly-bill");
+
+      // Success message elements
+      const successMessage = document.getElementById("success-message");
+      const closeSuccessBtn = document.getElementById("close-success");
+
+      // Next step 1: Contact info -> Property details
+      nextStep1Btn.addEventListener("click", function () {
+        // Validate step 1 fields
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const location = document.getElementById("location").value.trim();
+
+        if (!name || !phone || !email || !location) {
+          alert("Please fill in all required fields before proceeding.");
+          return;
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+
+        // Phone validation (basic)
+        if (phone.length < 10) {
+          alert("Please enter a valid phone number.");
+          return;
+        }
+
+        // Update step indicators
+        stepIndicators[0].classList.remove("active");
+        stepIndicators[1].classList.add("active");
+        progressFill.style.width = "66%";
+
+        // Switch steps
+        step1.classList.add("hidden");
+        step2.classList.remove("hidden");
+
+        // Scroll to top of form
+        document
+          .getElementById("form")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      // Next step 2: Property details -> Review
+      nextStep2Btn.addEventListener("click", function () {
+        // Validate step 2 fields
+        const propertyType = document.querySelector(
+          'input[name="property_type"]:checked'
+        );
+        const monthlyBill = document.querySelector(
+          'input[name="monthly_bill"]:checked'
+        );
+
+        if (!propertyType || !monthlyBill) {
+          alert("Please select both property type and monthly bill range.");
+          return;
+        }
+
+        // Update review fields
+        reviewName.textContent = document.getElementById("name").value;
+        reviewPhone.textContent = document.getElementById("phone").value;
+        reviewEmail.textContent = document.getElementById("email").value;
+        reviewLocation.textContent = document.getElementById("location").value;
+
+        // Property type label
+        const propertyLabels = {
+          home: "Home",
+          business: "Business",
+          farm: "Farm",
+          other: "Other",
+        };
+        reviewPropertyType.textContent =
+          propertyLabels[propertyType.value] || propertyType.value;
+
+        // Monthly bill label
+        const billLabels = {
+          "0-100": "Under $100",
+          "100-300": "$100 - $300",
+          "300-600": "$300 - $600",
+          "600+": "$600+",
+        };
+        reviewMonthlyBill.textContent =
+          billLabels[monthlyBill.value] || monthlyBill.value;
+
+        // Update step indicators
+        stepIndicators[1].classList.remove("active");
+        stepIndicators[2].classList.add("active");
+        progressFill.style.width = "100%";
+
+        // Switch steps
+        step2.classList.add("hidden");
+        step3.classList.remove("hidden");
+
+        // Scroll to top of form
+        document
+          .getElementById("form")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      // Previous step 2: Review -> Property details
+      prevStep2Btn.addEventListener("click", function () {
+        // Update step indicators
+        stepIndicators[1].classList.remove("active");
+        stepIndicators[0].classList.add("active");
+        progressFill.style.width = "33%";
+
+        // Switch steps
+        step2.classList.add("hidden");
+        step1.classList.remove("hidden");
+
+        // Scroll to top of form
+        document
+          .getElementById("form")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      // Previous step 3: Review -> Property details
+      prevStep3Btn.addEventListener("click", function () {
+        // Update step indicators
+        stepIndicators[2].classList.remove("active");
+        stepIndicators[1].classList.add("active");
+        progressFill.style.width = "66%";
+
+        // Switch steps
+        step3.classList.add("hidden");
+        step2.classList.remove("hidden");
+
+        // Scroll to top of form
+        document
+          .getElementById("form")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      // Form submission
+      const contactForm = document.getElementById("contact-form");
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Validate consent checkbox
+        const consent = document.getElementById("consent");
+        if (!consent.checked) {
+          alert("Please agree to the terms to submit your request.");
+          return;
+        }
+
+        // Show success message
+        successMessage.classList.add("show");
+
+        // Reset form after a delay (simulating submission)
+        setTimeout(() => {
+          contactForm.reset();
+
+          // Reset to step 1
+          step3.classList.add("hidden");
+          step1.classList.remove("hidden");
+
+          // Reset step indicators
+          stepIndicators.forEach((indicator) =>
+            indicator.classList.remove("active")
+          );
+          stepIndicators[0].classList.add("active");
+          progressFill.style.width = "33%";
+
+          // Reset radio button styles
+          document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+            radio.checked = false;
+          });
+
+          // Scroll to top of page
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 100);
+
+        // In a real implementation, you would send form data to a server here
+        // Example:
+        // fetch('/submit-form', {
+        //     method: 'POST',
+        //     body: new FormData(contactForm)
+        // })
+      });
+
+      // Close success message
+      closeSuccessBtn.addEventListener("click", function () {
+        successMessage.classList.remove("show");
+      });
+
+      // Auto-close success message after 10 seconds
+      setTimeout(() => {
+        successMessage.classList.remove("show");
+      }, 10000);
+
+      // Back to top button
+      const backToTopBtn = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.remove("opacity-0");
+          backToTopBtn.classList.add("opacity-100");
+        } else {
+          backToTopBtn.classList.remove("opacity-100");
+          backToTopBtn.classList.add("opacity-0");
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Initialize animations
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add animation classes to elements
+        const animatedElements = document.querySelectorAll(
+          ".animate-slide-in, .animate-fade-in"
+        );
+
+        // Trigger animations after a short delay
+        setTimeout(() => {
+          animatedElements.forEach((el, index) => {
+            setTimeout(() => {
+              el.style.opacity = "1";
+              el.style.transform = "translateY(0)";
+            }, index * 100);
+          });
+        }, 300);
+
+        // Add hover effect to form options
+        const formOptions = document.querySelectorAll('input[type="radio"]');
+        formOptions.forEach((option) => {
+          option.addEventListener("change", function () {
+            // Add visual feedback when option is selected
+            const label = document.querySelector(`label[for="${this.id}"]`);
+            if (label) {
+              // Add a subtle animation
+              label.style.transform = "scale(1.02)";
+              setTimeout(() => {
+                label.style.transform = "scale(1)";
+              }, 200);
+            }
+          });
+        });
+
+        // Auto-format phone number
+        const phoneInput = document.getElementById("phone");
+        phoneInput.addEventListener("input", function (e) {
+          let value = e.target.value.replace(/\D/g, "");
+
+          if (value.length > 0) {
+            value =
+              "(" +
+              value.substring(0, 3) +
+              ") " +
+              value.substring(3, 6) +
+              "-" +
+              value.substring(6, 10);
+          }
+
+          e.target.value = value;
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar FAQs | Mega Sun Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0B3C5D",
+              secondary: "#F4B400",
+              accent: "#2E7D32",
+              background: "#F7F9FC",
+              surface: "#FFFFFF",
+              textPrimary: "#1F2933",
+              textSecondary: "#4B5563",
+              border: "#E5E7EB",
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            animation: {
+              "accordion-open": "accordionOpen 0.3s ease-out",
+              "accordion-close": "accordionClose 0.3s ease-out",
+              "float-slow": "floatSlow 6s ease-in-out infinite",
+              "pulse-subtle": "pulseSubtle 3s ease-in-out infinite",
+              "fade-in-up": "fadeInUp 0.6s ease-out",
+            },
+            keyframes: {
+              accordionOpen: {
+                "0%": { maxHeight: "0", opacity: "0" },
+                "100%": { maxHeight: "500px", opacity: "1" },
+              },
+              accordionClose: {
+                "0%": { maxHeight: "500px", opacity: "1" },
+                "100%": { maxHeight: "0", opacity: "0" },
+              },
+              floatSlow: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              pulseSubtle: {
+                "0%, 100%": { opacity: "1" },
+                "50%": { opacity: "0.8" },
+              },
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>"
+    />
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .faqs-bg {
+        /* background: linear-gradient(135deg, rgba(11, 60, 93, 0.02) 0%, rgba(244, 180, 0, 0.02) 50%, rgba(46, 125, 50, 0.02) 100%); */
+
+        background-image: radial-gradient(
+            circle at 25% 25%,
+            rgba(244, 180, 0, 0.1) 2px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 75% 75%,
+            rgba(244, 180, 0, 0.1) 2px,
+            transparent 2px
+          );
+        background-size: 40px 40px;
+      }
+
+      .faq-item {
+        transition: all 0.3s ease;
+        border-left: 5px solid #e5e7eb;
+        overflow: hidden;
+      }
+
+      .faq-item.active {
+        border-left-color: #f4b400;
+        box-shadow: 0 10px 30px rgba(11, 60, 93, 0.08);
+      }
+
+      .faq-question {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+        opacity: 1;
+      }
+
+      .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+        background-color: #f4b400;
+        color: #0b3c5d;
+      }
+
+      /* .sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.97);
+      } */
+
+      .sticky-nav {
+        position: sticky;
+        top: 20px;
+
+        width: calc(100% - 2rem);
+        max-width: 1536px;
+        margin: 0 auto;
+
+        z-index: 50;
+
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        background-color: rgba(255, 255, 255, 0.5);
+
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+        transition: box-shadow 0.3s ease, background-color 0.3s ease;
+      }
+
+      .category-card {
+        transition: all 0.3s ease;
+        border-top: 5px solid #0b3c5d;
+      }
+
+      .category-card:hover {
+        border-top-color: #f4b400;
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(11, 60, 93, 0.1);
+      }
+
+      .search-highlight {
+        background-color: rgba(244, 180, 0, 0.2);
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+
+      .confidence-meter {
+        height: 8px;
+        background-color: #e5e7eb;
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .confidence-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #0b3c5d, #2e7d32);
+        border-radius: 4px;
+        transition: width 1.5s ease;
+      }
+
+      .confidence-dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        border: 3px solid #f4b400;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: left 1.5s ease;
+      }
+
+      .savings-visual {
+        position: relative;
+        height: 120px;
+        background: linear-gradient(to top, #e5e7eb, #ffffff);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .savings-bar {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(to top, #2e7d32, #4caf50);
+        border-radius: 0 0 10px 10px;
+        transition: height 2s ease;
+      }
+
+      .sun-visual {
+        width: 60px;
+        height: 60px;
+        background: radial-gradient(circle, #f4b400, #ff9800);
+        border-radius: 50%;
+        position: relative;
+        animation: floatSlow 6s ease-in-out infinite;
+      }
+
+      .sun-ray {
+        position: absolute;
+        background: linear-gradient(
+          to right,
+          rgba(244, 180, 0, 0.8),
+          transparent
+        );
+        transform-origin: center;
+      }
+
+      @media (max-width: 768px) {
+        .mobile-stack {
+          flex-direction: column;
+        }
+
+        .faq-item {
+          border-left-width: 4px;
+        }
+      }
+
+      .confidence-label {
+        position: absolute;
+        top: -25px;
+        transform: translateX(-50%);
+        font-size: 12px;
+        font-weight: 600;
+        color: #4b5563;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-textPrimary font-poppins">
+    <!-- Navigation -->
+    <header class="sticky-nav shadow-sm">
+      <nav
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <div
+            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
+          >
+            <i class="fas fa-sun text-primary text-xl"></i>
+          </div>
+          <div>
+            <h1 class="text-xl font-bold text-primary">
+              Mega Sun Technologies
+            </h1>
+            <p class="text-xs text-textSecondary">Solar Energy Experts</p>
+          </div>
+        </div>
+
+        <div class="hidden md:flex space-x-8 items-center">
+          <a
+            href="index.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Home</a
+          >
+          <a
+            href="solutions.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Solutions</a
+          >
+          <a
+            href="how-it-works.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >How It Works</a
+          >
+          <a
+            href="our-projects.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Projects</a
+          >
+          <a
+            href="why-choose-us.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Why Choose Us</a
+          >
+          <a
+            href="FAQs.html"
+            class="font-medium text-secondary transition-colors"
+            >FAQs</a
+          >
+          <a
+            href="contact.html"
+            class="bg-secondary text-primary font-bold py-2 px-6 rounded-lg hover:bg-yellow-300 transition-all pulse-soft"
+            >Free Site Survey</a
+          >
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-primary">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-surface shadow-lg px-4 py-6"
+      >
+        <div class="flex flex-col space-y-4">
+          <a
+            href="index.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Home</a
+          >
+          <a
+            href="solutions.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Solutions</a
+          >
+          <a
+            href="how-it-works.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >How It Works</a
+          >
+          <a
+            href="our-projects.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Projects</a
+          >
+          <a
+            href="why-choose-us.html"
+            class="font-medium hover:font-medium text-secondary transition-colors py-2"
+            >Why Choose Us</a
+          >
+          <a href="FAQs.html" class="text-secondary transition-colors py-2"
+            >FAQs</a
+          >
+          <a
+            href="contact.html"
+            class="bg-secondary text-primary font-bold py-2 px-6 rounded-lg hover:bg-yellow-300 transition-all pulse-soft"
+            >Free Site Survey</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="faqs-bg pt-12 pb-20 md:pt-20 md:pb-32">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-12">
+            <div
+              class="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium mb-6 animate-fade-in-up"
+            >
+              <i class="fas fa-question-circle mr-2"></i> No Pressure, Just
+              Answers
+            </div>
+            <h1
+              id="faqs"
+              class="text-4xl md:text-5xl font-bold text-primary leading-tight mb-6 animate-fade-in-up"
+            >
+              Solar FAQs: Your Questions, Answered Honestly
+            </h1>
+            <p
+              class="text-xl text-textSecondary mb-10 max-w-3xl mx-auto animate-fade-in-up"
+            >
+              Get straight answers about solar without any sales pressure. We
+              believe informed decisions are the best decisions.
+            </p>
+
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto mb-10 animate-fade-in-up">
+              <div class="relative">
+                <div class="absolute left-4 top-4 text-textSecondary">
+                  <i class="fas fa-search"></i>
+                </div>
+                <input
+                  type="text"
+                  id="faq-search"
+                  placeholder="Search for answers (e.g., 'warranty', 'savings', 'installation')"
+                  class="w-full pl-12 p-4 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-secondary"
+                />
+                <div class="absolute right-4 top-4">
+                  <span
+                    id="result-count"
+                    class="text-textSecondary text-sm hidden"
+                    >0 results</span
+                  >
+                </div>
+              </div>
+              <div class="mt-4 text-center">
+                <div
+                  class="inline-flex items-center text-textSecondary text-sm"
+                >
+                  <i class="fas fa-lightbulb text-secondary mr-2"></i>
+                  <span
+                    >Can't find your question?
+                    <a
+                      href="#ask-question"
+                      class="text-primary font-medium hover:text-secondary transition-colors"
+                      >Ask us directly</a
+                    ></span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Confidence Meter -->
+            <div class="max-w-2xl mx-auto animate-fade-in-up">
+              <div class="bg-surface rounded-xl p-6 shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-lg font-bold text-primary">
+                    How confident are solar owners?
+                  </h3>
+                  <div class="text-3xl font-bold text-accent">94%</div>
+                </div>
+                <div class="confidence-meter mb-2">
+                  <div class="confidence-fill" style="width: 94%"></div>
+                  <div class="confidence-dot" style="left: 94%"></div>
+                </div>
+                <div class="flex justify-between text-sm text-textSecondary">
+                  <span>0%</span>
+                  <span class="confidence-label" style="left: 25%"
+                    >Somewhat Confident</span
+                  >
+                  <span class="confidence-label" style="left: 50%"
+                    >Confident</span
+                  >
+                  <span class="confidence-label" style="left: 75%"
+                    >Very Confident</span
+                  >
+                  <span class="confidence-label" style="left: 94%"
+                    >Extremely Confident</span
+                  >
+                  <span>100%</span>
+                </div>
+                <div class="mt-4 text-center text-sm text-textSecondary">
+                  <i class="fas fa-chart-line text-accent mr-2"></i>
+                  Based on surveys of 500+ solar owners who installed with us
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="py-12 bg-surface">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-primary mb-4">
+            Browse by Category
+          </h2>
+          <p class="text-lg text-textSecondary max-w-3xl mx-auto">
+            Find answers organized by topic
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <a
+            href="#financial"
+            class="category-card bg-background rounded-xl p-8 shadow-md"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mb-6 mx-auto"
+            >
+              <i class="fas fa-money-bill-wave text-accent text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3 text-center">
+              Financial
+            </h3>
+            <p class="text-textSecondary text-center text-sm">
+              Cost, savings, ROI, financing
+            </p>
+            <div class="mt-4 text-center text-primary font-medium">
+              <span class="text-sm">12 questions</span>
+            </div>
+          </a>
+
+          <a
+            href="#technical"
+            class="category-card bg-background rounded-xl p-8 shadow-md"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-6 mx-auto"
+            >
+              <i class="fas fa-cogs text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3 text-center">
+              Technical
+            </h3>
+            <p class="text-textSecondary text-center text-sm">
+              How it works, performance, maintenance
+            </p>
+            <div class="mt-4 text-center text-primary font-medium">
+              <span class="text-sm">15 questions</span>
+            </div>
+          </a>
+
+          <a
+            href="#installation"
+            class="category-card bg-background rounded-xl p-8 shadow-md"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-yellow-50 flex items-center justify-center mb-6 mx-auto"
+            >
+              <i class="fas fa-tools text-secondary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3 text-center">
+              Installation
+            </h3>
+            <p class="text-textSecondary text-center text-sm">
+              Process, timeline, permits, disruption
+            </p>
+            <div class="mt-4 text-center text-primary font-medium">
+              <span class="text-sm">8 questions</span>
+            </div>
+          </a>
+
+          <a
+            href="#warranty"
+            class="category-card bg-background rounded-xl p-8 shadow-md"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-6 mx-auto"
+            >
+              <i class="fas fa-shield-alt text-red-500 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3 text-center">
+              Warranty & Support
+            </h3>
+            <p class="text-textSecondary text-center text-sm">
+              Guarantees, repairs, after-sales service
+            </p>
+            <div class="mt-4 text-center text-primary font-medium">
+              <span class="text-sm">10 questions</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main FAQs Section -->
+    <section class="py-20 faqs-bg">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <!-- Featured FAQ -->
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Most Common Questions
+            </h2>
+            <p class="text-lg text-textSecondary">
+              Answered with honesty and transparency
+            </p>
+          </div>
+
+          <!-- FAQ List -->
+          <div class="space-y-6" id="faq-list">
+            <!-- FAQ 1 -->
+            <div
+              class="faq-item bg-surface rounded-xl p-6"
+              data-category="financial"
+              data-tags="small homes, worth it, cost effective"
+            >
+              <div
+                class="faq-question flex justify-between items-center"
+                onclick="toggleFAQ(1)"
+              >
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center"
+                    >
+                      <i class="fas fa-home text-accent text-xl"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary mb-2">
+                      Is solar worth it for small homes?
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        class="px-3 py-1 bg-green-50 text-accent rounded-full text-xs font-medium"
+                        >Financial</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-green-50 text-accent rounded-full text-xs font-medium"
+                        >Savings</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="faq-icon w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary ml-4 transition-all"
+                >
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+              <div class="faq-answer mt-0">
+                <div class="pt-6 border-t border-border mt-6">
+                  <div class="pl-16">
+                    <p class="text-textSecondary mb-6">
+                      Yes, solar can be very worthwhile for small homes. The key
+                      factors are:
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                      <div class="bg-background p-5 rounded-xl">
+                        <h4 class="font-bold text-primary mb-3">
+                          For Small Homes:
+                        </h4>
+                        <ul class="space-y-2 text-textSecondary">
+                          <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-3"></i>
+                            <span>Smaller systems = lower upfront cost</span>
+                          </li>
+                          <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-3"></i>
+                            <span>Faster payback period (often 4-6 years)</span>
+                          </li>
+                          <li class="flex items-start">
+                            <i class="fas fa-check text-accent mt-1 mr-3"></i>
+                            <span
+                              >Can eliminate 70-90% of electricity bills</span
+                            >
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="bg-background p-5 rounded-xl">
+                        <h4 class="font-bold text-primary mb-3">
+                          Considerations:
+                        </h4>
+                        <ul class="space-y-2 text-textSecondary">
+                          <li class="flex items-start">
+                            <i
+                              class="fas fa-info-circle text-primary mt-1 mr-3"
+                            ></i>
+                            <span>Roof space may limit system size</span>
+                          </li>
+                          <li class="flex items-start">
+                            <i
+                              class="fas fa-info-circle text-primary mt-1 mr-3"
+                            ></i>
+                            <span
+                              >Lower electricity usage = smaller savings</span
+                            >
+                          </li>
+                          <li class="flex items-start">
+                            <i
+                              class="fas fa-info-circle text-primary mt-1 mr-3"
+                            ></i>
+                            <span>May qualify for additional incentives</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="savings-visual mb-6">
+                      <div class="savings-bar" style="height: 75%"></div>
+                      <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <div class="flex justify-between items-end">
+                          <div class="text-white">
+                            <div class="text-2xl font-bold">75%</div>
+                            <div class="text-sm">Average bill reduction</div>
+                          </div>
+                          <div class="text-white text-right">
+                            <div class="text-2xl font-bold">5.2 yrs</div>
+                            <div class="text-sm">Average payback period</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bg-accent/10 p-5 rounded-xl">
+                      <div class="flex items-start">
+                        <i
+                          class="fas fa-lightbulb text-accent text-2xl mr-4 mt-1"
+                        ></i>
+                        <div>
+                          <p class="font-bold text-primary">
+                            Our Recommendation:
+                          </p>
+                          <p class="text-textSecondary">
+                            For a small home with a $100 monthly electricity
+                            bill, a 3-4 kW system costing $8,000-$12,000 could
+                            save $900-$1,100 annually. With incentives, payback
+                            is typically 5-7 years.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div
+              class="faq-item bg-surface rounded-xl p-6"
+              data-category="technical"
+              data-tags="cloudy days, weather, performance"
+            >
+              <div
+                class="faq-question flex justify-between items-center"
+                onclick="toggleFAQ(2)"
+              >
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center"
+                    >
+                      <i class="fas fa-cloud text-primary text-xl"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary mb-2">
+                      What happens on cloudy days?
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        class="px-3 py-1 bg-blue-50 text-primary rounded-full text-xs font-medium"
+                        >Technical</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-blue-50 text-primary rounded-full text-xs font-medium"
+                        >Performance</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="faq-icon w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary ml-4 transition-all"
+                >
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+              <div class="faq-answer mt-0">
+                <div class="pt-6 border-t border-border mt-6">
+                  <div class="pl-16">
+                    <p class="text-textSecondary mb-6">
+                      Solar panels still produce electricity on cloudy days,
+                      just at reduced capacity. Here's what to expect:
+                    </p>
+
+                    <div class="flex items-center mb-8">
+                      <div class="mr-8">
+                        <div class="sun-visual relative">
+                          <!-- Sun rays will be added with JS -->
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-primary mb-3">
+                          Cloudy Day Performance:
+                        </h4>
+                        <div class="space-y-3">
+                          <div class="flex items-center">
+                            <div class="w-32 text-textSecondary">
+                              Light clouds:
+                            </div>
+                            <div class="flex-1">
+                              <div
+                                class="h-3 bg-gray-200 rounded-full overflow-hidden"
+                              >
+                                <div
+                                  class="h-full bg-secondary rounded-full"
+                                  style="width: 80%"
+                                ></div>
+                              </div>
+                              <div
+                                class="text-right text-sm text-textSecondary mt-1"
+                              >
+                                80% of normal output
+                              </div>
+                            </div>
+                          </div>
+                          <div class="flex items-center">
+                            <div class="w-32 text-textSecondary">Overcast:</div>
+                            <div class="flex-1">
+                              <div
+                                class="h-3 bg-gray-200 rounded-full overflow-hidden"
+                              >
+                                <div
+                                  class="h-full bg-secondary rounded-full"
+                                  style="width: 25%"
+                                ></div>
+                              </div>
+                              <div
+                                class="text-right text-sm text-textSecondary mt-1"
+                              >
+                                25% of normal output
+                              </div>
+                            </div>
+                          </div>
+                          <div class="flex items-center">
+                            <div class="w-32 text-textSecondary">
+                              Heavy rain:
+                            </div>
+                            <div class="flex-1">
+                              <div
+                                class="h-3 bg-gray-200 rounded-full overflow-hidden"
+                              >
+                                <div
+                                  class="h-full bg-secondary rounded-full"
+                                  style="width: 10%"
+                                ></div>
+                              </div>
+                              <div
+                                class="text-right text-sm text-textSecondary mt-1"
+                              >
+                                10% of normal output
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                      <div class="bg-background p-5 rounded-xl">
+                        <h4 class="font-bold text-primary mb-3">
+                          The Grid Connection Advantage
+                        </h4>
+                        <p class="text-textSecondary">
+                          With grid-tied systems (the most common type), you
+                          simply draw power from the utility grid when solar
+                          production is low. Your home never loses power.
+                        </p>
+                      </div>
+
+                      <div class="bg-background p-5 rounded-xl">
+                        <h4 class="font-bold text-primary mb-3">
+                          Net Metering Benefits
+                        </h4>
+                        <p class="text-textSecondary">
+                          On sunny days, you often produce excess electricity
+                          that gets credited to your account. You use these
+                          credits on cloudy days and at night.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="bg-primary/5 p-5 rounded-xl">
+                      <div class="flex items-start">
+                        <i
+                          class="fas fa-chart-line text-primary text-2xl mr-4 mt-1"
+                        ></i>
+                        <div>
+                          <p class="font-bold text-primary">
+                            Annual Production Reality:
+                          </p>
+                          <p class="text-text-secondary">
+                            Solar systems are sized based on annual sunlight in
+                            your area. Even with cloudy days, a properly sized
+                            system will meet your annual energy needs. For
+                            example, Seattle (a cloudy city) still has
+                            successful solar installations that save homeowners
+                            60-80% on electricity bills.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div
+              class="faq-item bg-surface rounded-xl p-6"
+              data-category="technical"
+              data-tags="lifespan, durability, longevity"
+            >
+              <div
+                class="faq-question flex justify-between items-center"
+                onclick="toggleFAQ(3)"
+              >
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center"
+                    >
+                      <i class="fas fa-calendar-alt text-primary text-xl"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary mb-2">
+                      How long do solar panels last?
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        class="px-3 py-1 bg-blue-50 text-primary rounded-full text-xs font-medium"
+                        >Technical</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-blue-50 text-primary rounded-full text-xs font-medium"
+                        >Longevity</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="faq-icon w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary ml-4 transition-all"
+                >
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+              <div class="faq-answer mt-0">
+                <div class="pt-6 border-t border-border mt-6">
+                  <div class="pl-16">
+                    <p class="text-textSecondary mb-6">
+                      Modern solar panels are extremely durable and
+                      long-lasting. Here's the breakdown:
+                    </p>
+
+                    <div class="flex items-center justify-center mb-8">
+                      <div class="relative" style="width: 300px; height: 150px">
+                        <!-- Timeline visualization -->
+                        <div
+                          class="absolute top-1/2 left-0 right-0 h-2 bg-gray-200 transform -translate-y-1/2 rounded-full"
+                        ></div>
+
+                        <div
+                          class="absolute top-1/2 left-0 w-1/4 transform -translate-y-1/2"
+                        >
+                          <div class="text-center">
+                            <div
+                              class="w-6 h-6 rounded-full bg-accent mx-auto mb-2"
+                            ></div>
+                            <div class="font-bold text-accent">0-10 years</div>
+                            <div class="text-sm text-textSecondary">
+                              Peak performance
+                            </div>
+                          </div>
+                        </div>
+
+                        <div
+                          class="absolute top-1/2 left-1/4 w-1/4 transform -translate-y-1/2"
+                        >
+                          <div class="text-center">
+                            <div
+                              class="w-6 h-6 rounded-full bg-green-400 mx-auto mb-2"
+                            ></div>
+                            <div class="font-bold text-primary">
+                              10-25 years
+                            </div>
+                            <div class="text-sm text-textSecondary">
+                              90%+ efficiency
+                            </div>
+                          </div>
+                        </div>
+
+                        <div
+                          class="absolute top-1/2 left-2/4 w-1/4 transform -translate-y-1/2"
+                        >
+                          <div class="text-center">
+                            <div
+                              class="w-6 h-6 rounded-full bg-yellow-400 mx-auto mb-2"
+                            ></div>
+                            <div class="font-bold text-primary">
+                              25-30 years
+                            </div>
+                            <div class="text-sm text-textSecondary">
+                              80%+ efficiency
+                            </div>
+                          </div>
+                        </div>
+
+                        <div
+                          class="absolute top-1/2 left-3/4 w-1/4 transform -translate-y-1/2"
+                        >
+                          <div class="text-center">
+                            <div
+                              class="w-6 h-6 rounded-full bg-secondary mx-auto mb-2"
+                            ></div>
+                            <div class="font-bold text-primary">30+ years</div>
+                            <div class="text-sm text-textSecondary">
+                              Still producing
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                      <div class="bg-background p-5 rounded-xl">
+                        <h4 class="font-bold text-primary mb-3">
+                          Panel Degradation
+                        </h4>
+                        <p class="text-textSecondary mb-3">
+                          Solar panels slowly lose efficiency over time. Most
+                          panels degrade at about 0.5% per year.
+                        </p>
+                        <div class="text-center">
+                          <div class="text-3xl font-bold text-accent mb-1">
+                            92.5%
+                          </div>
+                          <div class="text-sm text-textSecondary">
+                            Typical output after 15 years
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="bg-background p-5 rounded-xl">
+                        <h4 class="font-bold text-primary mb-3">
+                          Warranty Coverage
+                        </h4>
+                        <p class="text-text-secondary mb-3">
+                          Most quality panels come with two warranties:
+                        </p>
+                        <ul class="space-y-2 text-textSecondary">
+                          <li class="flex items-start">
+                            <i
+                              class="fas fa-shield-alt text-accent mt-1 mr-3"
+                            ></i>
+                            <span
+                              ><strong>25-year performance warranty</strong>
+                              (guarantees 80-90% output at year 25)</span
+                            >
+                          </li>
+                          <li class="flex items-start">
+                            <i
+                              class="fas fa-shield-alt text-accent mt-1 mr-3"
+                            ></i>
+                            <span
+                              ><strong>10-12 year product warranty</strong>
+                              (covers defects and workmanship)</span
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="bg-accent/10 p-5 rounded-xl">
+                      <div class="flex items-start">
+                        <i
+                          class="fas fa-history text-accent text-2xl mr-4 mt-1"
+                        ></i>
+                        <div>
+                          <p class="font-bold text-primary">
+                            Real-World Longevity:
+                          </p>
+                          <p class="text-textSecondary">
+                            The oldest solar panels still in operation are over
+                            40 years old and still producing electricity. Modern
+                            panels are even more durable. Your panels will
+                            likely outlast your mortgage and continue producing
+                            significant electricity for decades.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div
+              class="faq-item bg-surface rounded-xl p-6"
+              data-category="warranty"
+              data-tags="warranty, support, maintenance, repairs"
+            >
+              <div
+                class="faq-question flex justify-between items-center"
+                onclick="toggleFAQ(4)"
+              >
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center"
+                    >
+                      <i class="fas fa-headset text-red-500 text-xl"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary mb-2">
+                      Do you provide warranty & support?
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        class="px-3 py-1 bg-red-50 text-red-500 rounded-full text-xs font-medium"
+                        >Warranty</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-red-50 text-red-500 rounded-full text-xs font-medium"
+                        >Support</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="faq-icon w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary ml-4 transition-all"
+                >
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+              <div class="faq-answer mt-0">
+                <div class="pt-6 border-t border-border mt-6">
+                  <div class="pl-16">
+                    <p class="text-textSecondary mb-6">
+                      Yes, we provide comprehensive warranties and ongoing
+                      support. We stand behind our work and want you to have
+                      peace of mind for decades.
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                      <div class="bg-background p-5 rounded-xl text-center">
+                        <div
+                          class="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-4"
+                        >
+                          <i
+                            class="fas fa-solar-panel text-accent text-2xl"
+                          ></i>
+                        </div>
+                        <h4 class="font-bold text-primary mb-2">
+                          Panel Warranty
+                        </h4>
+                        <div class="text-3xl font-bold text-accent mb-2">
+                          25 Years
+                        </div>
+                        <p class="text-textSecondary text-sm">
+                          Performance guarantee (80%+ output at year 25)
+                        </p>
+                      </div>
+
+                      <div class="bg-background p-5 rounded-xl text-center">
+                        <div
+                          class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-4"
+                        >
+                          <i class="fas fa-bolt text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-primary mb-2">
+                          Inverter Warranty
+                        </h4>
+                        <div class="text-3xl font-bold text-primary mb-2">
+                          10-15 Years
+                        </div>
+                        <p class="text-textSecondary text-sm">
+                          Depending on brand (extendable to 25 years)
+                        </p>
+                      </div>
+
+                      <div class="bg-background p-5 rounded-xl text-center">
+                        <div
+                          class="w-16 h-16 rounded-full bg-yellow-50 flex items-center justify-center mx-auto mb-4"
+                        >
+                          <i class="fas fa-tools text-secondary text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-primary mb-2">
+                          Workmanship Warranty
+                        </h4>
+                        <div class="text-3xl font-bold text-secondary mb-2">
+                          10 Years
+                        </div>
+                        <p class="text-textSecondary text-sm">
+                          Covers installation and labor
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="mb-8">
+                      <h4 class="font-bold text-primary mb-4">
+                        Our Support Commitment:
+                      </h4>
+                      <div class="grid md:grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                          <div class="mr-4">
+                            <div
+                              class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center"
+                            >
+                              <i class="fas fa-phone text-accent"></i>
+                            </div>
+                          </div>
+                          <div>
+                            <h5 class="font-bold text-primary mb-2">
+                              24/7 Monitoring
+                            </h5>
+                            <p class="text-textSecondary text-sm">
+                              We monitor your system's performance and alert you
+                              to any issues before they become problems.
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="flex items-start">
+                          <div class="mr-4">
+                            <div
+                              class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center"
+                            >
+                              <i class="fas fa-wrench text-primary"></i>
+                            </div>
+                          </div>
+                          <div>
+                            <h5 class="font-bold text-primary mb-2">
+                              Priority Service
+                            </h5>
+                            <p class="text-textSecondary text-sm">
+                              As our customer, you get priority scheduling for
+                              any maintenance or repairs needed.
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="flex items-start">
+                          <div class="mr-4">
+                            <div
+                              class="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center"
+                            >
+                              <i
+                                class="fas fa-file-contract text-secondary"
+                              ></i>
+                            </div>
+                          </div>
+                          <div>
+                            <h5 class="font-bold text-primary mb-2">
+                              Warranty Management
+                            </h5>
+                            <p class="text-textSecondary text-sm">
+                              We handle all warranty claims with manufacturers
+                              on your behalf—no need to deal with them directly.
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="flex items-start">
+                          <div class="mr-4">
+                            <div
+                              class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center"
+                            >
+                              <i class="fas fa-handshake text-red-500"></i>
+                            </div>
+                          </div>
+                          <div>
+                            <h5 class="font-bold text-primary mb-2">
+                              Annual Check-ups
+                            </h5>
+                            <p class="text-textSecondary text-sm">
+                              We offer optional annual system inspections to
+                              ensure everything is working optimally.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="bg-gradient-to-r from-primary to-accent p-6 rounded-xl text-white"
+                    >
+                      <div class="flex items-center">
+                        <i class="fas fa-star text-secondary text-3xl mr-6"></i>
+                        <div>
+                          <p class="font-bold text-lg mb-2">
+                            Why Our Customers Feel Secure:
+                          </p>
+                          <p class="text-white/90">
+                            "When we had a minor issue 3 years after
+                            installation, Mega Sun had a technician out within
+                            48 hours at no cost. Their support is why we
+                            recommend them to all our friends." - The Johnson
+                            Family
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div
+              class="faq-item bg-surface rounded-xl p-6"
+              data-category="financial"
+              data-tags="payback period, roi, savings"
+            >
+              <div
+                class="faq-question flex justify-between items-center"
+                onclick="toggleFAQ(5)"
+              >
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center"
+                    >
+                      <i class="fas fa-calculator text-accent text-xl"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary mb-2">
+                      What's the typical payback period?
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        class="px-3 py-1 bg-green-50 text-accent rounded-full text-xs font-medium"
+                        >Financial</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-green-50 text-accent rounded-full text-xs font-medium"
+                        >ROI</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="faq-icon w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary ml-4 transition-all"
+                >
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+              <div class="faq-answer mt-0">
+                <div class="pt-6 border-t border-border mt-6">
+                  <div class="pl-16">
+                    <p class="text-textSecondary mb-6">
+                      The payback period depends on several factors, but most
+                      residential systems pay for themselves in 5-8 years.
+                      Here's a detailed breakdown:
+                    </p>
+
+                    <div class="overflow-x-auto mb-8">
+                      <table class="w-full border-collapse">
+                        <thead>
+                          <tr class="bg-background">
+                            <th
+                              class="border border-border p-4 text-left text-primary font-bold"
+                            >
+                              System Size
+                            </th>
+                            <th
+                              class="border border-border p-4 text-left text-primary font-bold"
+                            >
+                              Avg. Cost
+                            </th>
+                            <th
+                              class="border border-border p-4 text-left text-primary font-bold"
+                            >
+                              Annual Savings
+                            </th>
+                            <th
+                              class="border border-border p-4 text-left text-primary font-bold"
+                            >
+                              Payback Period
+                            </th>
+                            <th
+                              class="border border-border p-4 text-left text-primary font-bold"
+                            >
+                              25-Year Savings
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="border border-border p-4">
+                              5 kW (Small Home)
+                            </td>
+                            <td class="border border-border p-4">
+                              $12,000 - $16,000
+                            </td>
+                            <td class="border border-border p-4">
+                              $900 - $1,200
+                            </td>
+                            <td class="border border-border p-4">
+                              <span class="font-bold text-accent"
+                                >5 - 7 years</span
+                              >
+                            </td>
+                            <td class="border border-border p-4">
+                              $22,500 - $30,000
+                            </td>
+                          </tr>
+                          <tr class="bg-background">
+                            <td class="border border-border p-4">
+                              8 kW (Medium Home)
+                            </td>
+                            <td class="border border-border p-4">
+                              $18,000 - $24,000
+                            </td>
+                            <td class="border border-border p-4">
+                              $1,500 - $2,000
+                            </td>
+                            <td class="border border-border p-4">
+                              <span class="font-bold text-accent"
+                                >6 - 8 years</span
+                              >
+                            </td>
+                            <td class="border border-border p-4">
+                              $37,500 - $50,000
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="border border-border p-4">
+                              12 kW (Large Home)
+                            </td>
+                            <td class="border border-border p-4">
+                              $25,000 - $32,000
+                            </td>
+                            <td class="border border-border p-4">
+                              $2,200 - $2,800
+                            </td>
+                            <td class="border border-border p-4">
+                              <span class="font-bold text-accent"
+                                >6 - 9 years</span
+                              >
+                            </td>
+                            <td class="border border-border p-4">
+                              $55,000 - $70,000
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="text-sm text-textSecondary mt-2">
+                        *After federal tax credit and state incentives. Costs
+                        vary by location and roof complexity.
+                      </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                      <div class="bg-background p-5 rounded-xl">
+                        <h4 class="font-bold text-primary mb-3">
+                          Factors That Shorten Payback:
+                        </h4>
+                        <ul class="space-y-2 text-textSecondary">
+                          <li class="flex items-start">
+                            <i class="fas fa-bolt text-accent mt-1 mr-3"></i>
+                            <span>High local electricity rates</span>
+                          </li>
+                          <li class="flex items-start">
+                            <i class="fas fa-sun text-secondary mt-1 mr-3"></i>
+                            <span>Good sun exposure on your roof</span>
+                          </li>
+                          <li class="flex items-start">
+                            <i
+                              class="fas fa-percentage text-primary mt-1 mr-3"
+                            ></i>
+                            <span>Available state/local incentives</span>
+                          </li>
+                          <li class="flex items-start">
+                            <i
+                              class="fas fa-chart-line text-accent mt=1 mr-3"
+                            ></i>
+                            <span
+                              >Rising electricity costs (typically 3-5%
+                              annually)</span
+                            >
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="bg-background p-5 rounded-xl">
+                        <h4 class="font-bold text-primary mb-3">
+                          What Happens After Payback?
+                        </h4>
+                        <p class="text-textSecondary mb-3">
+                          Once your system pays for itself, you enjoy
+                          essentially free electricity for the remaining
+                          lifespan of the system (15-20+ more years).
+                        </p>
+                        <div class="text-center p-4 bg-accent/10 rounded-lg">
+                          <div class="text-2xl font-bold text-accent">
+                            $0.03 - $0.05
+                          </div>
+                          <div class="text-textSecondary text-sm">
+                            Cost per kWh after payback (vs. $0.12-$0.30 grid
+                            rates)
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bg-primary/5 p-5 rounded-xl">
+                      <div class="flex items-start">
+                        <i
+                          class="fas fa-hand-holding-usd text-primary text-2xl mr-4 mt-1"
+                        ></i>
+                        <div>
+                          <p class="font-bold text-primary">
+                            Our Transparent Approach:
+                          </p>
+                          <p class="text-textSecondary">
+                            We provide a detailed, customized payback analysis
+                            as part of our free site survey. We'll show you
+                            exactly what to expect based on your specific
+                            situation—no unrealistic promises, just honest
+                            numbers.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div
+              class="faq-item bg-surface rounded-xl p-6"
+              data-category="installation"
+              data-tags="installation process, timeline, disruption"
+            >
+              <div
+                class="faq-question flex justify-between items-center"
+                onclick="toggleFAQ(6)"
+              >
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-yellow-50 flex items-center justify-center"
+                    >
+                      <i class="fas fa-calendar-day text-secondary text-xl"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary mb-2">
+                      How long does installation take and will it disrupt my
+                      life?
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        class="px-3 py-1 bg-yellow-50 text-secondary rounded-full text-xs font-medium"
+                        >Installation</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-yellow-50 text-secondary rounded-full text-xs font-medium"
+                        >Timeline</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="faq-icon w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary ml-4 transition-all"
+                >
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+              <div class="faq-answer mt-0">
+                <div class="pt-6 border-t border-border mt-6">
+                  <div class="pl-16">
+                    <p class="text-textSecondary mb-6">
+                      Most residential installations take 1-3 days of actual
+                      work, with minimal disruption to your daily life. Here's
+                      the complete timeline:
+                    </p>
+
+                    <div class="installation-timeline relative mb-8">
+                      <div class="flex items-start mb-8">
+                        <div class="mr-6">
+                          <div
+                            class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center"
+                          >
+                            <span class="font-bold text-accent">1-2</span>
+                          </div>
+                        </div>
+                        <div>
+                          <h4 class="font-bold text-primary mb-2">
+                            Weeks 1-2: Planning & Permits
+                          </h4>
+                          <p class="text-textSecondary">
+                            We handle all permits, utility approvals, and
+                            finalize system design. No disruption to you.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="flex items-start mb-8">
+                        <div class="mr-6">
+                          <div
+                            class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center"
+                          >
+                            <span class="font-bold text-primary">1-2</span>
+                          </div>
+                        </div>
+                        <div>
+                          <h4 class="font-bold text-primary mb-2">
+                            Day 1: Mounting & Racking
+                          </h4>
+                          <p class="text-textSecondary">
+                            Install mounting hardware on your roof. Some noise,
+                            but you'll have full power access.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="flex items-start mb-8">
+                        <div class="mr-6">
+                          <div
+                            class="w-12 h-12 rounded-full bg-yellow-50 flex items-center justify-center"
+                          >
+                            <span class="font-bold text-secondary">1-2</span>
+                          </div>
+                        </div>
+                        <div>
+                          <h4 class="font-bold text-primary mb-2">
+                            Day 2: Panel Installation & Wiring
+                          </h4>
+                          <p class="text-textSecondary">
+                            Install panels and run electrical wiring. Brief
+                            power interruption (1-2 hours) for panel connection.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="flex items-start">
+                        <div class="mr-6">
+                          <div
+                            class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center"
+                          >
+                            <span class="font-bold text-accent">2-4</span>
+                          </div>
+                        </div>
+                        <div>
+                          <h4 class="font-bold text-primary mb-2">
+                            Weeks 3-6: Inspections & Activation
+                          </h4>
+                          <p class="text-textSecondary">
+                            Final inspections and utility approval. System
+                            activation once approved.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                      <div class="bg-background p-5 rounded-xl">
+                        <h4 class="font-bold text-primary mb-3">
+                          Minimal Disruption Promise:
+                        </h4>
+                        <ul class="space-y-3 text-textSecondary">
+                          <li class="flex items-start">
+                            <i class="fas fa-home text-accent mt-1 mr-3"></i>
+                            <span
+                              ><strong>You can stay in your home</strong> - No
+                              need to leave during installation</span
+                            >
+                          </li>
+                          <li class="flex items-start">
+                            <i class="fas fa-plug text-primary mt-1 mr-3"></i>
+                            <span
+                              ><strong>Brief power interruption</strong> - Only
+                              1-2 hours when connecting to your electrical
+                              panel</span
+                            >
+                          </li>
+                          <li class="flex items-start">
+                            <i
+                              class="fas fa-broom text-secondary mt=1 mr-3"
+                            ></i>
+                            <span
+                              ><strong>Clean job site</strong> - We clean up
+                              thoroughly at the end of each day</span
+                            >
+                          </li>
+                          <li class="flex items-start">
+                            <i class="fas fa-clock text-accent mt=1 mr-3"></i>
+                            <span
+                              ><strong>Respectful scheduling</strong> - We work
+                              standard business hours unless otherwise
+                              arranged</span
+                            >
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="bg-background p-5 rounded-xl">
+                        <h4 class="font-bold text-primary mb-3">
+                          What Our Customers Say:
+                        </h4>
+                        <div class="space-y-4">
+                          <div class="flex items-start">
+                            <i
+                              class="fas fa-quote-left text-primary/30 text-xl mr-3 mt-1"
+                            ></i>
+                            <div>
+                              <p class="text-textSecondary italic">
+                                "I was worried about the disruption, but the
+                                crew was incredibly efficient and respectful.
+                                The whole process was smoother than getting my
+                                roof replaced."
+                              </p>
+                              <p class="text-sm text-textSecondary mt-2">
+                                - Michael R., installed August 2022
+                              </p>
+                            </div>
+                          </div>
+
+                          <div class="flex items-start">
+                            <i
+                              class="fas fa-quote-left text-primary/30 text-xl mr-3 mt-1"
+                            ></i>
+                            <div>
+                              <p class="text-textSecondary italic">
+                                "We have two young kids and work from home. The
+                                installation was scheduled around our needs, and
+                                the team kept noise to a minimum."
+                              </p>
+                              <p class="text-sm text-textSecondary mt-2">
+                                - Sarah L., installed May 2023
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="bg-gradient-to-r from-secondary to-yellow-300 p-5 rounded-xl text-primary"
+                    >
+                      <div class="flex items-center">
+                        <i class="fas fa-clipboard-check text-3xl mr-6"></i>
+                        <div>
+                          <p class="font-bold text-lg mb-2">
+                            Our Installation Guarantee:
+                          </p>
+                          <p>
+                            We provide a detailed installation plan upfront with
+                            clear timelines. If we encounter unexpected delays,
+                            we communicate immediately and work with you to
+                            adjust the schedule.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- No Results Message -->
+          <div id="no-results" class="hidden text-center py-12">
+            <div
+              class="w-24 h-24 rounded-full bg-background flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-search text-3xl text-textSecondary"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-primary mb-4">
+              No matching questions found
+            </h3>
+            <p class="text-textSecondary mb-8 max-w-md mx-auto">
+              Try different keywords or ask your question directly below.
+            </p>
+            <a
+              href="#ask-question"
+              class="inline-flex items-center bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-yellow-300 transition-all"
+            >
+              <i class="fas fa-question-circle mr-3"></i>
+              Ask Your Question
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ask Your Question -->
+    <section id="ask-question" class="py-20 bg-surface">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Still Have Questions?
+            </h2>
+            <p class="text-lg text-textSecondary">
+              Ask us directly. We respond within 24 hours with honest, helpful
+              answers.
+            </p>
+          </div>
+
+          <div class="bg-background rounded-2xl p-8 md:p-10 shadow-xl">
+            <form id="question-form">
+              <div class="mb-8">
+                <label class="block text-primary font-bold mb-2" for="question">
+                  Your Question <span class="text-red-500">*</span>
+                </label>
+                <textarea
+                  id="question"
+                  name="question"
+                  rows="4"
+                  class="w-full p-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                  placeholder="What would you like to know about solar?"
+                ></textarea>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div>
+                  <label class="block text-primary font-bold mb-2" for="name">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="w-full p-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                    placeholder="Optional"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-primary font-bold mb-2" for="email">
+                    Email Address <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full p-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                    placeholder="We'll send the answer here"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-8">
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <input
+                      type="checkbox"
+                      id="newsletter"
+                      name="newsletter"
+                      class="w-5 h-5 text-secondary focus:ring-secondary rounded mt-1"
+                    />
+                  </div>
+                  <div>
+                    <label for="newsletter" class="text-textSecondary">
+                      Send me occasional solar tips and updates (no spam,
+                      unsubscribe anytime)
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="bg-secondary text-primary font-bold py-4 px-10 rounded-lg text-lg hover:bg-yellow-300 transition-all"
+                >
+                  <i class="fas fa-paper-plane mr-3"></i>
+                  Ask Your Question
+                </button>
+                <p class="text-textSecondary text-sm mt-4">
+                  <i class="fas fa-lock mr-2"></i>
+                  Your information is secure. We never share your data.
+                </p>
+              </div>
+            </form>
+
+            <div class="mt-12 pt-8 border-t border-border">
+              <div class="text-center">
+                <p class="text-textSecondary mb-6">
+                  Prefer to talk to someone?
+                </p>
+                <div
+                  class="inline-flex items-center bg-primary text-white font-bold py-4 px-8 rounded-lg text-lg"
+                >
+                  <i class="fas fa-phone mr-3"></i>
+                  Call Our Solar Experts: (555) 123-SOLAR
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-6">
+              <div
+                class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
+              >
+                <i class="fas fa-sun text-primary text-xl"></i>
+              </div>
+              <div>
+                <h2 class="text-xl font-bold">Mega Sun Technologies</h2>
+              </div>
+            </div>
+            <p class="text-white/80">
+              Providing reliable solar solutions for homeowners and businesses
+              since 2013.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="solutions.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Solutions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="how-it-works.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >How It Works</a
+                >
+              </li>
+              <li>
+                <a
+                  href="our-projects.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  href="why-choose-us.html"
+                  class="hover:text-secondary transition-colors"
+                  >Why Choose Us</a
+                >
+              </li>
+              <li>
+                <a href="FAQs.html" class="text-secondary transition-colors"
+                  >FAQs</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Contact Info</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt text-secondary mr-3 mt-1"></i>
+                <span>123 Solar Street, Sun City, SC 12345</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone text-secondary mr-3"></i>
+                <span>(555) 123-SOLAR</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope text-secondary mr-3"></i>
+                <span>info@megasuntech.com</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Business Hours</h3>
+            <ul class="space-y-2 text-white/80">
+              <li class="flex justify-between">
+                <span>Mon-Fri:</span>
+                <span>8:00 AM - 6:00 PM</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Saturday:</span>
+                <span>9:00 AM - 4:00 PM</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Sunday:</span>
+                <span>Closed</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-white/20 text-center text-white/70">
+          <p>&copy; 2023 Mega Sun Technologies. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-secondary text-primary flex items-center justify-center shadow-lg hover:shadow-xl transition-all opacity-0"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = document.querySelectorAll("#mobile-menu a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // FAQ toggle functionality
+      function toggleFAQ(faqNumber) {
+        const faqItem = document.querySelectorAll(".faq-item")[faqNumber - 1];
+        const isActive = faqItem.classList.contains("active");
+
+        // Close all FAQs
+        document.querySelectorAll(".faq-item").forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        // If the clicked FAQ wasn't active, open it
+        if (!isActive) {
+          faqItem.classList.add("active");
+
+          // Scroll to the FAQ if it's not fully in view
+          const rect = faqItem.getBoundingClientRect();
+          if (rect.top < 100 || rect.bottom > window.innerHeight - 100) {
+            faqItem.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        }
+      }
+
+      // Create sun rays for FAQ 2
+      function createSunRays() {
+        const sunVisual = document.querySelector(".sun-visual");
+        if (!sunVisual) return;
+
+        // Clear any existing rays
+        const existingRays = sunVisual.querySelectorAll(".sun-ray");
+        existingRays.forEach((ray) => ray.remove());
+
+        // Create 8 rays
+        for (let i = 0; i < 8; i++) {
+          const ray = document.createElement("div");
+          ray.className = "sun-ray";
+
+          // Position rays in a circle
+          const angle = i * 45 * (Math.PI / 180);
+          const length = 40;
+          const width = 20;
+          const x = Math.cos(angle) * 30;
+          const y = Math.sin(angle) * 30;
+
+          ray.style.width = `${width}px`;
+          ray.style.height = "2px";
+          ray.style.left = `calc(50% + ${x}px)`;
+          ray.style.top = `calc(50% + ${y}px)`;
+          ray.style.transform = `rotate(${i * 45}deg) translateX(${
+            length / 2
+          }px)`;
+
+          sunVisual.appendChild(ray);
+        }
+      }
+
+      // Search functionality
+      const faqSearch = document.getElementById("faq-search");
+      const faqItems = document.querySelectorAll(".faq-item");
+      const noResults = document.getElementById("no-results");
+      const resultCount = document.getElementById("result-count");
+
+      faqSearch.addEventListener("input", function () {
+        const searchTerm = this.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        if (searchTerm === "") {
+          // Show all FAQs
+          faqItems.forEach((item) => {
+            item.classList.remove("hidden");
+            removeHighlights(item);
+          });
+          noResults.classList.add("hidden");
+          resultCount.classList.add("hidden");
+          return;
+        }
+
+        // Search through FAQs
+        faqItems.forEach((item) => {
+          const question = item
+            .querySelector(".faq-question h3")
+            .textContent.toLowerCase();
+          const answer = item
+            .querySelector(".faq-answer")
+            .textContent.toLowerCase();
+          const tags = item.getAttribute("data-tags").toLowerCase();
+
+          if (
+            question.includes(searchTerm) ||
+            answer.includes(searchTerm) ||
+            tags.includes(searchTerm)
+          ) {
+            item.classList.remove("hidden");
+            visibleCount++;
+
+            // Highlight search term
+            highlightText(item, searchTerm);
+          } else {
+            item.classList.add("hidden");
+            removeHighlights(item);
+          }
+        });
+
+        // Show/hide no results message
+        if (visibleCount === 0) {
+          noResults.classList.remove("hidden");
+          resultCount.classList.add("hidden");
+        } else {
+          noResults.classList.add("hidden");
+          resultCount.classList.remove("hidden");
+          resultCount.textContent = `${visibleCount} result${
+            visibleCount !== 1 ? "s" : ""
+          }`;
+        }
+      });
+
+      // Highlight text in FAQ
+      function highlightText(element, searchTerm) {
+        if (!searchTerm) return;
+
+        const questionElement = element.querySelector(".faq-question h3");
+        const answerElement = element.querySelector(".faq-answer");
+
+        // Highlight in question
+        highlightElementText(questionElement, searchTerm);
+
+        // Highlight in answer (but only show first few occurrences)
+        const answerText = answerElement.textContent;
+        const regex = new RegExp(`(${searchTerm})`, "gi");
+        const matches = answerText.match(regex);
+
+        if (matches && matches.length > 0) {
+          // Replace first 3 occurrences
+          let replacedCount = 0;
+          const highlightedText = answerText.replace(regex, (match) => {
+            if (replacedCount < 3) {
+              replacedCount++;
+              return `<span class="search-highlight">${match}</span>`;
+            }
+            return match;
+          });
+
+          // Update answer HTML if we haven't already
+          if (!answerElement.dataset.originalHTML) {
+            answerElement.dataset.originalHTML = answerElement.innerHTML;
+          }
+
+          // Create a temporary element to hold the highlighted text
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = highlightedText;
+          answerElement.innerHTML = tempDiv.innerHTML;
+        }
+      }
+
+      function highlightElementText(element, searchTerm) {
+        if (!element || !searchTerm) return;
+
+        const text = element.textContent;
+        const regex = new RegExp(`(${searchTerm})`, "gi");
+        const highlightedText = text.replace(
+          regex,
+          '<span class="search-highlight">$1</span>'
+        );
+
+        // Store original HTML if not already stored
+        if (!element.dataset.originalHTML) {
+          element.dataset.originalHTML = element.innerHTML;
+        }
+
+        element.innerHTML = highlightedText;
+      }
+
+      function removeHighlights(element) {
+        const questionElement = element.querySelector(".faq-question h3");
+        const answerElement = element.querySelector(".faq-answer");
+
+        // Restore original question HTML
+        if (questionElement && questionElement.dataset.originalHTML) {
+          questionElement.innerHTML = questionElement.dataset.originalHTML;
+        }
+
+        // Restore original answer HTML
+        if (answerElement && answerElement.dataset.originalHTML) {
+          answerElement.innerHTML = answerElement.dataset.originalHTML;
+        }
+      }
+
+      // Question form submission
+      const questionForm = document.getElementById("question-form");
+      questionForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const question = document.getElementById("question").value.trim();
+        const email = document.getElementById("email").value.trim();
+
+        if (!question || !email) {
+          alert("Please enter both your question and email address.");
+          return;
+        }
+
+        // Show success message
+        alert(
+          "Thank you for your question! We will email you an answer within 24 hours."
+        );
+
+        // Reset form
+        questionForm.reset();
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Back to top button
+      const backToTopBtn = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.remove("opacity-0");
+          backToTopBtn.classList.add("opacity-100");
+        } else {
+          backToTopBtn.classList.remove("opacity-100");
+          backToTopBtn.classList.add("opacity-0");
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Initialize when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        // Create sun rays
+        createSunRays();
+
+        // Open first FAQ by default
+        setTimeout(() => {
+          toggleFAQ(1);
+        }, 500);
+
+        // Animate confidence meter
+        setTimeout(() => {
+          const confidenceFill = document.querySelector(".confidence-fill");
+          const confidenceDot = document.querySelector(".confidence-dot");
+
+          if (confidenceFill && confidenceDot) {
+            confidenceFill.style.width = "94%";
+            confidenceDot.style.left = "94%";
+          }
+        }, 300);
+
+        // Animate savings bars
+        setTimeout(() => {
+          const savingsBar = document.querySelector(".savings-bar");
+          if (savingsBar) {
+            savingsBar.style.height = "75%";
+          }
+        }, 500);
+
+        // Add animation to category cards on scroll
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-fade-in-up");
+            }
+          });
+        }, observerOptions);
+
+        // Observe category cards
+        document.querySelectorAll(".category-card").forEach((card) => {
+          observer.observe(card);
+        });
+      });
+    </script>
+  </body>
+</html>

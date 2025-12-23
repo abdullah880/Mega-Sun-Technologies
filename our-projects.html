@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Projects | Mega Sun Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0B3C5D",
+              secondary: "#F4B400",
+              accent: "#2E7D32",
+              background: "#F7F9FC",
+              surface: "#FFFFFF",
+              textPrimary: "#1F2933",
+              textSecondary: "#4B5563",
+              border: "#E5E7EB",
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            animation: {
+              "fade-in": "fadeIn 0.8s ease-out",
+              "slide-up": "slideUp 0.6s ease-out",
+              float: "float 6s ease-in-out infinite",
+              "pulse-subtle": "pulseSubtle 3s ease-in-out infinite",
+              "scale-in": "scaleIn 0.5s ease-out",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { opacity: "0", transform: "translateY(30px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-15px)" },
+              },
+              pulseSubtle: {
+                "0%, 100%": { opacity: "1" },
+                "50%": { opacity: "0.8" },
+              },
+              scaleIn: {
+                "0%": { opacity: "0", transform: "scale(0.9)" },
+                "100%": { opacity: "1", transform: "scale(1)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>"
+    />
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .projects-bg {
+        /* background: linear-gradient(
+          135deg,
+          rgba(11, 60, 93, 0.02) 0%,
+          rgba(244, 180, 0, 0.02) 50%,
+          rgba(46, 125, 50, 0.02) 100%
+        ); */
+
+        background-image: radial-gradient(
+            circle at 25% 25%,
+            rgba(244, 180, 0, 0.1) 2px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 75% 75%,
+            rgba(244, 180, 0, 0.1) 2px,
+            transparent 2px
+          );
+        background-size: 40px 40px;
+      }
+
+      .project-card {
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(11, 60, 93, 0.15);
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(90deg, #0b3c5d, #f4b400, #2e7d32);
+      }
+
+      .project-image {
+        height: 220px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-image::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+      }
+
+      .testimonial-card {
+        border-left: 5px solid #f4b400;
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        border-left-color: #2e7d32;
+        transform: translateX(5px);
+      }
+
+      .whatsapp-review {
+        background-color: #e8f5e9;
+        border-radius: 18px 18px 18px 4px;
+        position: relative;
+      }
+
+      .whatsapp-review::before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 15px;
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 10px solid #e8f5e9;
+      }
+
+      /* .sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.97);
+      } */
+
+      .sticky-nav {
+        position: sticky;
+        top: 20px;
+
+        width: calc(100% - 2rem);
+        max-width: 1536px;
+        margin: 0 auto;
+
+        z-index: 50;
+
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        background-color: rgba(255, 255, 255, 0.5);
+
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+        transition: box-shadow 0.3s ease, background-color 0.3s ease;
+      }
+
+      .project-filter-btn {
+        transition: all 0.3s ease;
+        border: 2px solid #e5e7eb;
+      }
+
+      .project-filter-btn.active {
+        background-color: #0b3c5d;
+        color: white;
+        border-color: #0b3c5d;
+      }
+
+      .savings-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: linear-gradient(135deg, #2e7d32, #4caf50);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 14px;
+        z-index: 2;
+        box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+      }
+
+      .system-size-badge {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        background: linear-gradient(135deg, #0b3c5d, #1e528e);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 14px;
+        z-index: 2;
+        box-shadow: 0 5px 15px rgba(11, 60, 93, 0.3);
+      }
+
+      .project-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .project-modal.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .modal-content {
+        background: white;
+        width: 90%;
+        max-width: 900px;
+        max-height: 90vh;
+        border-radius: 20px;
+        overflow: hidden;
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+      }
+
+      .project-modal.active .modal-content {
+        transform: scale(1);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 15px;
+        background: #f7f9fc;
+        border-radius: 10px;
+      }
+
+      @media (max-width: 768px) {
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .modal-content {
+          width: 95%;
+          max-height: 95vh;
+        }
+      }
+
+      .floating-sun {
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(
+          circle,
+          rgba(244, 180, 0, 0.2) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .project-type-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+      }
+
+      .project-counter {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #0b3c5d, #2e7d32);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-textPrimary font-poppins">
+    <!-- Navigation -->
+    <header class="sticky-nav shadow-sm">
+      <nav
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <div
+            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
+          >
+            <i class="fas fa-sun text-primary text-xl"></i>
+          </div>
+          <div>
+            <h1 class="text-xl font-bold text-primary">
+              Mega Sun Technologies
+            </h1>
+            <p class="text-xs text-textSecondary">Solar Energy Experts</p>
+          </div>
+        </div>
+
+        <div class="hidden md:flex space-x-8 items-center">
+          <a
+            href="index.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Home</a
+          >
+          <a
+            href="solutions.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Solutions</a
+          >
+          <a
+            href="how-it-works.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >How It Works</a
+          >
+          <a
+            href="our-projects.html"
+            class="font-medium text-secondary transition-colors"
+            >Projects</a
+          >
+          <a
+            href="why-choose-us.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Why Choose Us</a
+          >
+          <a
+            href="FAQs.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >FAQs</a
+          >
+          <a
+            href="contact.html"
+            class="bg-secondary text-primary font-bold py-2 px-6 rounded-lg hover:bg-yellow-300 transition-all pulse-soft"
+            >Free Site Survey</a
+          >
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-primary">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-surface shadow-lg px-4 py-6"
+      >
+        <div class="flex flex-col space-y-4">
+          <a
+            href="index.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Home</a
+          >
+          <a
+            href="solutions.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Solutions</a
+          >
+          <a
+            href="how-it-works.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >How It Works</a
+          >
+          <a
+            href="our-projects.html"
+            class="font-medium text-secondary transition-colors py-2"
+            >Projects</a
+          >
+          <a
+            href="why-choose-us.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Why Choose Us</a
+          >
+          <a
+            href="FAQs.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >FAQs</a
+          >
+          <a
+            href="contact.html"
+            class="bg-secondary text-primary font-bold py-2 px-6 rounded-lg hover:bg-yellow-300 transition-all pulse-soft"
+            >Free Site Survey</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="project-modal">
+      <div class="modal-content">
+        <div
+          class="p-6 border-b border-border flex justify-between items-center"
+        >
+          <h3 id="modal-title" class="text-2xl font-bold text-primary"></h3>
+          <button
+            id="close-modal"
+            class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors"
+          >
+            <i class="fas fa-times text-textSecondary"></i>
+          </button>
+        </div>
+
+        <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+          <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <div id="modal-image" class="project-image rounded-xl mb-6"></div>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div
+                    class="text-l font-bold text-primary"
+                    id="modal-size"
+                  ></div>
+                  <div class="text-sm text-textSecondary">System Size</div>
+                </div>
+                <div class="stat-item">
+                  <div
+                    class="text-l font-bold text-accent"
+                    id="modal-savings"
+                  ></div>
+                  <div class="text-sm text-textSecondary">Bill Reduction</div>
+                </div>
+                <div class="stat-item">
+                  <div
+                    class="text-l font-bold text-primary"
+                    id="modal-payback"
+                  ></div>
+                  <div class="text-sm text-textSecondary">Payback Period</div>
+                </div>
+                <div class="stat-item">
+                  <div
+                    class="text-l font-bold text-accent"
+                    id="modal-co2"
+                  ></div>
+                  <div class="text-sm text-textSecondary">CO2 Reduction</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-xl font-bold text-primary mb-4">
+                Project Details
+              </h4>
+              <p id="modal-description" class="text-textSecondary mb-6"></p>
+
+              <div class="mb-6">
+                <h5 class="font-bold text-primary mb-3">Key Features:</h5>
+                <ul id="modal-features" class="space-y-2"></ul>
+              </div>
+
+              <div class="bg-primary/5 p-5 rounded-xl">
+                <h5 class="font-bold text-primary mb-3">Customer Feedback:</h5>
+                <p id="modal-testimonial" class="text-textSecondary italic"></p>
+                <div class="mt-3 flex items-center">
+                  <div
+                    class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3"
+                  >
+                    <i class="fas fa-user text-primary text-sm"></i>
+                  </div>
+                  <div>
+                    <div
+                      class="font-medium text-primary"
+                      id="modal-customer"
+                    ></div>
+                    <div
+                      class="text-sm text-textSecondary"
+                      id="modal-location"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-border pt-6">
+            <h4 class="text-xl font-bold text-primary mb-4">
+              System Components
+            </h4>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="text-center p-4 bg-background rounded-xl">
+                <div
+                  class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3"
+                >
+                  <i class="fas fa-solar-panel text-primary text-xl"></i>
+                </div>
+                <div class="font-medium text-primary" id="modal-panels"></div>
+                <div class="text-sm text-textSecondary">Solar Panels</div>
+              </div>
+
+              <div class="text-center p-4 bg-background rounded-xl">
+                <div
+                  class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-3"
+                >
+                  <i class="fas fa-bolt text-accent text-xl"></i>
+                </div>
+                <div class="font-medium text-primary" id="modal-inverter"></div>
+                <div class="text-sm text-textSecondary">Inverter</div>
+              </div>
+
+              <div class="text-center p-4 bg-background rounded-xl">
+                <div
+                  class="w-12 h-12 rounded-full bg-yellow-50 flex items-center justify-center mx-auto mb-3"
+                >
+                  <i class="fas fa-battery-full text-secondary text-xl"></i>
+                </div>
+                <div
+                  class="font-medium text-primary"
+                  id="modal-batteries"
+                ></div>
+                <div class="text-sm text-textSecondary">Batteries</div>
+              </div>
+
+              <div class="text-center p-4 bg-background rounded-xl">
+                <div
+                  class="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center mx-auto mb-3"
+                >
+                  <i class="fas fa-calendar-check text-purple-500 text-xl"></i>
+                </div>
+                <div
+                  class="font-medium text-primary"
+                  id="modal-installation"
+                ></div>
+                <div class="text-sm text-textSecondary">Installation Time</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      id="projects"
+      class="projects-bg pt-12 pb-20 md:pt-20 md:pb-32 relative overflow-hidden"
+    >
+      <div class="floating-sun absolute top-10 right-10 opacity-30"></div>
+      <div
+        class="floating-sun absolute bottom-20 left-10 opacity-20"
+        style="animation-delay: 1s"
+      ></div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-5xl mx-auto text-center">
+          <div
+            class="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium mb-6 animate-fade-in"
+          >
+            <i class="fas fa-solar-panel mr-2"></i> Real Results, Real Savings
+          </div>
+          <h1
+            class="text-4xl md:text-5xl font-bold text-primary leading-tight mb-6 animate-slide-up"
+          >
+            Our Solar Installations
+          </h1>
+          <p
+            class="text-xl text-textSecondary mb-10 max-w-3xl mx-auto animate-slide-up"
+          >
+            Proof beats promises. See actual projects we've completed and the
+            real results our customers are experiencing.
+          </p>
+
+          <div
+            class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-slide-up"
+          >
+            <a
+              href="#project-gallery"
+              class="bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 text-center"
+            >
+              <i class="fas fa-images mr-2"></i>
+              View Projects
+            </a>
+            <a
+              href="#testimonials"
+              class="bg-primary text-white font-bold py-4 px-8 rounded-lg text-lg border-2 border-primary hover:bg-white hover:text-primary transition-all text-center"
+            >
+              <i class="fas fa-comment-dots mr-2"></i>
+              Read Testimonials
+            </a>
+          </div>
+        </div>
+
+        <!-- Project Stats -->
+        <div class="grid md:grid-cols-4 gap-8 mt-16 animate-fade-in">
+          <div class="text-center">
+            <div class="project-counter mb-2">500+</div>
+            <div class="text-textSecondary font-medium">Projects Completed</div>
+            <div class="text-sm text-textSecondary mt-2">Since 2013</div>
+          </div>
+
+          <div class="text-center">
+            <div class="project-counter mb-2">8.2MW</div>
+            <div class="text-textSecondary font-medium">
+              Total Capacity Installed
+            </div>
+            <div class="text-sm text-textSecondary mt-2">
+              Enough to power 1,640 homes
+            </div>
+          </div>
+
+          <div class="text-center">
+            <div class="project-counter mb-2">72%</div>
+            <div class="text-textSecondary font-medium">
+              Average Bill Reduction
+            </div>
+            <div class="text-sm text-textSecondary mt-2">
+              Across all our installations
+            </div>
+          </div>
+
+          <div class="text-center">
+            <div class="project-counter mb-2">4.9★</div>
+            <div class="text-textSecondary font-medium">
+              Customer Satisfaction
+            </div>
+            <div class="text-sm text-textSecondary mt-2">
+              Based on 247 reviews
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Gallery -->
+    <section id="project-gallery" class="py-20 bg-surface">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+            Project Gallery
+          </h2>
+          <p class="text-lg text-textSecondary max-w-3xl mx-auto">
+            Browse our completed solar installations across residential,
+            commercial, and agricultural properties
+          </p>
+        </div>
+
+        <!-- Project Filters -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+          <button
+            class="project-filter-btn active py-2 px-6 rounded-full font-medium transition-all"
+            data-filter="all"
+          >
+            All Projects
+          </button>
+          <button
+            class="project-filter-btn py-2 px-6 rounded-full font-medium transition-all"
+            data-filter="residential"
+          >
+            <i class="fas fa-home mr-2"></i> Residential
+          </button>
+          <button
+            class="project-filter-btn py-2 px-6 rounded-full font-medium transition-all"
+            data-filter="commercial"
+          >
+            <i class="fas fa-building mr-2"></i> Commercial
+          </button>
+          <button
+            class="project-filter-btn py-2 px-6 rounded-full font-medium transition-all"
+            data-filter="agricultural"
+          >
+            <i class="fas fa-tractor mr-2"></i> Agricultural
+          </button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          id="projects-container"
+        >
+          <!-- Project 1 -->
+          <div
+            class="project-card bg-background rounded-xl overflow-hidden animate-scale-in"
+            data-category="residential"
+          >
+            <div
+              class="project-image"
+              style="
+                background-image: linear-gradient(
+                  to bottom right,
+                  #0b3c5d,
+                  #2e7d32
+                );
+              "
+            >
+              <div class="savings-badge">82% Bill Reduction</div>
+              <div class="system-size-badge">7.2 kW System</div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="project-type-icon bg-blue-50">
+                  <i class="fas fa-home text-primary text-2xl"></i>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-map-marker-alt text-primary"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-primary">
+                    Sunnyvale Residence
+                  </h3>
+                  <div class="text-textSecondary text-sm">Suburban Home</div>
+                </div>
+              </div>
+              <p class="text-textSecondary mb-6">
+                A family home with high electricity usage due to pool pump and
+                air conditioning. System designed to maximize south-facing roof
+                space.
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="text-center p-3 bg-primary/5 rounded-lg">
+                  <div class="text-lg font-bold text-accent">$210/month</div>
+                  <div class="text-xs text-textSecondary">Average Savings</div>
+                </div>
+                <div class="text-center p-3 bg-primary/5 rounded-lg">
+                  <div class="text-lg font-bold text-primary">5.1 years</div>
+                  <div class="text-xs text-textSecondary">Payback Period</div>
+                </div>
+              </div>
+
+              <button
+                class="view-project-btn w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-800 transition-all"
+                data-project="1"
+              >
+                <i class="fas fa-search mr-2"></i>
+                View Project Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="project-card bg-background rounded-xl overflow-hidden animate-scale-in"
+            data-category="commercial"
+          >
+            <div
+              class="project-image"
+              style="
+                background-image: linear-gradient(
+                  to bottom right,
+                  #f4b400,
+                  #ff9800
+                );
+              "
+            >
+              <div class="savings-badge">68% Bill Reduction</div>
+              <div class="system-size-badge">45 kW System</div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="project-type-icon bg-yellow-50">
+                  <i class="fas fa-store text-secondary text-2xl"></i>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-map-marker-alt text-secondary"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-primary">
+                    Green Valley Retail Center
+                  </h3>
+                  <div class="text-textSecondary text-sm">Shopping Complex</div>
+                </div>
+              </div>
+              <p class="text-textSecondary mb-6">
+                A retail center with multiple tenants. System installed on flat
+                roof with custom mounting to avoid penetration.
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="text-center p-3 bg-primary/5 rounded-lg">
+                  <div class="text-lg font-bold text-accent">$1,850/month</div>
+                  <div class="text-xs text-textSecondary">Average Savings</div>
+                </div>
+                <div class="text-center p-3 bg-primary/5 rounded-lg">
+                  <div class="text-lg font-bold text-primary">4.8 years</div>
+                  <div class="text-xs text-textSecondary">Payback Period</div>
+                </div>
+              </div>
+
+              <button
+                class="view-project-btn w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-800 transition-all"
+                data-project="2"
+              >
+                <i class="fas fa-search mr-2"></i>
+                View Project Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="project-card bg-background rounded-xl overflow-hidden animate-scale-in"
+            data-category="agricultural"
+          >
+            <div
+              class="project-image"
+              style="
+                background-image: linear-gradient(
+                  to bottom right,
+                  #2e7d32,
+                  #4caf50
+                );
+              "
+            >
+              <div class="savings-badge">91% Bill Reduction</div>
+              <div class="system-size-badge">32 kW System</div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="project-type-icon bg-green-50">
+                  <i class="fas fa-tractor text-accent text-2xl"></i>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-map-marker-alt text-accent"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-primary">Sunrise Farms</h3>
+                  <div class="text-textSecondary text-sm">Dairy Farm</div>
+                </div>
+              </div>
+              <p class="text-textSecondary mb-6">
+                Farm with high energy consumption from milking machines,
+                refrigeration, and water pumps. Ground-mounted system to avoid
+                roof limitations.
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="text-center p-3 bg-primary/5 rounded-lg">
+                  <div class="text-lg font-bold text-accent">$1,200/month</div>
+                  <div class="text-xs text-textSecondary">Average Savings</div>
+                </div>
+                <div class="text-center p-3 bg-primary/5 rounded-lg">
+                  <div class="text-lg font-bold text-primary">4.2 years</div>
+                  <div class="text-xs text-textSecondary">Payback Period</div>
+                </div>
+              </div>
+
+              <button
+                class="view-project-btn w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-800 transition-all"
+                data-project="3"
+              >
+                <i class="fas fa-search mr-2"></i>
+                View Project Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div
+            class="project-card bg-background rounded-xl overflow-hidden animate-scale-in"
+            data-category="residential"
+          >
+            <div
+              class="project-image"
+              style="
+                background-image: linear-gradient(
+                  to bottom right,
+                  #0b3c5d,
+                  #1e528e
+                );
+              "
+            >
+              <div class="savings-badge">76% Bill Reduction</div>
+              <div class="system-size-badge">9.5 kW System</div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="project-type-icon bg-blue-50">
+                  <i class="fas fa-home text-primary text-2xl"></i>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-map-marker-alt text-primary"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-primary">Hilltop Estate</h3>
+                  <div class="text-textSecondary text-sm">Luxury Home</div>
+                </div>
+              </div>
+              <p class="text-textSecondary mb-6">
+                Large estate home with electric vehicle charging, pool, and
+                extensive lighting. Hybrid system with battery backup for power
+                outages.
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="text-center p-3 bg-primary/5 rounded-lg">
+                  <div class="text-lg font-bold text-accent">$320/month</div>
+                  <div class="text-xs text-textSecondary">Average Savings</div>
+                </div>
+                <div class="text-center p-3 bg-primary/5 rounded-lg">
+                  <div class="text-lg font-bold text-primary">6.2 years</div>
+                  <div class="text-xs text-textSecondary">Payback Period</div>
+                </div>
+              </div>
+
+              <button
+                class="view-project-btn w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-800 transition-all"
+                data-project="4"
+              >
+                <i class="fas fa-search mr-2"></i>
+                View Project Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div
+            class="project-card bg-background rounded-xl overflow-hidden animate-scale-in"
+            data-category="commercial"
+          >
+            <div
+              class="project-image"
+              style="
+                background-image: linear-gradient(
+                  to bottom right,
+                  #f4b400,
+                  #ffb300
+                );
+              "
+            >
+              <div class="savings-badge">62% Bill Reduction</div>
+              <div class="system-size-badge">28 kW System</div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="project-type-icon bg-yellow-50">
+                  <i class="fas fa-warehouse text-secondary text-2xl"></i>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-map-marker-alt text-secondary"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-primary">
+                    Precision Manufacturing
+                  </h3>
+                  <div class="text-textSecondary text-sm">Small Factory</div>
+                </div>
+              </div>
+              <p class="text-textSecondary mb-6">
+                Manufacturing facility with high daytime energy consumption.
+                System optimized for peak production during operating hours.
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="text-center p-3 bg-primary/5 rounded-lg">
+                  <div class="text-lg font-bold text-accent">$1,150/month</div>
+                  <div class="text-xs text-textSecondary">Average Savings</div>
+                </div>
+                <div class="text-center p-3 bg-primary/5 rounded-lg">
+                  <div class="text-lg font-bold text-primary">4.5 years</div>
+                  <div class="text-xs text-textSecondary">Payback Period</div>
+                </div>
+              </div>
+
+              <button
+                class="view-project-btn w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-800 transition-all"
+                data-project="5"
+              >
+                <i class="fas fa-search mr-2"></i>
+                View Project Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div
+            class="project-card bg-background rounded-xl overflow-hidden animate-scale-in"
+            data-category="residential"
+          >
+            <div
+              class="project-image"
+              style="
+                background-image: linear-gradient(
+                  to bottom right,
+                  #2e7d32,
+                  #66bb6a
+                );
+              "
+            >
+              <div class="savings-badge">85% Bill Reduction</div>
+              <div class="system-size-badge">5.8 kW System</div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="project-type-icon bg-green-50">
+                  <i class="fas fa-home text-accent text-2xl"></i>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-map-marker-alt text-accent"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-primary">
+                    Eco-Friendly Cottage
+                  </h3>
+                  <div class="text-textSecondary text-sm">
+                    Energy Efficient Home
+                  </div>
+                </div>
+              </div>
+              <p class="text-textSecondary mb-6">
+                Small home designed for sustainability. System sized to match
+                low energy consumption with potential for net-zero operation.
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="text-center p-3 bg-primary/5 rounded-lg">
+                  <div class="text-lg font-bold text-accent">$95/month</div>
+                  <div class="text-xs text-textSecondary">Average Savings</div>
+                </div>
+                <div class="text-center p-3 bg-primary/5 rounded-lg">
+                  <div class="text-lg font-bold text-primary">4.9 years</div>
+                  <div class="text-xs text-textSecondary">Payback Period</div>
+                </div>
+              </div>
+
+              <button
+                class="view-project-btn w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-800 transition-all"
+                data-project="6"
+              >
+                <i class="fas fa-search mr-2"></i>
+                View Project Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- No Projects Message -->
+        <div id="no-projects" class="hidden text-center py-12">
+          <div
+            class="w-24 h-24 rounded-full bg-background flex items-center justify-center mx-auto mb-6"
+          >
+            <i class="fas fa-search text-3xl text-textSecondary"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-primary mb-4">
+            No projects match your filter
+          </h3>
+          <p class="text-textSecondary mb-8 max-w-md mx-auto">
+            Try selecting a different category or view all projects.
+          </p>
+          <button
+            class="project-filter-btn active py-3 px-8 rounded-full font-medium transition-all"
+            data-filter="all"
+          >
+            Show All Projects
+          </button>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="contact.html"
+            class="inline-flex items-center bg-secondary text-primary font-bold py-4 px-10 rounded-lg text-lg hover:bg-yellow-300 transition-all pulse-subtle"
+          >
+            <i class="fas fa-calendar-check mr-3"></i>
+            Start Your Own Project
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 projects-bg">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+            What Our Customers Say
+          </h2>
+          <p class="text-lg text-textSecondary max-w-3xl mx-auto">
+            Real feedback from homeowners and business owners who chose Mega Sun
+            Technologies
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <!-- Testimonial 1 -->
+          <div
+            class="testimonial-card bg-surface rounded-xl p-6 animate-fade-in"
+          >
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center mr-4"
+              >
+                <span class="text-white font-bold">JD</span>
+              </div>
+              <div>
+                <h4 class="font-bold text-primary">James & Diana</h4>
+                <div class="text-textSecondary text-sm">
+                  Sunnyvale Residence
+                </div>
+              </div>
+            </div>
+
+            <div class="whatsapp-review p-5 mb-6">
+              <p class="text-textPrimary">
+                "Our electricity bill went from $256 to $46 last month. The
+                installation team was professional and cleaned up perfectly.
+                Couldn't be happier!"
+              </p>
+              <div class="mt-3 text-xs text-textSecondary">
+                Sent via WhatsApp • 2 months after installation
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div class="flex">
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+              </div>
+              <div class="text-sm text-textSecondary">82% bill reduction</div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div
+            class="testimonial-card bg-surface rounded-xl p-6 animate-fade-in"
+          >
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-secondary to-yellow-300 flex items-center justify-center mr-4"
+              >
+                <span class="text-primary font-bold">RG</span>
+              </div>
+              <div>
+                <h4 class="font-bold text-primary">Robert Green</h4>
+                <div class="text-textSecondary text-sm">
+                  Green Valley Retail Center
+                </div>
+              </div>
+            </div>
+
+            <div class="whatsapp-review p-5 mb-6">
+              <p class="text-textPrimary">
+                "As a business owner, the ROI was my main concern. Mega Sun
+                delivered exactly what they promised - we're saving
+                $1,850/month. The system paid for itself faster than projected."
+              </p>
+              <div class="mt-3 text-xs text-textSecondary">
+                Google Review • 1 year after installation
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div class="flex">
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+              </div>
+              <div class="text-sm text-textSecondary">68% bill reduction</div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div
+            class="testimonial-card bg-surface rounded-xl p-6 animate-fade-in"
+          >
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-accent to-green-400 flex items-center justify-center mr-4"
+              >
+                <span class="text-white font-bold">MF</span>
+              </div>
+              <div>
+                <h4 class="font-bold text-primary">Mike Franklin</h4>
+                <div class="text-textSecondary text-sm">Sunrise Farms</div>
+              </div>
+            </div>
+
+            <div class="whatsapp-review p-5 mb-6">
+              <p class="text-textPrimary">
+                "The farm runs 24/7 and our energy costs were killing us. Solar
+                cut our bill by 91%! During the last power outage, our backup
+                system kept everything running. Life-changing."
+              </p>
+              <div class="mt-3 text-xs text-textSecondary">
+                Text message • 6 months after installation
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div class="flex">
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+              </div>
+              <div class="text-sm text-textSecondary">91% bill reduction</div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div
+            class="testimonial-card bg-surface rounded-xl p-6 animate-fade-in"
+          >
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-blue-500 flex items-center justify-center mr-4"
+              >
+                <span class="text-white font-bold">ST</span>
+              </div>
+              <div>
+                <h4 class="font-bold text-primary">Sarah Thompson</h4>
+                <div class="text-textSecondary text-sm">Hilltop Estate</div>
+              </div>
+            </div>
+
+            <div class="whatsapp-review p-5 mb-6">
+              <p class="text-textPrimary">
+                "We were nervous about the installation on our premium roof. The
+                team was incredibly careful and the result is beautiful. The app
+                that shows real-time production is addicting to watch!"
+              </p>
+              <div class="mt-3 text-xs text-textSecondary">
+                Facebook Review • 3 months after installation
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div class="flex">
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+              </div>
+              <div class="text-sm text-textSecondary">76% bill reduction</div>
+            </div>
+          </div>
+
+          <!-- Testimonial 5 -->
+          <div
+            class="testimonial-card bg-surface rounded-xl p-6 animate-fade-in"
+          >
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-secondary to-orange-400 flex items-center justify-center mr-4"
+              >
+                <span class="text-primary font-bold">PM</span>
+              </div>
+              <div>
+                <h4 class="font-bold text-primary">Precision Manufacturing</h4>
+                <div class="text-textSecondary text-sm">
+                  Factory Installation
+                </div>
+              </div>
+            </div>
+
+            <div class="whatsapp-review p-5 mb-6">
+              <p class="text-textPrimary">
+                "We installed solar primarily for the predictable energy costs.
+                No more surprises on our utility bill. The tax incentives made
+                the financials work perfectly for our business."
+              </p>
+              <div class="mt-3 text-xs text-textSecondary">
+                Email testimonial • 8 months after installation
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div class="flex">
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+              </div>
+              <div class="text-sm text-textSecondary">62% bill reduction</div>
+            </div>
+          </div>
+
+          <!-- Testimonial 6 -->
+          <div
+            class="testimonial-card bg-surface rounded-xl p-6 animate-fade-in"
+          >
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-accent to-green-300 flex items-center justify-center mr-4"
+              >
+                <span class="text-white font-bold">EC</span>
+              </div>
+              <div>
+                <h4 class="font-bold text-primary">Eco Cottage</h4>
+                <div class="text-textSecondary text-sm">Sustainable Home</div>
+              </div>
+            </div>
+
+            <div class="whatsapp-review p-5 mb-6">
+              <p class="text-textPrimary">
+                "We wanted to minimize our carbon footprint. Mega Sun helped us
+                achieve near net-zero status. Our last 3 electric bills have
+                been under $15. Feeling good about our impact!"
+              </p>
+              <div class="mt-3 text-xs text-textSecondary">
+                Instagram message • 1 year after installation
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div class="flex">
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+                <i class="fas fa-star text-secondary"></i>
+              </div>
+              <div class="text-sm text-textSecondary">85% bill reduction</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Testimonials -->
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-10">
+            <h3 class="text-2xl font-bold text-primary mb-4">
+              Video Testimonials
+            </h3>
+            <p class="text-textSecondary">Hear directly from our customers</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-surface rounded-xl p-6 shadow-lg">
+              <div
+                class="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg mb-6 flex items-center justify-center relative overflow-hidden"
+              >
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div
+                    class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"
+                  >
+                    <i class="fas fa-play text-white text-3xl"></i>
+                  </div>
+                </div>
+                <div
+                  class="absolute bottom-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm"
+                >
+                  3:42
+                </div>
+              </div>
+              <h4 class="font-bold text-primary mb-2">
+                Farm Transformation with Solar
+              </h4>
+              <p class="text-textSecondary text-sm mb-4">
+                Mike shows how solar changed his farming operation
+              </p>
+              <div class="flex items-center text-textSecondary text-sm">
+                <i class="fas fa-eye mr-2"></i>
+                <span>1,245 views</span>
+              </div>
+            </div>
+
+            <div class="bg-surface rounded-xl p-6 shadow-lg">
+              <div
+                class="aspect-video bg-gradient-to-br from-secondary/20 to-yellow-300/20 rounded-lg mb-6 flex items-center justify-center relative overflow-hidden"
+              >
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div
+                    class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"
+                  >
+                    <i class="fas fa-play text-white text-3xl"></i>
+                  </div>
+                </div>
+                <div
+                  class="absolute bottom-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm"
+                >
+                  2:18
+                </div>
+              </div>
+              <h4 class="font-bold text-primary mb-2">
+                Business Owner's ROI Journey
+              </h4>
+              <p class="text-textSecondary text-sm mb-4">
+                Robert shares his 1-year savings update
+              </p>
+              <div class="flex items-center text-textSecondary text-sm">
+                <i class="fas fa-eye mr-2"></i>
+                <span>892 views</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-surface">
+      <div class="container mx-auto px-4">
+        <div
+          class="max-w-4xl mx-auto bg-gradient-to-br from-background to-primary/5 rounded-3xl p-8 md:p-12 shadow-2xl border border-border"
+        >
+          <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Ready to Start Your Solar Project?
+            </h2>
+            <p class="text-lg text-textSecondary">
+              Join hundreds of satisfied customers who are saving money with
+              solar energy.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-10">
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-6">
+                Your Project Could Be Featured Here
+              </h3>
+
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center"
+                    >
+                      <i class="fas fa-camera text-secondary"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary mb-1">
+                      Professional Photos
+                    </h4>
+                    <p class="text-textSecondary text-sm">
+                      We document every installation with high-quality
+                      before/after photos.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center"
+                    >
+                      <i class="fas fa-chart-line text-secondary"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary mb-1">
+                      Performance Tracking
+                    </h4>
+                    <p class="text-textSecondary text-sm">
+                      Monitor your system's production and savings in real-time
+                      through our app.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center"
+                    >
+                      <i class="fas fa-users text-secondary"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary mb-1">
+                      Referral Program
+                    </h4>
+                    <p class="text-textSecondary text-sm">
+                      Earn rewards when you refer friends and family who install
+                      solar with us.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-10 bg-accent/10 p-6 rounded-xl">
+                <div class="flex items-center">
+                  <i class="fas fa-award text-accent text-2xl mr-4"></i>
+                  <div>
+                    <p class="font-bold text-primary">
+                      Most of our new customers come from referrals
+                    </p>
+                    <p class="text-textSecondary text-sm mt-1">
+                      Because happy customers are our best advertisement
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-primary rounded-2xl p-8 text-white">
+              <h3 class="text-2xl font-bold mb-6">
+                Start with a Free Site Survey
+              </h3>
+              <p class="mb-6">
+                Get a personalized assessment of your solar potential with exact
+                savings estimates.
+              </p>
+
+              <form id="project-inquiry-form">
+                <div class="mb-4">
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    class="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-secondary"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    class="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-secondary"
+                    required
+                  />
+                </div>
+                <div class="mb-6">
+                  <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    class="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-secondary"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="w-full bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-yellow-300 transition-all"
+                >
+                  Schedule Free Site Survey
+                  <i class="ml-2 fas fa-solar-panel"></i>
+                </button>
+              </form>
+
+              <div class="mt-6 text-center text-white/80 text-sm">
+                <i class="fas fa-clock mr-2"></i>
+                Takes about 60-90 minutes at your property
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 pt-8 border-t border-border text-center">
+            <p class="text-textSecondary mb-6">
+              Have questions before scheduling a survey?
+            </p>
+            <div
+              class="inline-flex items-center bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg"
+            >
+              <i class="fas fa-phone mr-3"></i>
+              Call Us: (555) 123-SOLAR
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-6">
+              <div
+                class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
+              >
+                <i class="fas fa-sun text-primary text-xl"></i>
+              </div>
+              <div>
+                <h2 class="text-xl font-bold">Mega Sun Technologies</h2>
+              </div>
+            </div>
+            <p class="text-white/80">
+              Providing reliable solar solutions for homeowners and businesses
+              since 2013.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="solutions.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Solutions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="how-it-works.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >How It Works</a
+                >
+              </li>
+              <li>
+                <a
+                  href="our-projects.html"
+                  class="text-secondary transition-colors"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  href="why-choose-us.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Why Choose Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="FAQs.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >FAQs</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Contact Info</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt text-secondary mr-3 mt-1"></i>
+                <span>123 Solar Street, Sun City, SC 12345</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone text-secondary mr-3"></i>
+                <span>(555) 123-SOLAR</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope text-secondary mr-3"></i>
+                <span>info@megasuntech.com</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Business Hours</h3>
+            <ul class="space-y-2 text-white/80">
+              <li class="flex justify-between">
+                <span>Mon-Fri:</span>
+                <span>8:00 AM - 6:00 PM</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Saturday:</span>
+                <span>9:00 AM - 4:00 PM</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Sunday:</span>
+                <span>Closed</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-white/20 text-center text-white/70">
+          <p>&copy; 2023 Mega Sun Technologies. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-secondary text-primary flex items-center justify-center shadow-lg hover:shadow-xl transition-all opacity-0"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = document.querySelectorAll("#mobile-menu a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Project filtering
+      const filterButtons = document.querySelectorAll(".project-filter-btn");
+      const projectCards = document.querySelectorAll(".project-card");
+      const noProjectsMessage = document.getElementById("no-projects");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+          // Add active class to clicked button
+          this.classList.add("active");
+
+          // Get filter value
+          const filterValue = this.getAttribute("data-filter");
+
+          // Filter projects
+          let visibleCount = 0;
+
+          projectCards.forEach((card) => {
+            const category = card.getAttribute("data-category");
+
+            if (filterValue === "all" || category === filterValue) {
+              card.style.display = "block";
+              visibleCount++;
+
+              // Add animation
+              card.style.animation = "none";
+              setTimeout(() => {
+                card.style.animation = "scaleIn 0.5s ease-out";
+              }, 10);
+            } else {
+              card.style.display = "none";
+            }
+          });
+
+          // Show/hide no projects message
+          if (visibleCount === 0) {
+            noProjectsMessage.classList.remove("hidden");
+          } else {
+            noProjectsMessage.classList.add("hidden");
+          }
+        });
+      });
+
+      // Project modal functionality
+      const projectModal = document.getElementById("project-modal");
+      const closeModalBtn = document.getElementById("close-modal");
+      const viewProjectButtons = document.querySelectorAll(".view-project-btn");
+
+      // Project data
+      const projects = {
+        1: {
+          title: "Sunnyvale Residence",
+          description:
+            "A 4-bedroom family home with high electricity consumption due to pool equipment, air conditioning, and extensive lighting. The system was designed to maximize south-facing roof space while maintaining aesthetic appeal.",
+          size: "7.2 kW",
+          savings: "82%",
+          payback: "5.1 years",
+          co2: "6.2 tons/year",
+          panels: "24 x SunPower 300W",
+          inverter: "SolarEdge SE7600H",
+          batteries: "None",
+          installation: "2 days",
+          customer: "James & Diana",
+          location: "Sunnyvale, SC",
+          testimonial:
+            "Our electricity bill went from $256 to $46 last month. The installation team was professional and cleaned up perfectly. Couldn't be happier!",
+          features: [
+            "Optimized for south-facing roof",
+            "Pool pump timer integration",
+            "Real-time monitoring app",
+            "25-year performance warranty",
+          ],
+        },
+        2: {
+          title: "Green Valley Retail Center",
+          description:
+            "A shopping complex with multiple retail tenants. The flat roof required custom ballasted mounting system to avoid penetration. System designed to offset common area electricity usage.",
+          size: "45 kW",
+          savings: "68%",
+          payback: "4.8 years",
+          co2: "38 tons/year",
+          panels: "125 x LG 360W",
+          inverter: "3 x SolarEdge 15kW",
+          batteries: "None",
+          installation: "5 days",
+          customer: "Robert Green",
+          location: "Green Valley, SC",
+          testimonial:
+            "As a business owner, the ROI was my main concern. Mega Sun delivered exactly what they promised - we're saving $1,850/month. The system paid for itself faster than projected.",
+          features: [
+            "Ballasted mounting (no roof penetration)",
+            "Tenant usage allocation system",
+            "Commercial-grade components",
+            "Extended 25-year warranty",
+          ],
+        },
+        3: {
+          title: "Sunrise Farms",
+          description:
+            "A dairy farm with 24/7 operation requiring consistent power for milking machines, refrigeration, and water pumps. Ground-mounted system installed to avoid roof limitations and maximize production.",
+          size: "32 kW",
+          savings: "91%",
+          payback: "4.2 years",
+          co2: "27 tons/year",
+          panels: "80 x Panasonic 400W",
+          inverter: "SolarEdge SE33000H",
+          batteries: "2 x Tesla Powerwall",
+          installation: "6 days",
+          customer: "Mike Franklin",
+          location: "Sunrise Farms, SC",
+          testimonial:
+            "The farm runs 24/7 and our energy costs were killing us. Solar cut our bill by 91%! During the last power outage, our backup system kept everything running. Life-changing.",
+          features: [
+            "Ground-mounted array",
+            "Battery backup for critical loads",
+            "Agricultural rate optimization",
+            "Remote monitoring with alerts",
+          ],
+        },
+        4: {
+          title: "Hilltop Estate",
+          description:
+            "A luxury estate home with premium roofing materials. Special care was taken during installation to preserve roof integrity. Hybrid system includes battery backup for power outages.",
+          size: "9.5 kW",
+          savings: "76%",
+          payback: "6.2 years",
+          co2: "8.1 tons/year",
+          panels: "38 x SunPower 250W",
+          inverter: "Tesla Solar Inverter",
+          batteries: "1 x Tesla Powerwall",
+          installation: "3 days",
+          customer: "Sarah Thompson",
+          location: "Hilltop Estate, SC",
+          testimonial:
+            "We were nervous about the installation on our premium roof. The team was incredibly careful and the result is beautiful. The app that shows real-time production is addicting to watch!",
+          features: [
+            "Premium roofing protection",
+            "EV charger integration",
+            "Whole-home backup capability",
+            "Aesthetic panel placement",
+          ],
+        },
+        5: {
+          title: "Precision Manufacturing",
+          description:
+            "A small manufacturing facility with high daytime energy consumption from machinery. System optimized for peak production during operating hours with net metering for excess generation.",
+          size: "28 kW",
+          savings: "62%",
+          payback: "4.5 years",
+          co2: "23.8 tons/year",
+          panels: "70 x LG 400W",
+          inverter: "2 x SolarEdge 14kW",
+          batteries: "None",
+          installation: "4 days",
+          customer: "Precision Manufacturing",
+          location: "Industrial Park, SC",
+          testimonial:
+            "We installed solar primarily for the predictable energy costs. No more surprises on our utility bill. The tax incentives made the financials work perfectly for our business.",
+          features: [
+            "Peak shaving for demand charges",
+            "Industrial-grade components",
+            "Production matching to operating hours",
+            "Comprehensive monitoring dashboard",
+          ],
+        },
+        6: {
+          title: "Eco-Friendly Cottage",
+          description:
+            "A small, energy-efficient home designed for sustainability. System sized to match low energy consumption with potential for net-zero operation. Minimalist design to complement home aesthetics.",
+          size: "5.8 kW",
+          savings: "85%",
+          payback: "4.9 years",
+          co2: "4.9 tons/year",
+          panels: "20 x Panasonic 290W",
+          inverter: "Enphase IQ8+",
+          batteries: "None",
+          installation: "1.5 days",
+          customer: "Eco Cottage Owners",
+          location: "Sustainable Living Community, SC",
+          testimonial:
+            "We wanted to minimize our carbon footprint. Mega Sun helped us achieve near net-zero status. Our last 3 electric bills have been under $15. Feeling good about our impact!",
+          features: [
+            "Microinverters for partial shading",
+            "Net-zero capable design",
+            "Aesthetic black-on-black panels",
+            "Energy monitoring integration",
+          ],
+        },
+      };
+
+      // Open project modal
+      viewProjectButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const projectId = this.getAttribute("data-project");
+          const project = projects[projectId];
+
+          if (!project) return;
+
+          // Populate modal with project data
+          document.getElementById("modal-title").textContent = project.title;
+          document.getElementById("modal-description").textContent =
+            project.description;
+          document.getElementById("modal-size").textContent = project.size;
+          document.getElementById("modal-savings").textContent =
+            project.savings;
+          document.getElementById("modal-payback").textContent =
+            project.payback;
+          document.getElementById("modal-co2").textContent = project.co2;
+          document.getElementById("modal-panels").textContent = project.panels;
+          document.getElementById("modal-inverter").textContent =
+            project.inverter;
+          document.getElementById("modal-batteries").textContent =
+            project.batteries;
+          document.getElementById("modal-installation").textContent =
+            project.installation;
+          document.getElementById("modal-customer").textContent =
+            project.customer;
+          document.getElementById("modal-location").textContent =
+            project.location;
+          document.getElementById("modal-testimonial").textContent =
+            project.testimonial;
+
+          // Populate features
+          const featuresList = document.getElementById("modal-features");
+          featuresList.innerHTML = "";
+          project.features.forEach((feature) => {
+            const li = document.createElement("li");
+            li.className = "flex items-start";
+            li.innerHTML = `<i class="fas fa-check text-accent mt-1 mr-3"></i><span>${feature}</span>`;
+            featuresList.appendChild(li);
+          });
+
+          // Set modal image based on category
+          const modalImage = document.getElementById("modal-image");
+          const card = this.closest(".project-card");
+          const category = card.getAttribute("data-category");
+
+          if (category === "residential") {
+            modalImage.style.backgroundImage =
+              "linear-gradient(to bottom right, #0B3C5D, #2E7D32)";
+          } else if (category === "commercial") {
+            modalImage.style.backgroundImage =
+              "linear-gradient(to bottom right, #F4B400, #FF9800)";
+          } else if (category === "agricultural") {
+            modalImage.style.backgroundImage =
+              "linear-gradient(to bottom right, #2E7D32, #4CAF50)";
+          }
+
+          // Show modal
+          projectModal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      // Close modal
+      closeModalBtn.addEventListener("click", closeModal);
+
+      // Close modal when clicking outside
+      projectModal.addEventListener("click", function (e) {
+        if (e.target === this) {
+          closeModal();
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && projectModal.classList.contains("active")) {
+          closeModal();
+        }
+      });
+
+      function closeModal() {
+        projectModal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+
+      // Form submission
+      const projectInquiryForm = document.getElementById(
+        "project-inquiry-form"
+      );
+      projectInquiryForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert(
+          "Thank you for your interest! We will contact you within 24 hours to schedule your free site survey."
+        );
+        projectInquiryForm.reset();
+      });
+
+      // Back to top button
+      const backToTopBtn = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.remove("opacity-0");
+          backToTopBtn.classList.add("opacity-100");
+        } else {
+          backToTopBtn.classList.remove("opacity-100");
+          backToTopBtn.classList.add("opacity-0");
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Initialize animations
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add animation classes to elements
+        const animatedElements = document.querySelectorAll(
+          ".animate-fade-in, .animate-slide-up, .animate-scale-in"
+        );
+
+        // Trigger animations after a short delay
+        setTimeout(() => {
+          animatedElements.forEach((el, index) => {
+            setTimeout(() => {
+              el.style.opacity = "1";
+              el.style.transform = "translateY(0) scale(1)";
+            }, index * 100);
+          });
+        }, 300);
+
+        // Add hover effect to project cards
+        projectCards.forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-10px)";
+            this.style.boxShadow = "0 20px 40px rgba(11, 60, 93, 0.15)";
+          });
+
+          card.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0)";
+            this.style.boxShadow = "";
+          });
+        });
+
+        // Add click effect to filter buttons
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Add a subtle animation
+            this.style.transform = "scale(0.95)";
+            setTimeout(() => {
+              this.style.transform = "scale(1)";
+            }, 150);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

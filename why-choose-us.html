@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why Choose Us | Mega Sun Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0B3C5D",
+              secondary: "#F4B400",
+              accent: "#2E7D32",
+              background: "#F7F9FC",
+              surface: "#FFFFFF",
+              textPrimary: "#1F2933",
+              textSecondary: "#4B5563",
+              border: "#E5E7EB",
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            animation: {
+              "trust-pulse": "trustPulse 3s ease-in-out infinite",
+              "fade-in-up": "fadeInUp 0.8s ease-out",
+              "slide-in-left": "slideInLeft 0.6s ease-out",
+              "slide-in-right": "slideInRight 0.6s ease-out",
+              "rotate-slow": "rotateSlow 20s linear infinite",
+              "float-gentle": "floatGentle 4s ease-in-out infinite",
+            },
+            keyframes: {
+              trustPulse: {
+                "0%, 100%": { boxShadow: "0 0 0 0 rgba(244, 180, 0, 0.4)" },
+                "70%": { boxShadow: "0 0 0 15px rgba(244, 180, 0, 0)" },
+              },
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(30px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              slideInLeft: {
+                "0%": { opacity: "0", transform: "translateX(-30px)" },
+                "100%": { opacity: "1", transform: "translateX(0)" },
+              },
+              slideInRight: {
+                "0%": { opacity: "0", transform: "translateX(30px)" },
+                "100%": { opacity: "1", transform: "translateX(0)" },
+              },
+              rotateSlow: {
+                "0%": { transform: "rotate(0deg)" },
+                "100%": { transform: "rotate(360deg)" },
+              },
+              floatGentle: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>"
+    />
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .why-choose-bg {
+        /* background: linear-gradient(
+          135deg,
+          rgba(11, 60, 93, 0.03) 0%,
+          rgba(244, 180, 0, 0.03) 50%,
+          rgba(46, 125, 50, 0.03) 100%
+        ); */
+
+        background-image: radial-gradient(
+            circle at 25% 25%,
+            rgba(244, 180, 0, 0.1) 2px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 75% 75%,
+            rgba(244, 180, 0, 0.1) 2px,
+            transparent 2px
+          );
+        background-size: 40px 40px;
+      }
+
+      .trust-card {
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .trust-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(11, 60, 93, 0.12);
+      }
+
+      .trust-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(90deg, #0b3c5d, #f4b400, #2e7d32);
+      }
+
+      .local-advantage-card {
+        border-left: 5px solid #2e7d32;
+        transition: all 0.3s ease;
+      }
+
+      .local-advantage-card:hover {
+        border-left-color: #f4b400;
+        transform: translateX(5px);
+      }
+
+      /* .sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.97);
+      } */
+
+      .sticky-nav {
+        position: sticky;
+        top: 20px;
+
+        width: calc(100% - 2rem);
+        max-width: 1536px;
+        margin: 0 auto;
+
+        z-index: 50;
+
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        background-color: rgba(255, 255, 255, 0.5);
+
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+        transition: box-shadow 0.3s ease, background-color 0.3s ease;
+      }
+
+      .team-visual {
+        position: relative;
+        width: 300px;
+        height: 300px;
+      }
+
+      .team-member {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #0b3c5d, #2e7d32);
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        box-shadow: 0 5px 15px rgba(11, 60, 93, 0.2);
+        animation: floatGentle 4s ease-in-out infinite;
+      }
+
+      .team-member:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .team-member:nth-child(2) {
+        top: 10%;
+        left: 40%;
+        animation-delay: 0.5s;
+      }
+      .team-member:nth-child(3) {
+        top: 20%;
+        left: 70%;
+        animation-delay: 1s;
+      }
+      .team-member:nth-child(4) {
+        top: 50%;
+        left: 20%;
+        animation-delay: 1.5s;
+      }
+      .team-member:nth-child(5) {
+        top: 50%;
+        left: 60%;
+        animation-delay: 2s;
+      }
+      .team-member:nth-child(6) {
+        top: 80%;
+        left: 40%;
+        animation-delay: 2.5s;
+      }
+
+      .team-connection {
+        position: absolute;
+        background: linear-gradient(to right, #f4b400, #2e7d32);
+        height: 3px;
+        border-radius: 1.5px;
+        transform-origin: left center;
+      }
+
+      .transparency-meter {
+        height: 12px;
+        background-color: #e5e7eb;
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .transparency-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #0b3c5d, #2e7d32);
+        border-radius: 6px;
+        transition: width 2s ease;
+      }
+
+      .transparency-label {
+        position: absolute;
+        top: -25px;
+        transform: translateX(-50%);
+        font-size: 12px;
+        font-weight: 600;
+        color: #4b5563;
+        white-space: nowrap;
+      }
+
+      .brand-logo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 20px;
+        place-items: center;
+      }
+
+      .brand-logo {
+        width: 120px;
+        height: 60px;
+        background: linear-gradient(135deg, #f7f9fc, #ffffff);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #0b3c5d;
+        box-shadow: 0 5px 15px rgba(11, 60, 93, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .brand-logo:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(11, 60, 93, 0.15);
+      }
+
+      .support-timeline {
+        position: relative;
+        padding-left: 40px;
+      }
+
+      .support-timeline::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(to bottom, #0b3c5d, #f4b400, #2e7d32);
+        border-radius: 2px;
+      }
+
+      .support-step {
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+      .support-step::before {
+        content: "";
+        position: absolute;
+        left: -30px;
+        top: 0;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 4px solid #f4b400;
+        z-index: 1;
+      }
+
+      .comparison-table {
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(11, 60, 93, 0.1);
+      }
+
+      .comparison-table th {
+        background: linear-gradient(135deg, #0b3c5d, #1e528e);
+        color: white;
+        font-weight: 600;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .comparison-table td {
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .comparison-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .check-badge {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #2e7d32;
+        color: white;
+        text-align: center;
+        line-height: 24px;
+      }
+
+      .x-badge {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #ef4444;
+        color: white;
+        text-align: center;
+        line-height: 24px;
+      }
+
+      .trust-pulse {
+        animation: trustPulse 3s ease-in-out infinite;
+      }
+
+      @media (max-width: 768px) {
+        .team-visual {
+          width: 250px;
+          height: 250px;
+          margin: 0 auto;
+        }
+
+        .team-member {
+          width: 60px;
+          height: 60px;
+          font-size: 16px;
+        }
+
+        .support-timeline {
+          padding-left: 30px;
+        }
+
+        .support-timeline::before {
+          left: 10px;
+        }
+
+        .support-step::before {
+          left: -25px;
+        }
+      }
+
+      .local-map-marker {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #f4b400, #ff9800);
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(-45deg);
+        position: relative;
+        box-shadow: 0 5px 15px rgba(244, 180, 0, 0.3);
+      }
+
+      .local-map-marker::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: white;
+        top: 10px;
+        left: 10px;
+        transform: rotate(45deg);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-textPrimary font-poppins">
+    <!-- Navigation -->
+    <header class="sticky-nav shadow-sm">
+      <nav
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <div
+            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
+          >
+            <i class="fas fa-sun text-primary text-xl"></i>
+          </div>
+          <div>
+            <h1 class="text-xl font-bold text-primary">
+              Mega Sun Technologies
+            </h1>
+            <p class="text-xs text-textSecondary">Solar Energy Experts</p>
+          </div>
+        </div>
+
+        <div class="hidden md:flex space-x-8 items-center">
+          <a
+            href="index.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Home</a
+          >
+          <a
+            href="solutions.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Solutions</a
+          >
+          <a
+            href="how-it-works.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >How It Works</a
+          >
+          <a
+            href="our-projects.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Projects</a
+          >
+          <a
+            href="why-choose-us.html"
+            class="font-medium text-secondary transition-colors"
+            >Why Choose Us</a
+          >
+          <a
+            href="FAQs.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >FAQs</a
+          >
+          <a
+            href="contact.html"
+            class="bg-secondary text-primary font-bold py-2 px-6 rounded-lg hover:bg-yellow-300 transition-all pulse-soft"
+            >Free Site Survey</a
+          >
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-primary">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-surface shadow-lg px-4 py-6"
+      >
+        <div class="flex flex-col space-y-4">
+          <a
+            href="index.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Home</a
+          >
+          <a
+            href="solutions.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Solutions</a
+          >
+          <a
+            href="how-it-works.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >How It Works</a
+          >
+          <a
+            href="our-projects.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Projects</a
+          >
+          <a
+            href="why-choose-us.html"
+            class="font-medium text-secondary transition-colors py-2"
+            >Why Choose Us</a
+          >
+          <a
+            href="FAQs.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >FAQs</a
+          >
+          <a
+            href="contact.html"
+            class="bg-secondary text-primary font-bold py-2 px-6 rounded-lg hover:bg-yellow-300 transition-all pulse-soft"
+            >Free Site Survey</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="why-choose-us"
+      class="why-choose-bg pt-12 pb-20 md:pt-20 md:pb-32"
+    >
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-16">
+            <div
+              class="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium mb-6 animate-fade-in-up"
+            >
+              <i class="fas fa-handshake mr-2"></i> Built on Trust, Not Just
+              Transactions
+            </div>
+            <h1
+              class="text-4xl md:text-5xl font-bold text-primary leading-tight mb-6 animate-fade-in-up"
+            >
+              A Local Solar Partner You Can Trust
+            </h1>
+            <p
+              class="text-xl text-textSecondary mb-10 max-w-3xl mx-auto animate-fade-in-up"
+            >
+              We're not just another solar company. We're your neighbors,
+              committed to doing solar right—with honesty, quality, and real
+              accountability.
+            </p>
+
+            <div
+              class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up"
+            >
+              <a
+                href="#talk-expert"
+                class="bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 text-center trust-pulse"
+              >
+                Talk Directly with Our Solar Expert
+                <i class="ml-2 fas fa-comments"></i>
+              </a>
+              <a
+                href="#our-difference"
+                class="bg-primary text-white font-bold py-4 px-8 rounded-lg text-lg border-2 border-primary hover:bg-white hover:text-primary transition-all text-center"
+              >
+                See Our Difference
+                <i class="ml-2 fas fa-arrow-down"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Trust Indicators -->
+          <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="text-center animate-slide-in-left">
+              <div class="text-5xl font-bold text-primary mb-2">10+</div>
+              <div class="text-textSecondary font-medium">
+                Years Serving Our Community
+              </div>
+              <div class="mt-2 text-sm text-textSecondary">Since 2013</div>
+            </div>
+
+            <div class="text-center animate-fade-in-up">
+              <div class="text-5xl font-bold text-accent mb-2">500+</div>
+              <div class="text-textSecondary font-medium">
+                Local Installations Completed
+              </div>
+              <div class="mt-2 text-sm text-textSecondary">
+                Homes & businesses
+              </div>
+            </div>
+
+            <div class="text-center animate-slide-in-right">
+              <div class="text-5xl font-bold text-secondary mb-2">4.9★</div>
+              <div class="text-textSecondary font-medium">
+                Average Customer Rating
+              </div>
+              <div class="mt-2 text-sm text-textSecondary">
+                Based on 247 reviews
+              </div>
+            </div>
+          </div>
+
+          <!-- Transparency Meter -->
+          <div class="max-w-2xl mx-auto animate-fade-in-up">
+            <div class="bg-surface rounded-xl p-6 shadow-lg">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-bold text-primary">
+                  Our Transparency Promise
+                </h3>
+                <div class="text-2xl font-bold text-accent">100%</div>
+              </div>
+              <p class="text-textSecondary mb-4">
+                How we compare to industry averages:
+              </p>
+
+              <div class="space-y-6">
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-primary"
+                      >Honest System Sizing</span
+                    >
+                    <span class="text-sm font-bold text-accent">100%</span>
+                  </div>
+                  <div class="transparency-meter">
+                    <div class="transparency-fill" style="width: 100%"></div>
+                  </div>
+                  <div class="text-xs text-textSecondary mt-1">
+                    Industry average: 72%
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-primary"
+                      >No Hidden Fees</span
+                    >
+                    <span class="text-sm font-bold text-accent">100%</span>
+                  </div>
+                  <div class="transparency-meter">
+                    <div class="transparency-fill" style="width: 100%"></div>
+                  </div>
+                  <div class="text-xs text-textSecondary mt-1">
+                    Industry average: 68%
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-primary"
+                      >Clear Warranty Terms</span
+                    >
+                    <span class="text-sm font-bold text-accent">100%</span>
+                  </div>
+                  <div class="transparency-meter">
+                    <div class="transparency-fill" style="width: 100%"></div>
+                  </div>
+                  <div class="text-xs text-textSecondary mt-1">
+                    Industry average: 61%
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 text-center text-sm text-textSecondary">
+                <i class="fas fa-chart-bar text-accent mr-2"></i>
+                Based on 2023 Solar Customer Satisfaction Survey
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Clients Choose Us -->
+    <section id="our-difference" class="py-20 bg-surface">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+            Why Clients Choose Us
+          </h2>
+          <p class="text-lg text-textSecondary max-w-3xl mx-auto">
+            The real differences that matter when investing in solar
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-center mb-20">
+          <div class="animate-slide-in-left">
+            <div class="team-visual">
+              <!-- Team Members -->
+              <div class="team-member">JD</div>
+              <div class="team-member">MK</div>
+              <div class="team-member">ST</div>
+              <div class="team-member">RL</div>
+              <div class="team-member">CP</div>
+              <div class="team-member">AJ</div>
+
+              <!-- Center Sun -->
+              <div
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              >
+                <div
+                  class="w-24 h-24 rounded-full bg-gradient-to-br from-secondary to-yellow-300 flex items-center justify-center shadow-xl animate-rotate-slow"
+                >
+                  <i class="fas fa-sun text-primary text-3xl"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="animate-slide-in-right">
+            <div class="trust-card bg-background rounded-xl p-8 mb-8">
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mr-6"
+                >
+                  <i class="fas fa-users text-accent text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-primary">
+                    Small, Dedicated Team — Not Subcontractors
+                  </h3>
+                </div>
+              </div>
+              <p class="text-textSecondary mb-6">
+                Every installation is handled by our own trained technicians,
+                not temporary subcontractors. Our team members average 7+ years
+                of solar experience.
+              </p>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div class="text-center p-4 bg-primary/5 rounded-lg">
+                  <div class="text-2xl font-bold text-primary mb-1">0%</div>
+                  <div class="text-sm text-textSecondary">Subcontractors</div>
+                </div>
+                <div class="text-center p-4 bg-primary/5 rounded-lg">
+                  <div class="text-2xl font-bold text-primary mb-1">100%</div>
+                  <div class="text-sm text-textSecondary">In-house Team</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="trust-card bg-background rounded-xl p-8">
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-16 h-16 rounded-full bg-yellow-50 flex items-center justify-center mr-6"
+                >
+                  <i class="fas fa-balance-scale text-secondary text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-primary">
+                    Honest System Sizing (No Upselling)
+                  </h3>
+                </div>
+              </div>
+              <p class="text-text-secondary mb-6">
+                We design systems based on your actual energy needs, not
+                commission targets. If a smaller system meets your needs, that's
+                what we recommend.
+              </p>
+
+              <div class="flex items-center">
+                <i class="fas fa-quote-left text-primary/30 text-2xl mr-4"></i>
+                <div>
+                  <p class="text-textSecondary italic">
+                    "Other companies pushed for a 10kW system. Mega Sun showed
+                    me why 7kW was perfect for my home and saved me $4,000
+                    upfront."
+                  </p>
+                  <p class="text-sm text-textSecondary mt-2">
+                    - Robert T., Customer since 2021
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div
+            class="trust-card bg-background rounded-xl p-8 animate-slide-in-left"
+          >
+            <div class="flex items-center mb-6">
+              <div
+                class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mr-6"
+              >
+                <i class="fas fa-award text-primary text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-primary">
+                  Quality Brands Only
+                </h3>
+              </div>
+            </div>
+            <p class="text-textSecondary mb-6">
+              We use only Tier-1 panels and inverters from manufacturers with
+              proven reliability and comprehensive warranties.
+            </p>
+
+            <div class="mb-6">
+              <h4 class="font-bold text-primary mb-4">
+                Our Preferred Partners:
+              </h4>
+              <div class="brand-logo-grid">
+                <div class="brand-logo">SunPower</div>
+                <div class="brand-logo">LG Solar</div>
+                <div class="brand-logo">Panasonic</div>
+                <div class="brand-logo">Tesla</div>
+                <div class="brand-logo">Enphase</div>
+                <div class="brand-logo">SolarEdge</div>
+              </div>
+            </div>
+
+            <div class="bg-accent/10 p-4 rounded-lg">
+              <div class="flex items-center">
+                <i class="fas fa-shield-alt text-accent text-xl mr-4"></i>
+                <div>
+                  <p class="font-bold text-primary">
+                    All components include 25-year performance warranties
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="trust-card bg-background rounded-xl p-8 animate-slide-in-right"
+          >
+            <div class="flex items-center mb-6">
+              <div
+                class="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mr-6"
+              >
+                <i class="fas fa-headset text-red-500 text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-primary">
+                  Post-Installation Support
+                </h3>
+              </div>
+            </div>
+            <p class="text-textSecondary mb-6">
+              Our relationship doesn't end when installation is complete. We
+              provide ongoing support, monitoring, and maintenance.
+            </p>
+
+            <div class="support-timeline">
+              <div class="support-step">
+                <h4 class="font-bold text-primary mb-2">System Monitoring</h4>
+                <p class="text-textSecondary text-sm">
+                  24/7 performance tracking with automatic alerts
+                </p>
+              </div>
+
+              <div class="support-step">
+                <h4 class="font-bold text-primary mb-2">Annual Check-ups</h4>
+                <p class="text-textSecondary text-sm">
+                  Optional maintenance visits to ensure optimal performance
+                </p>
+              </div>
+
+              <div class="support-step">
+                <h4 class="font-bold text-primary mb-2">Warranty Management</h4>
+                <p class="text-text-secondary text-sm">
+                  We handle all manufacturer warranty claims on your behalf
+                </p>
+              </div>
+
+              <div class="support-step">
+                <h4 class="font-bold text-primary mb-2">Priority Response</h4>
+                <p class="text-textSecondary text-sm">
+                  Same-day response for urgent issues
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Local Advantage -->
+    <section class="py-20 why-choose-bg">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+            The Local Advantage
+          </h2>
+          <p class="text-lg text-textSecondary max-w-3xl mx-auto">
+            Why choosing a local solar partner makes all the difference
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
+          <div class="animate-slide-in-left">
+            <div class="bg-surface rounded-2xl p-8 shadow-xl">
+              <div class="flex items-center mb-6">
+                <div class="local-map-marker mr-6"></div>
+                <div>
+                  <h3 class="text-2xl font-bold text-primary">
+                    We Understand Local Conditions
+                  </h3>
+                  <p class="text-textSecondary">
+                    Because we live and work here too
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center"
+                    >
+                      <i class="fas fa-cloud-sun text-primary text-xl"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary mb-2">
+                      Local Weather Patterns
+                    </h4>
+                    <p class="text-textSecondary">
+                      We design systems optimized for our region's specific
+                      sunlight hours, seasonal variations, and weather patterns.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center"
+                    >
+                      <i class="fas fa-home text-accent text-xl"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary mb-2">
+                      Regional Roof Types
+                    </h4>
+                    <p class="text-textSecondary">
+                      We're experienced with the common roof styles and
+                      materials in our area, ensuring secure, leak-proof
+                      installations.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-yellow-50 flex items-center justify-center"
+                    >
+                      <i
+                        class="fas fa-file-contract text-secondary text-xl"
+                      ></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary mb-2">
+                      Local Regulations & Permits
+                    </h4>
+                    <p class="text-textSecondary">
+                      We know the local building codes, utility requirements,
+                      and permit processes, avoiding costly delays.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="animate-slide-in-right">
+            <div class="bg-surface rounded-2xl p-8 shadow-xl">
+              <div class="flex items-center mb-8">
+                <div
+                  class="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mr-6"
+                >
+                  <i class="fas fa-bolt text-red-500 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-primary">
+                    Fast Response & Real Accountability
+                  </h3>
+                  <p class="text-textSecondary">We're here when you need us</p>
+                </div>
+              </div>
+
+              <div class="mb-8">
+                <h4 class="font-bold text-primary mb-4">
+                  Response Time Comparison:
+                </h4>
+                <div class="space-y-4">
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-sm font-medium text-primary"
+                        >Initial Consultation</span
+                      >
+                      <span class="text-sm font-bold text-accent"
+                        >24-48 hours</span
+                      >
+                    </div>
+                    <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full bg-accent rounded-full"
+                        style="width: 90%"
+                      ></div>
+                    </div>
+                    <div class="text-xs text-textSecondary mt-1">
+                      National average: 3-7 days
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-sm font-medium text-primary"
+                        >Service Call Response</span
+                      >
+                      <span class="text-sm font-bold text-accent"
+                        >Same day</span
+                      >
+                    </div>
+                    <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full bg-accent rounded-full"
+                        style="width: 95%"
+                      ></div>
+                    </div>
+                    <div class="text-xs text-textSecondary mt-1">
+                      National average: 3-5 days
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-sm font-medium text-primary"
+                        >Warranty Issue Resolution</span
+                      >
+                      <span class="text-sm font-bold text-accent"
+                        >48 hours</span
+                      >
+                    </div>
+                    <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full bg-accent rounded-full"
+                        style="width: 85%"
+                      ></div>
+                    </div>
+                    <div class="text-xs text-textSecondary mt-1">
+                      National average: 2-3 weeks
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-primary/5 p-5 rounded-xl">
+                <div class="flex items-center">
+                  <i class="fas fa-user-tie text-primary text-2xl mr-4"></i>
+                  <div>
+                    <p class="font-bold text-primary">
+                      Meet Your Project Manager
+                    </p>
+                    <p class="text-textSecondary text-sm">
+                      Every project has a dedicated point of contact who
+                      oversees everything from start to finish.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="max-w-4xl mx-auto animate-fade-in-up">
+          <div class="text-center mb-10">
+            <h3 class="text-2xl font-bold text-primary mb-4">
+              How We Compare to National Chains
+            </h3>
+            <p class="text-textSecondary">
+              The real differences in service and accountability
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="comparison-table w-full">
+              <thead>
+                <tr>
+                  <th class="text-left">Feature</th>
+                  <th>Mega Sun Technologies</th>
+                  <th>National Solar Chains</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-background">
+                  <td class="text-left font-medium text-primary">Local Team</td>
+                  <td>
+                    <span class="check-badge"
+                      ><i class="fas fa-check text-xs"></i
+                    ></span>
+                  </td>
+                  <td>
+                    <span class="x-badge"
+                      ><i class="fas fa-times text-xs"></i
+                    ></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-left font-medium text-primary">
+                    Direct Project Manager
+                  </td>
+                  <td>
+                    <span class="check-badge"
+                      ><i class="fas fa-check text-xs"></i
+                    ></span>
+                  </td>
+                  <td>
+                    <span class="x-badge"
+                      ><i class="fas fa-times text-xs"></i
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="bg-background">
+                  <td class="text-left font-medium text-primary">
+                    Custom System Design
+                  </td>
+                  <td>
+                    <span class="check-badge"
+                      ><i class="fas fa-check text-xs"></i
+                    ></span>
+                  </td>
+                  <td>Often cookie-cutter</td>
+                </tr>
+                <tr>
+                  <td class="text-left font-medium text-primary">
+                    Local Permitting Knowledge
+                  </td>
+                  <td>
+                    <span class="check-badge"
+                      ><i class="fas fa-check text-xs"></i
+                    ></span>
+                  </td>
+                  <td>Generic approach</td>
+                </tr>
+                <tr class="bg-background">
+                  <td class="text-left font-medium text-primary">
+                    Same-Day Service Response
+                  </td>
+                  <td>
+                    <span class="check-badge"
+                      ><i class="fas fa-check text-xs"></i
+                    ></span>
+                  </td>
+                  <td>Call center, long waits</td>
+                </tr>
+                <tr>
+                  <td class="text-left font-medium text-primary">
+                    Local References Available
+                  </td>
+                  <td>
+                    <span class="check-badge"
+                      ><i class="fas fa-check text-xs"></i
+                    ></span>
+                  </td>
+                  <td>National averages only</td>
+                </tr>
+                <tr class="bg-background">
+                  <td class="text-left font-medium text-primary">
+                    Community Involvement
+                  </td>
+                  <td>Active member</td>
+                  <td>Corporate programs only</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-8 text-center">
+            <div
+              class="inline-flex items-center px-6 py-3 bg-accent/10 text-accent rounded-full font-medium"
+            >
+              <i class="fas fa-map-marker-alt mr-3"></i>
+              We've installed solar on 3 homes in your neighborhood in the past
+              year
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="talk-expert" class="py-20 bg-surface">
+      <div class="container mx-auto px-4">
+        <div
+          class="max-w-5xl mx-auto bg-gradient-to-br from-background to-primary/5 rounded-3xl p-8 md:p-12 shadow-2xl border border-border"
+        >
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Talk Directly with Our Solar Expert
+            </h2>
+            <p class="text-lg text-textSecondary max-w-3xl mx-auto">
+              No sales pressure. Just an honest conversation about whether solar
+              makes sense for you.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12">
+            <div>
+              <div class="mb-10">
+                <h3 class="text-2xl font-bold text-primary mb-6">
+                  What to Expect from Your Consultation:
+                </h3>
+
+                <div class="space-y-6">
+                  <div class="flex items-start">
+                    <div class="mr-4">
+                      <div
+                        class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center"
+                      >
+                        <i
+                          class="fas fa-clipboard-list text-secondary text-xl"
+                        ></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-primary mb-1">
+                        Honest Assessment
+                      </h4>
+                      <p class="text-textSecondary text-sm">
+                        We'll tell you if solar makes sense for your situation,
+                        even if it doesn't.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start">
+                    <div class="mr-4">
+                      <div
+                        class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center"
+                      >
+                        <i class="fas fa-calculator text-secondary text-xl"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-primary mb-1">Clear Numbers</h4>
+                      <p class="text-textSecondary text-sm">
+                        Realistic cost, savings, and payback estimates based on
+                        your actual usage.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start">
+                    <div class="mr-4">
+                      <div
+                        class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center"
+                      >
+                        <i
+                          class="fas fa-question-circle text-secondary text-xl"
+                        ></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-primary mb-1">
+                        All Your Questions Answered
+                      </h4>
+                      <p class="text-textSecondary text-sm">
+                        No question is too basic or too technical. We explain
+                        everything clearly.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start">
+                    <div class="mr-4">
+                      <div
+                        class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center"
+                      >
+                        <i class="fas fa-handshake text-secondary text-xl"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-primary mb-1">Zero Pressure</h4>
+                      <p class="text-textSecondary text-sm">
+                        This is an informational discussion. No sales tactics,
+                        just helpful advice.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Meet the Expert -->
+              <div class="bg-background rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                  <div class="mr-4">
+                    <div
+                      class="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center"
+                    >
+                      <i class="fas fa-user-tie text-white text-xl"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary">You'll Speak With:</h4>
+                    <p class="text-textSecondary">
+                      James Dawson, Lead Solar Consultant
+                    </p>
+                    <p class="text-textSecondary text-sm">
+                      12 years of solar experience • 500+ local installations
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center text-textSecondary text-sm">
+                  <i class="fas fa-star text-secondary mr-2"></i>
+                  <span
+                    >"James took the time to explain everything. I never felt
+                    rushed or pressured." - Lisa M.</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-primary rounded-2xl p-8 text-white">
+              <h3 class="text-2xl font-bold mb-6">
+                Schedule Your Consultation
+              </h3>
+              <p class="mb-6">
+                Choose a time that works for you. We'll call you at the
+                scheduled time for a 30-minute, no-obligation conversation.
+              </p>
+
+              <form id="expert-consultation-form">
+                <div class="mb-4">
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    class="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-secondary"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    class="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-secondary"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    class="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-secondary"
+                    required
+                  />
+                </div>
+
+                <div class="mb-6">
+                  <label class="block text-white font-bold mb-2"
+                    >Preferred Consultation Time</label
+                  >
+                  <div class="grid grid-cols-2 gap-3">
+                    <div class="relative">
+                      <input
+                        type="radio"
+                        id="time-morning"
+                        name="consultation_time"
+                        value="morning"
+                        class="hidden peer"
+                        required
+                      />
+                      <label
+                        for="time-morning"
+                        class="block p-3 border border-white/30 rounded-lg text-center cursor-pointer hover:bg-white/10 peer-checked:bg-white/20 peer-checked:border-secondary transition-all"
+                      >
+                        Morning<br /><span class="text-sm text-white/70"
+                          >9am-12pm</span
+                        >
+                      </label>
+                    </div>
+                    <div class="relative">
+                      <input
+                        type="radio"
+                        id="time-afternoon"
+                        name="consultation_time"
+                        value="afternoon"
+                        class="hidden peer"
+                      />
+                      <label
+                        for="time-afternoon"
+                        class="block p-3 border border-white/30 rounded-lg text-center cursor-pointer hover:bg-white/10 peer-checked:bg-white/20 peer-checked:border-secondary transition-all"
+                      >
+                        Afternoon<br /><span class="text-sm text-white/70"
+                          >1pm-4pm</span
+                        >
+                      </label>
+                    </div>
+                    <div class="relative">
+                      <input
+                        type="radio"
+                        id="time-evening"
+                        name="consultation_time"
+                        value="evening"
+                        class="hidden peer"
+                      />
+                      <label
+                        for="time-evening"
+                        class="block p-3 border border-white/30 rounded-lg text-center cursor-pointer hover:bg-white/10 peer-checked:bg-white/20 peer-checked:border-secondary transition-all"
+                      >
+                        Evening<br /><span class="text-sm text-white/70"
+                          >5pm-7pm</span
+                        >
+                      </label>
+                    </div>
+                    <div class="relative">
+                      <input
+                        type="radio"
+                        id="time-weekend"
+                        name="consultation_time"
+                        value="weekend"
+                        class="hidden peer"
+                      />
+                      <label
+                        for="time-weekend"
+                        class="block p-3 border border-white/30 rounded-lg text-center cursor-pointer hover:bg-white/10 peer-checked:bg-white/20 peer-checked:border-secondary transition-all"
+                      >
+                        Weekend<br /><span class="text-sm text-white/70"
+                          >Sat 9am-2pm</span
+                        >
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-yellow-300 transition-all trust-pulse"
+                >
+                  Schedule My Expert Consultation
+                  <i class="ml-2 fas fa-calendar-check"></i>
+                </button>
+              </form>
+
+              <div class="mt-6 text-center text-white/80 text-sm">
+                <i class="fas fa-clock mr-2"></i>
+                We'll email you a calendar invite with call details
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 pt-8 border-t border-border text-center">
+            <p class="text-textSecondary mb-6">
+              Need to speak with someone immediately?
+            </p>
+            <div
+              class="inline-flex items-center bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg"
+            >
+              <i class="fas fa-phone mr-3"></i>
+              Call Now: (555) 123-SOLAR
+            </div>
+            <div class="mt-4 text-textSecondary text-sm">
+              <i class="fas fa-user-check mr-2"></i>
+              Ask for James or any of our solar consultants
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-6">
+              <div
+                class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
+              >
+                <i class="fas fa-sun text-primary text-xl"></i>
+              </div>
+              <div>
+                <h2 class="text-xl font-bold">Mega Sun Technologies</h2>
+              </div>
+            </div>
+            <p class="text-white/80">
+              Providing reliable solar solutions for homeowners and businesses
+              since 2013.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="solutions.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Solutions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="how-it-works.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >How It Works</a
+                >
+              </li>
+              <li>
+                <a
+                  href="our-projects.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  href="why-choose-us.html"
+                  class="text-secondary transition-colors"
+                  >Why Choose Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="FAQs.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >FAQs</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Contact Info</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt text-secondary mr-3 mt-1"></i>
+                <span>123 Solar Street, Sun City, SC 12345</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone text-secondary mr-3"></i>
+                <span>(555) 123-SOLAR</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope text-secondary mr-3"></i>
+                <span>info@megasuntech.com</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Business Hours</h3>
+            <ul class="space-y-2 text-white/80">
+              <li class="flex justify-between">
+                <span>Mon-Fri:</span>
+                <span>8:00 AM - 6:00 PM</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Saturday:</span>
+                <span>9:00 AM - 4:00 PM</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Sunday:</span>
+                <span>Closed</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-white/20 text-center text-white/70">
+          <p>&copy; 2023 Mega Sun Technologies. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-secondary text-primary flex items-center justify-center shadow-lg hover:shadow-xl transition-all opacity-0"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = document.querySelectorAll("#mobile-menu a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Form submission
+      const expertForm = document.getElementById("expert-consultation-form");
+      expertForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Get selected time
+        const selectedTime = document.querySelector(
+          'input[name="consultation_time"]:checked'
+        );
+        if (!selectedTime) {
+          alert("Please select a preferred consultation time.");
+          return;
+        }
+
+        // Show success message
+        alert(
+          `Thank you! We've scheduled your consultation for ${selectedTime.value} hours. Our solar expert will call you at the scheduled time.`
+        );
+
+        // Reset form
+        expertForm.reset();
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Animate transparency meters on scroll
+      function animateTransparencyMeters() {
+        const transparencyFills =
+          document.querySelectorAll(".transparency-fill");
+
+        transparencyFills.forEach((fill) => {
+          fill.style.width = fill.style.width || "0%";
+
+          // Animate to full width
+          setTimeout(() => {
+            fill.style.width = fill.getAttribute("data-width") || "100%";
+          }, 300);
+        });
+      }
+
+      // Create team connections
+      function createTeamConnections() {
+        const teamVisual = document.querySelector(".team-visual");
+        if (!teamVisual) return;
+
+        // Clear any existing connections
+        const existingConnections =
+          teamVisual.querySelectorAll(".team-connection");
+        existingConnections.forEach((conn) => conn.remove());
+
+        // Get team member positions
+        const teamMembers = teamVisual.querySelectorAll(".team-member");
+        const memberPositions = [];
+
+        teamMembers.forEach((member) => {
+          const rect = member.getBoundingClientRect();
+          const parentRect = teamVisual.getBoundingClientRect();
+
+          const x = rect.left - parentRect.left + rect.width / 2;
+          const y = rect.top - parentRect.top + rect.height / 2;
+
+          memberPositions.push({ x, y });
+        });
+
+        // Connect each member to the center (sun)
+        const centerX = parentRect.width / 2;
+        const centerY = parentRect.height / 2;
+
+        memberPositions.forEach((pos) => {
+          const connection = document.createElement("div");
+          connection.className = "team-connection";
+
+          // Calculate distance and angle
+          const dx = centerX - pos.x;
+          const dy = centerY - pos.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+          connection.style.width = `${distance}px`;
+          connection.style.left = `${pos.x}px`;
+          connection.style.top = `${pos.y}px`;
+          connection.style.transform = `rotate(${angle}deg)`;
+
+          teamVisual.appendChild(connection);
+        });
+      }
+
+      // Back to top button
+      const backToTopBtn = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.remove("opacity-0");
+          backToTopBtn.classList.add("opacity-100");
+        } else {
+          backToTopBtn.classList.remove("opacity-100");
+          backToTopBtn.classList.add("opacity-0");
+        }
+
+        // Animate elements when they come into view
+        animateOnScroll();
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Animation on scroll
+      function animateOnScroll() {
+        const animatedElements = document.querySelectorAll(
+          ".animate-fade-in-up, .animate-slide-in-left, .animate-slide-in-right"
+        );
+
+        animatedElements.forEach((element) => {
+          const rect = element.getBoundingClientRect();
+          const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+          if (isVisible && !element.classList.contains("animated")) {
+            element.classList.add("animated");
+
+            // Trigger specific animations
+            if (element.classList.contains("animate-fade-in-up")) {
+              element.style.opacity = "1";
+              element.style.transform = "translateY(0)";
+            } else if (element.classList.contains("animate-slide-in-left")) {
+              element.style.opacity = "1";
+              element.style.transform = "translateX(0)";
+            } else if (element.classList.contains("animate-slide-in-right")) {
+              element.style.opacity = "1";
+              element.style.transform = "translateX(0)";
+            }
+          }
+        });
+      }
+
+      // Initialize when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        // Create team connections
+        createTeamConnections();
+
+        // Animate transparency meters
+        setTimeout(animateTransparencyMeters, 500);
+
+        // Set initial animation states
+        const animatedElements = document.querySelectorAll(
+          ".animate-fade-in-up, .animate-slide-in-left, .animate-slide-in-right"
+        );
+        animatedElements.forEach((element) => {
+          element.style.opacity = "0";
+
+          if (element.classList.contains("animate-fade-in-up")) {
+            element.style.transform = "translateY(30px)";
+          } else if (element.classList.contains("animate-slide-in-left")) {
+            element.style.transform = "translateX(-30px)";
+          } else if (element.classList.contains("animate-slide-in-right")) {
+            element.style.transform = "translateX(30px)";
+          }
+        });
+
+        // Trigger initial animation check
+        setTimeout(animateOnScroll, 100);
+
+        // Recreate team connections on resize (with debounce)
+        let resizeTimeout;
+        window.addEventListener("resize", function () {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(createTeamConnections, 250);
+        });
+
+        // Add hover effect to brand logos
+        const brandLogos = document.querySelectorAll(".brand-logo");
+        brandLogos.forEach((logo) => {
+          logo.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-5px)";
+            this.style.boxShadow = "0 10px 25px rgba(11, 60, 93, 0.15)";
+          });
+
+          logo.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0)";
+            this.style.boxShadow = "0 5px 15px rgba(11, 60, 93, 0.08)";
+          });
+        });
+
+        // Add click effect to consultation time options
+        const timeOptions = document.querySelectorAll(
+          'input[name="consultation_time"]'
+        );
+        timeOptions.forEach((option) => {
+          option.addEventListener("change", function () {
+            // Add visual feedback
+            const label = document.querySelector(`label[for="${this.id}"]`);
+            if (label) {
+              // Add a subtle animation
+              label.style.transform = "scale(1.02)";
+              setTimeout(() => {
+                label.style.transform = "scale(1)";
+              }, 150);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

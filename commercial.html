@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commercial Solar Solutions | Mega Sun Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0B3C5D",
+              secondary: "#F4B400",
+              accent: "#2E7D32",
+              background: "#F7F9FC",
+              surface: "#FFFFFF",
+              textPrimary: "#1F2933",
+              textSecondary: "#4B5563",
+              border: "#E5E7EB",
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            animation: {
+              "fade-in": "fadeIn 0.8s ease-out",
+              "slide-up": "slideUp 0.6s ease-out",
+              "count-up": "countUp 2s ease-out forwards",
+              "pulse-glow": "pulseGlow 3s ease-in-out infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { opacity: "0", transform: "translateY(30px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              countUp: {
+                "0%": { content: '"0"' },
+                "100%": { content: "attr(data-target)" },
+              },
+              pulseGlow: {
+                "0%, 100%": { boxShadow: "0 0 20px rgba(244, 180, 0, 0.3)" },
+                "50%": { boxShadow: "0 0 30px rgba(244, 180, 0, 0.6)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>"
+    />
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .commercial-gradient-bg {
+        background: linear-gradient(
+          135deg,
+          rgba(11, 60, 93, 0.03) 0%,
+          rgba(244, 180, 0, 0.03) 50%,
+          rgba(46, 125, 50, 0.03) 100%
+        );
+      }
+
+      .roi-card {
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .roi-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(11, 60, 93, 0.15);
+      }
+
+      .roi-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(90deg, #0b3c5d, #f4b400, #2e7d32);
+      }
+
+      .business-card {
+        border-left: 5px solid #f4b400;
+        transition: all 0.3s ease;
+      }
+
+      .business-card:hover {
+        border-left-color: #2e7d32;
+        transform: translateX(5px);
+      }
+
+      .cost-savings-bar {
+        height: 12px;
+        background: linear-gradient(90deg, #0b3c5d, #2e7d32);
+        border-radius: 6px;
+        transition: width 1.8s ease-in-out;
+      }
+
+      .sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.97);
+      }
+
+      .stat-number {
+        font-size: 3.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #0b3c5d, #2e7d32);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+      }
+
+      .case-study-card {
+        border-top: 5px solid #f4b400;
+        transition: all 0.3s ease;
+      }
+
+      .case-study-card:hover {
+        border-top-color: #2e7d32;
+        box-shadow: 0 15px 35px rgba(11, 60, 93, 0.1);
+      }
+
+      .pulse-glow {
+        animation: pulseGlow 3s ease-in-out infinite;
+      }
+
+      @media (max-width: 768px) {
+        .stat-number {
+          font-size: 2.5rem;
+        }
+
+        .mobile-stack {
+          flex-direction: column;
+        }
+      }
+
+      .chart-container {
+        height: 300px;
+        position: relative;
+      }
+
+      .chart-bar {
+        position: absolute;
+        bottom: 0;
+        width: 40px;
+        border-radius: 8px 8px 0 0;
+        transition: height 1.5s ease-in-out;
+      }
+
+      .chart-label {
+        position: absolute;
+        bottom: -30px;
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-textPrimary font-poppins">
+    <!-- Navigation -->
+    <header class="sticky-nav shadow-md">
+      <nav
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <a href="index.html" class="flex items-center space-x-2">
+            <div
+              class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
+            >
+              <i class="fas fa-sun text-primary text-xl"></i>
+            </div>
+            <div>
+              <h1 class="text-xl font-bold text-primary">
+                Mega Sun Technologies
+              </h1>
+              <p class="text-xs text-textSecondary">Commercial Solar Experts</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="hidden md:flex space-x-8 items-center">
+          <a
+            href="index.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Home</a
+          >
+          <a
+            href="solutions.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Residential</a
+          >
+          <a
+            href="#commercial"
+            class="font-medium text-secondary transition-colors"
+            >Commercial</a
+          >
+          <a
+            href="#case-studies"
+            class="font-medium hover:text-secondary transition-colors"
+            >Case Studies</a
+          >
+          <a
+            href="contact.html"
+            class="font-medium hover:text-secondary transition-colors"
+            >Contact</a
+          >
+          <a
+            href="contact.html"
+            class="bg-secondary text-primary font-bold py-2 px-6 rounded-lg hover:bg-yellow-300 transition-all pulse-glow"
+            >Free Assessment</a
+          >
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-primary">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-surface shadow-lg px-4 py-6"
+      >
+        <div class="flex flex-col space-y-4">
+          <a
+            href="index.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Home</a
+          >
+          <a
+            href="solutions.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Residential</a
+          >
+          <a href="#commercial" class="font-medium text-secondary py-2"
+            >Commercial</a
+          >
+          <a
+            href="#case-studies"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Case Studies</a
+          >
+          <a
+            href="contact.html"
+            class="font-medium hover:text-secondary transition-colors py-2"
+            >Contact</a
+          >
+          <a
+            href="contact.html"
+            class="bg-secondary text-primary font-bold py-3 px-6 rounded-lg mt-4 text-center pulse-glow"
+            >Free Assessment</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="commercial-gradient-bg pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center">
+          <div class="lg:w-1/2 mb-12 lg:mb-0 animate-slide-up">
+            <div
+              class="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent font-medium mb-6"
+            >
+              <i class="fas fa-chart-line mr-2"></i> Designed for Business
+              Owners
+            </div>
+            <h1
+              class="text-4xl md:text-5xl font-bold text-primary leading-tight mb-6"
+            >
+              Reduce Operating Costs with Commercial Solar
+            </h1>
+            <p class="text-xl text-textSecondary mb-10">
+              Turn your biggest overhead expense into a competitive advantage.
+              Solar energy cuts electricity costs, protects profits, and builds
+              business resilience.
+            </p>
+
+            <div
+              class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6"
+            >
+              <a
+                href="contact.html"
+                class="bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 text-center pulse-glow"
+              >
+                Get a Commercial Solar Assessment
+                <i class="ml-2 fas fa-building"></i>
+              </a>
+              <a
+                href="#roi"
+                class="bg-primary text-white font-bold py-4 px-8 rounded-lg text-lg border-2 border-primary hover:bg-white hover:text-primary transition-all text-center"
+              >
+                See ROI Calculator
+                <i class="ml-2 fas fa-calculator"></i>
+              </a>
+            </div>
+
+            <div class="mt-12 grid grid-cols-3 gap-6">
+              <div class="text-center">
+                <div class="stat-number" data-target="40">0</div>
+                <div class="text-textSecondary">Avg. Cost Reduction</div>
+              </div>
+              <div class="text-center">
+                <div class="stat-number" data-target="3-5">0</div>
+                <div class="text-textSecondary">Year Payback</div>
+              </div>
+              <div class="text-center">
+                <div class="stat-number" data-target="25">0</div>
+                <div class="text-textSecondary">Year Warranty</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:w-1/2 relative">
+            <div class="relative z-10">
+              <div class="bg-surface rounded-2xl p-8 shadow-2xl">
+                <div class="flex items-center mb-6">
+                  <div
+                    class="w-16 h-16 rounded-full bg-secondary flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-money-bill-wave text-primary text-2xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-bold text-primary">
+                      Business Cost Savings
+                    </h3>
+                    <p class="text-textSecondary">
+                      Typical commercial solar savings
+                    </p>
+                  </div>
+                </div>
+
+                <div class="chart-container mb-8">
+                  <div class="flex justify-between items-end h-full relative">
+                    <div class="flex flex-col items-center" style="left: 10%">
+                      <div
+                        class="chart-bar bg-primary"
+                        style="height: 0"
+                        data-height="100%"
+                      ></div>
+                      <div class="chart-label text-primary">Before Solar</div>
+                    </div>
+                    <div class="flex flex-col items-center" style="left: 30%">
+                      <div
+                        class="chart-bar bg-accent"
+                        style="height: 0"
+                        data-height="60%"
+                      ></div>
+                      <div class="chart-label text-accent">Year 1</div>
+                    </div>
+                    <div class="flex flex-col items-center" style="left: 50%">
+                      <div
+                        class="chart-bar bg-accent"
+                        style="height: 0"
+                        data-height="40%"
+                      ></div>
+                      <div class="chart-label text-accent">Year 5</div>
+                    </div>
+                    <div class="flex flex-col items-center" style="left: 70%">
+                      <div
+                        class="chart-bar bg-secondary"
+                        style="height: 0"
+                        data-height="20%"
+                      ></div>
+                      <div class="chart-label text-secondary">
+                        After Payback
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-primary/5 p-4 rounded-xl">
+                  <div class="flex items-center">
+                    <i
+                      class="fas fa-lightbulb text-secondary text-2xl mr-4"
+                    ></i>
+                    <div>
+                      <p class="font-bold text-primary">
+                        Most businesses achieve 100% ROI in 3-5 years, then
+                        enjoy nearly free electricity for decades.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="absolute -bottom-6 -right-6 w-64 h-64 rounded-full bg-gradient-to-r from-primary to-accent opacity-5"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Pain Points -->
+    <section class="py-16 bg-surface">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+            The Business Cost Problem
+          </h2>
+          <p class="text-lg text-textSecondary max-w-3xl mx-auto">
+            Traditional electricity is eating into your profit margins
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="business-card bg-background rounded-xl p-8">
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mr-4"
+              >
+                <i class="fas fa-money-bill-alt text-red-500 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-primary">
+                High Monthly Power Expenses
+              </h3>
+            </div>
+            <p class="text-textSecondary mb-6">
+              Electricity is often the 2nd or 3rd largest operational cost for
+              businesses, with unpredictable monthly fluctuations.
+            </p>
+            <div class="pt-4 border-t border-border">
+              <div class="flex justify-between mb-2">
+                <span class="text-textSecondary">Typical business expense</span>
+                <span class="font-bold text-primary">15-25%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="cost-savings-bar h-full w-3/4"></div>
+              </div>
+              <div class="text-sm text-textSecondary mt-2">
+                Of total operational costs
+              </div>
+            </div>
+          </div>
+
+          <div class="business-card bg-background rounded-xl p-8">
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 rounded-full bg-yellow-50 flex items-center justify-center mr-4"
+              >
+                <i class="fas fa-bolt text-yellow-500 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-primary">
+                Unreliable Grid Supply
+              </h3>
+            </div>
+            <p class="text-textSecondary mb-6">
+              Power outages disrupt operations, damage equipment, and cost
+              businesses in lost productivity and revenue.
+            </p>
+            <div class="pt-4 border-t border-border">
+              <div class="flex justify-between mb-2">
+                <span class="text-textSecondary">Average outage cost</span>
+                <span class="font-bold text-primary">$5,000/hr</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="cost-savings-bar h-full w-2/3"></div>
+              </div>
+              <div class="text-sm text-textSecondary mt-2">
+                For small-medium businesses
+              </div>
+            </div>
+          </div>
+
+          <div class="business-card bg-background rounded-xl p-8">
+            <div class="flex items-center mb-6">
+              <div
+                class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mr-4"
+              >
+                <i class="fas fa-chart-bar text-blue-500 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-primary">
+                Rising Tariffs Cutting Profits
+              </h3>
+            </div>
+            <p class="text-textSecondary mb-6">
+              Utility rates increase 3-6% annually, directly reducing your
+              profit margins year after year with no end in sight.
+            </p>
+            <div class="pt-4 border-t border-border">
+              <div class="flex justify-between mb-2">
+                <span class="text-textSecondary">Annual rate increase</span>
+                <span class="font-bold text-primary">4.5% avg.</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="cost-savings-bar h-full w-4/5"></div>
+              </div>
+              <div class="text-sm text-textSecondary mt-2">
+                Compounded over 10 years = 55%+ increase
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-primary rounded-2xl p-8 text-white">
+          <div class="md:flex items-center">
+            <div class="md:w-2/3 mb-6 md:mb-0">
+              <h3 class="text-2xl font-bold mb-4">The Bottom Line Impact</h3>
+              <p>
+                For a business spending $2,000/month on electricity, that's
+                $24,000 annually. A 5% annual increase means an additional
+                $1,200 in year 2, $2,460 in year 3, and over $15,000 in extra
+                costs after 5 years.
+              </p>
+            </div>
+            <div class="md:w-1/3 flex justify-center md:justify-end">
+              <div class="bg-white/20 p-6 rounded-2xl backdrop-blur-sm">
+                <div class="text-center">
+                  <div class="text-4xl font-bold">$15K+</div>
+                  <div>Extra cost in 5 years</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI Explanation -->
+    <section id="roi" class="py-20 commercial-gradient-bg">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+            Why Solar Makes Financial Sense for Business
+          </h2>
+          <p class="text-lg text-textSecondary max-w-3xl mx-auto">
+            Solar isn't an expense—it's an investment with measurable returns
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <div class="roi-card bg-surface rounded-2xl p-8 shadow-lg">
+            <div class="flex justify-center mb-6">
+              <div
+                class="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center"
+              >
+                <i class="fas fa-lock text-accent text-3xl"></i>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-primary mb-4 text-center">
+              Fixed Energy Costs
+            </h3>
+            <p class="text-textSecondary text-center mb-6">
+              Lock in your electricity rate for 25+ years. No more unpredictable
+              utility price hikes affecting your bottom line.
+            </p>
+            <div class="mt-6 p-4 bg-accent/10 rounded-xl">
+              <div class="text-center">
+                <div class="text-xl font-bold text-accent">Price Certainty</div>
+                <div class="text-textSecondary text-sm">
+                  Budget accurately for decades
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roi-card bg-surface rounded-2xl p-8 shadow-lg">
+            <div class="flex justify-center mb-6">
+              <div
+                class="w-20 h-20 rounded-full bg-yellow-50 flex items-center justify-center"
+              >
+                <i class="fas fa-rocket text-secondary text-3xl"></i>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-primary mb-4 text-center">
+              Fast Payback (3–5 Years)
+            </h3>
+            <p class="text-textSecondary text-center mb-6">
+              Most commercial systems pay for themselves within 3-5 years
+              through electricity savings and available incentives.
+            </p>
+            <div class="mt-6 p-4 bg-secondary/10 rounded-xl">
+              <div class="text-center">
+                <div class="text-xl font-bold text-secondary">Quick ROI</div>
+                <div class="text-textSecondary text-sm">
+                  Then 20+ years of savings
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roi-card bg-surface rounded-2xl p-8 shadow-lg">
+            <div class="flex justify-center mb-6">
+              <div
+                class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center"
+              >
+                <i class="fas fa-piggy-bank text-primary text-3xl"></i>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-primary mb-4 text-center">
+              Long-Term Savings (20+ Years)
+            </h3>
+            <p class="text-textSecondary text-center mb-6">
+              After payback, enjoy dramatically reduced electricity costs for
+              the life of the system, directly improving profit margins.
+            </p>
+            <div class="mt-6 p-4 bg-primary/10 rounded-xl">
+              <div class="text-center">
+                <div class="text-xl font-bold text-primary">Lifetime Value</div>
+                <div class="text-textSecondary text-sm">
+                  Substantial long-term savings
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROI Calculator -->
+        <div class="bg-surface rounded-2xl p-8 shadow-xl">
+          <div class="text-center mb-10">
+            <h3 class="text-3xl font-bold text-primary mb-4">
+              Commercial Solar ROI Calculator
+            </h3>
+            <p class="text-textSecondary">
+              Estimate your potential savings based on current electricity spend
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-10">
+            <div>
+              <div class="space-y-6">
+                <div>
+                  <label class="block text-primary font-bold mb-2"
+                    >Monthly Electricity Bill</label
+                  >
+                  <div class="relative">
+                    <span class="absolute left-4 top-4 text-textSecondary"
+                      >$</span
+                    >
+                    <input
+                      type="range"
+                      id="bill-slider"
+                      min="500"
+                      max="10000"
+                      step="100"
+                      value="2000"
+                      class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                    />
+                    <div
+                      class="flex justify-between text-sm text-textSecondary mt-2"
+                    >
+                      <span>$500</span>
+                      <span>$5,000</span>
+                      <span>$10,000</span>
+                    </div>
+                  </div>
+                  <div class="text-center mt-4">
+                    <div
+                      class="text-3xl font-bold text-primary"
+                      id="bill-display"
+                    >
+                      $2,000
+                    </div>
+                    <div class="text-textSecondary">Per month</div>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-primary font-bold mb-2"
+                    >Business Type</label
+                  >
+                  <select
+                    id="business-type"
+                    class="w-full p-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                  >
+                    <option value="retail">Retail Shop / Showroom</option>
+                    <option value="office">Office Building</option>
+                    <option value="factory">Small Factory / Warehouse</option>
+                    <option value="school">School / Clinic</option>
+                    <option value="restaurant">Restaurant / Hospitality</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-primary font-bold mb-2"
+                    >Roof Size Available</label
+                  >
+                  <div class="flex space-x-4">
+                    <button
+                      class="roi-option flex-1 py-3 border border-border rounded-lg text-center"
+                      data-value="small"
+                    >
+                      Small<br /><span class="text-sm text-textSecondary"
+                        >(Up to 2,000 sq ft)</span
+                      >
+                    </button>
+                    <button
+                      class="roi-option flex-1 py-3 border border-border rounded-lg text-center"
+                      data-value="medium"
+                    >
+                      Medium<br /><span class="text-sm text-textSecondary"
+                        >(2,000-5,000 sq ft)</span
+                      >
+                    </button>
+                    <button
+                      class="roi-option flex-1 py-3 border border-border rounded-lg text-center"
+                      data-value="large"
+                    >
+                      Large<br /><span class="text-sm text-textSecondary"
+                        >(5,000+ sq ft)</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-primary/5 rounded-xl p-8">
+              <h4 class="text-2xl font-bold text-primary mb-6 text-center">
+                Your Estimated Results
+              </h4>
+
+              <div class="space-y-6">
+                <div
+                  class="flex justify-between items-center pb-4 border-b border-border"
+                >
+                  <div>
+                    <div class="font-bold text-primary">System Size</div>
+                    <div class="text-sm text-textSecondary">
+                      Recommended solar installation
+                    </div>
+                  </div>
+                  <div class="text-2xl font-bold text-accent" id="system-size">
+                    50 kW
+                  </div>
+                </div>
+
+                <div
+                  class="flex justify-between items-center pb-4 border-b border-border"
+                >
+                  <div>
+                    <div class="font-bold text-primary">Estimated Payback</div>
+                    <div class="text-sm text-textSecondary">
+                      Time to recover investment
+                    </div>
+                  </div>
+                  <div
+                    class="text-2xl font-bold text-accent"
+                    id="payback-period"
+                  >
+                    4.2 years
+                  </div>
+                </div>
+
+                <div
+                  class="flex justify-between items-center pb-4 border-b border-border"
+                >
+                  <div>
+                    <div class="font-bold text-primary">Annual Savings</div>
+                    <div class="text-sm text-textSecondary">
+                      After system installation
+                    </div>
+                  </div>
+                  <div
+                    class="text-2xl font-bold text-accent"
+                    id="annual-savings"
+                  >
+                    $28,800
+                  </div>
+                </div>
+
+                <div class="flex justify-between items-center">
+                  <div>
+                    <div class="font-bold text-primary">10-Year Savings</div>
+                    <div class="text-sm text-textSecondary">
+                      Total after payback period
+                    </div>
+                  </div>
+                  <div
+                    class="text-2xl font-bold text-accent"
+                    id="ten-year-savings"
+                  >
+                    $216,000
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="mt-8 p-4 bg-accent/20 rounded-lg border border-accent/30"
+              >
+                <p class="text-accent font-medium text-center">
+                  <i class="fas fa-exclamation-circle mr-2"></i>
+                  These are estimates. Get an accurate assessment for your
+                  business.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 text-center">
+            <a
+              href="contact.html"
+              class="inline-flex items-center bg-secondary text-primary font-bold py-4 px-10 rounded-lg text-lg hover:bg-yellow-300 transition-all pulse-glow"
+            >
+              <i class="fas fa-file-invoice-dollar mr-3"></i>
+              Get Your Custom ROI Analysis
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Benefits -->
+    <section class="py-20 bg-surface">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+            Beyond Cost Savings: Additional Business Benefits
+          </h2>
+          <p class="text-lg text-textSecondary max-w-3xl mx-auto">
+            Solar energy delivers value beyond just reducing electricity bills
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div class="bg-background p-6 rounded-xl border border-border">
+            <div
+              class="w-14 h-14 rounded-full bg-green-50 flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-shield-alt text-accent text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-primary mb-3">
+              Business Resilience
+            </h4>
+            <p class="text-textSecondary">
+              Hybrid systems provide backup power during outages, ensuring
+              continuity of operations.
+            </p>
+          </div>
+
+          <div class="bg-background p-6 rounded-xl border border-border">
+            <div
+              class="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-leaf text-primary text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-primary mb-3">
+              Green Credentials
+            </h4>
+            <p class="text-textSecondary">
+              Demonstrate environmental responsibility to customers, employees,
+              and stakeholders.
+            </p>
+          </div>
+
+          <div class="bg-background p-6 rounded-xl border border-border">
+            <div
+              class="w-14 h-14 rounded-full bg-yellow-50 flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-tags text-secondary text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-primary mb-3">Tax Incentives</h4>
+            <p class="text-textSecondary">
+              Accelerated depreciation and potential tax credits improve overall
+              ROI.
+            </p>
+          </div>
+
+          <div class="bg-background p-6 rounded-xl border border-border">
+            <div
+              class="w-14 h-14 rounded-full bg-purple-50 flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-chart-line text-purple-500 text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-primary mb-3">
+              Asset Value Increase
+            </h4>
+            <p class="text-textSecondary">
+              Solar installations can increase commercial property values by
+              3-4% on average.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-primary to-accent rounded-2xl p-8 md:p-12 text-white"
+        >
+          <div class="md:flex items-center">
+            <div class="md:w-2/3 mb-8 md:mb-0">
+              <h3 class="text-2xl font-bold mb-6">
+                Ideal For These Business Types
+              </h3>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div
+                  class="flex flex-col items-center p-4 bg-white/10 rounded-lg backdrop-blur-sm"
+                >
+                  <i class="fas fa-store text-3xl mb-3 text-secondary"></i>
+                  <div class="font-bold">Shops & Showrooms</div>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/10 rounded-lg backdrop-blur-sm"
+                >
+                  <i class="fas fa-building text-3xl mb-3 text-secondary"></i>
+                  <div class="font-bold">Office Buildings</div>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/10 rounded-lg backdrop-blur-sm"
+                >
+                  <i class="fas fa-industry text-3xl mb-3 text-secondary"></i>
+                  <div class="font-bold">Factories & Warehouses</div>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/10 rounded-lg backdrop-blur-sm"
+                >
+                  <i class="fas fa-school text-3xl mb-3 text-secondary"></i>
+                  <div class="font-bold">Schools & Clinics</div>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/3 flex justify-center">
+              <div class="bg-white/20 p-6 rounded-2xl backdrop-blur-sm">
+                <div class="text-center mb-4">
+                  <div class="text-5xl font-bold">85%</div>
+                  <div class="text-secondary">Of commercial rooftops</div>
+                </div>
+                <div class="text-center text-sm">
+                  are suitable for solar installation
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="case-studies" class="py-20 commercial-gradient-bg">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+            Real Business Case Examples
+          </h2>
+          <p class="text-lg text-textSecondary max-w-3xl mx-auto">
+            See how other businesses are saving with commercial solar
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div class="case-study-card bg-surface rounded-xl p-8 shadow-lg">
+            <div class="flex items-center mb-6">
+              <div
+                class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mr-4"
+              >
+                <i class="fas fa-store text-accent text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-primary">
+                  Retail Clothing Store
+                </h3>
+                <div class="text-textSecondary text-sm">
+                  Downtown Shopping District
+                </div>
+              </div>
+            </div>
+            <p class="text-textSecondary mb-6">
+              A small retail shop reduced monthly electricity bills by 72% after
+              installing a 30 kW solar system.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex justify-between">
+                <span class="text-textSecondary">Before Solar:</span>
+                <span class="font-bold text-primary">$1,850/month</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-textSecondary">After Solar:</span>
+                <span class="font-bold text-accent">$520/month</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-textSecondary">System Size:</span>
+                <span class="font-bold text-primary">30 kW</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-textSecondary">Payback Period:</span>
+                <span class="font-bold text-secondary">3.8 years</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-border">
+              <p class="text-sm text-textSecondary italic">
+                "The system paid for itself faster than we expected. Now we're
+                saving over $15,000 annually on electricity."
+              </p>
+            </div>
+          </div>
+
+          <div class="case-study-card bg-surface rounded-xl p-8 shadow-lg">
+            <div class="flex items-center mb-6">
+              <div
+                class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mr-4"
+              >
+                <i class="fas fa-warehouse text-primary text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-primary">
+                  Small Manufacturing Plant
+                </h3>
+                <div class="text-textSecondary text-sm">Industrial Zone</div>
+              </div>
+            </div>
+            <p class="text-textSecondary mb-6">
+              A packaging facility eliminated 68% of their grid electricity
+              usage with a 75 kW solar installation.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex justify-between">
+                <span class="text-textSecondary">Before Solar:</span>
+                <span class="font-bold text-primary">$4,200/month</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-textSecondary">After Solar:</span>
+                <span class="font-bold text-accent">$1,350/month</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-textSecondary">System Size:</span>
+                <span class="font-bold text-primary">75 kW</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-textSecondary">Payback Period:</span>
+                <span class="font-bold text-secondary">4.2 years</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-border">
+              <p class="text-sm text-textSecondary italic">
+                "Solar gave us predictable energy costs and helped us bid more
+                competitively on contracts."
+              </p>
+            </div>
+          </div>
+
+          <div class="case-study-card bg-surface rounded-xl p-8 shadow-lg">
+            <div class="flex items-center mb-6">
+              <div
+                class="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center mr-4"
+              >
+                <i class="fas fa-utensils text-secondary text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-primary">Restaurant Chain</h3>
+                <div class="text-textSecondary text-sm">3 Locations</div>
+              </div>
+            </div>
+            <p class="text-textSecondary mb-6">
+              A restaurant group installed solar at 3 locations, reducing
+              overall energy costs by 65% across all sites.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex justify-between">
+                <span class="text-textSecondary">Before Solar:</span>
+                <span class="font-bold text-primary">$2,800/month</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-textSecondary">After Solar:</span>
+                <span class="font-bold text-accent">$980/month</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-textSecondary">System Size:</span>
+                <span class="font-bold text-primary">45 kW total</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-textSecondary">Payback Period:</span>
+                <span class="font-bold text-secondary">3.5 years</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-border">
+              <p class="text-sm text-textSecondary italic">
+                "Our customers appreciate our commitment to sustainability, and
+                our energy savings directly improve our bottom line."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a
+            href="contact.html"
+            class="inline-flex items-center bg-primary text-white font-bold py-4 px-10 rounded-lg text-lg hover:bg-blue-800 transition-all"
+          >
+            <i class="fas fa-chart-bar mr-3"></i>
+            See More Case Studies & Detailed ROI Analysis
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-20 bg-surface">
+      <div class="container mx-auto px-4">
+        <div
+          class="max-w-5xl mx-auto bg-gradient-to-br from-background to-primary/5 rounded-3xl p-8 md:p-12 shadow-2xl border border-border"
+        >
+          <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Get Your Commercial Solar Assessment
+            </h2>
+            <p class="text-lg text-textSecondary">
+              A detailed analysis of your business's solar potential, ROI, and
+              implementation plan
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-10">
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-6">
+                What's Included in Your Assessment:
+              </h3>
+
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center"
+                    >
+                      <i
+                        class="fas fa-clipboard-list text-secondary text-xl"
+                      ></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary mb-1">
+                      Detailed Site Evaluation
+                    </h4>
+                    <p class="text-textSecondary text-sm">
+                      Analysis of your roof space, orientation, shading, and
+                      structural capacity.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center"
+                    >
+                      <i class="fas fa-bolt text-secondary text-xl"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary mb-1">
+                      Energy Consumption Analysis
+                    </h4>
+                    <p class="text-textSecondary text-sm">
+                      Review of your electricity usage patterns to optimize
+                      system sizing.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center"
+                    >
+                      <i class="fas fa-calculator text-secondary text-xl"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary mb-1">
+                      Custom Financial Model
+                    </h4>
+                    <p class="text-textSecondary text-sm">
+                      Detailed ROI analysis including payback period, cash flow,
+                      and tax benefits.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center"
+                    >
+                      <i
+                        class="fas fa-file-contract text-secondary text-xl"
+                      ></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary mb-1">
+                      Implementation Roadmap
+                    </h4>
+                    <p class="text-textSecondary text-sm">
+                      Step-by-step plan including permitting, installation, and
+                      activation timeline.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-10 bg-primary/5 p-6 rounded-xl">
+                <div class="flex items-center">
+                  <i class="fas fa-award text-secondary text-2xl mr-4"></i>
+                  <div>
+                    <p class="font-bold text-primary">
+                      Business owners who get our assessment report:
+                    </p>
+                    <p class="text-textSecondary text-sm">
+                      92% proceed with solar installation within 6 months
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-primary rounded-2xl p-8 text-white">
+              <h3 class="text-2xl font-bold mb-6">
+                Request Your Free Assessment
+              </h3>
+              <p class="mb-6">
+                Complete this form and we'll contact you within 24 hours to
+                schedule your commercial solar assessment.
+              </p>
+
+              <form id="commercial-assessment-form">
+                <div class="mb-4">
+                  <input
+                    type="text"
+                    placeholder="Business Name"
+                    class="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-secondary"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <input
+                    type="text"
+                    placeholder="Your Name & Title"
+                    class="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-secondary"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <input
+                    type="email"
+                    placeholder="Business Email"
+                    class="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-secondary"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <input
+                    type="tel"
+                    placeholder="Business Phone"
+                    class="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-secondary"
+                    required
+                  />
+                </div>
+                <div class="mb-6">
+                  <select
+                    class="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-secondary"
+                    required
+                  >
+                    <option value="" disabled selected>Business Type</option>
+                    <option value="retail">Retail / Shop</option>
+                    <option value="office">Office Building</option>
+                    <option value="manufacturing">
+                      Manufacturing / Warehouse
+                    </option>
+                    <option value="hospitality">
+                      Restaurant / Hospitality
+                    </option>
+                    <option value="education">School / Education</option>
+                    <option value="healthcare">Clinic / Healthcare</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-yellow-300 transition-all pulse-glow"
+                >
+                  Get Free Commercial Assessment
+                  <i class="ml-2 fas fa-chart-line"></i>
+                </button>
+              </form>
+
+              <div class="mt-6 text-center text-white/80 text-sm">
+                <i class="fas fa-clock mr-2"></i>
+                Assessment typically takes 60-90 minutes
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 pt-8 border-t border-border text-center">
+            <p class="text-textSecondary mb-6">
+              For immediate assistance or to speak with our commercial solar
+              specialist:
+            </p>
+            <div
+              class="inline-flex items-center bg-secondary text-primary font-bold py-4 px-8 rounded-lg text-lg"
+            >
+              <i class="fas fa-phone mr-3"></i>
+              Call Our Business Team: (555) 123-COMMERCIAL
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-6">
+              <div
+                class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
+              >
+                <i class="fas fa-sun text-primary text-xl"></i>
+              </div>
+              <div>
+                <h2 class="text-xl font-bold">Mega Sun Technologies</h2>
+                <p class="text-xs text-white/70">Commercial Solar Solutions</p>
+              </div>
+            </div>
+            <p class="text-white/80">
+              Helping businesses reduce operating costs and improve
+              profitability through solar energy since 2013.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Commercial Solutions</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#roi"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >ROI Calculator</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#case-studies"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Case Studies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Free Assessment</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Financing Options</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="solutions.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Residential Solutions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#commercial"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Commercial Solutions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-white/80 hover:text-secondary transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-6">Business Contact</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt text-secondary mr-3 mt-1"></i>
+                <span>123 Solar Street, Sun City, SC 12345</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone text-secondary mr-3"></i>
+                <span>(555) 123-COMMERCIAL</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope text-secondary mr-3"></i>
+                <span>commercial@megasuntech.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-white/20 text-center text-white/70">
+          <p>&copy; 2023 Mega Sun Technologies. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-secondary text-primary flex items-center justify-center shadow-lg hover:shadow-xl transition-all opacity-0"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = document.querySelectorAll("#mobile-menu a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Form submission
+      const commercialForm = document.getElementById(
+        "commercial-assessment-form"
+      );
+      commercialForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert(
+          "Thank you for your interest in commercial solar! Our business team will contact you within 24 hours to schedule your assessment."
+        );
+        commercialForm.reset();
+      });
+
+      // Animated counting numbers
+      function animateCountUp() {
+        const statNumbers = document.querySelectorAll(".stat-number");
+
+        statNumbers.forEach((stat) => {
+          const target = stat.getAttribute("data-target");
+          let current = 0;
+          const increment = target / 50;
+          const duration = 1500;
+          const stepTime = duration / 50;
+
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              stat.textContent = target;
+              clearInterval(timer);
+            } else {
+              stat.textContent = Math.floor(current);
+            }
+          }, stepTime);
+        });
+      }
+
+      // ROI Calculator functionality
+      const billSlider = document.getElementById("bill-slider");
+      const billDisplay = document.getElementById("bill-display");
+      const businessTypeSelect = document.getElementById("business-type");
+      const roiOptions = document.querySelectorAll(".roi-option");
+
+      // System size, payback, and savings displays
+      const systemSizeDisplay = document.getElementById("system-size");
+      const paybackDisplay = document.getElementById("payback-period");
+      const annualSavingsDisplay = document.getElementById("annual-savings");
+      const tenYearSavingsDisplay = document.getElementById("ten-year-savings");
+
+      // Default calculation
+      function calculateROI() {
+        const monthlyBill = parseInt(billSlider.value);
+        const annualBill = monthlyBill * 12;
+
+        // Calculate system size based on bill (rough estimate: $1,000/month ≈ 25 kW)
+        const systemSize = Math.round((monthlyBill / 1000) * 25);
+        systemSizeDisplay.textContent = `${systemSize} kW`;
+
+        // Calculate annual savings (assuming 75% of bill is offset)
+        const annualSavings = Math.round(annualBill * 0.75);
+        annualSavingsDisplay.textContent = `$${annualSavings.toLocaleString()}`;
+
+        // Calculate system cost (rough estimate: $2.50 per watt)
+        const systemCost = systemSize * 1000 * 2.5;
+
+        // Calculate payback period (including 30% tax credit)
+        const taxCredit = systemCost * 0.3;
+        const netCost = systemCost - taxCredit;
+        const paybackYears = (netCost / annualSavings).toFixed(1);
+        paybackDisplay.textContent = `${paybackYears} years`;
+
+        // Calculate 10-year savings (accounting for payback period)
+        let tenYearSavings = 0;
+        if (parseFloat(paybackYears) <= 10) {
+          const yearsAfterPayback = 10 - parseFloat(paybackYears);
+          tenYearSavings = yearsAfterPayback * annualSavings;
+        }
+        tenYearSavingsDisplay.textContent = `$${Math.round(
+          tenYearSavings
+        ).toLocaleString()}`;
+
+        // Update bill display
+        billDisplay.textContent = `$${monthlyBill.toLocaleString()}`;
+      }
+
+      // Initialize calculator
+      calculateROI();
+
+      // Update calculator when inputs change
+      billSlider.addEventListener("input", calculateROI);
+      businessTypeSelect.addEventListener("change", calculateROI);
+
+      // ROI option buttons
+      roiOptions.forEach((option) => {
+        option.addEventListener("click", function () {
+          // Remove active class from all options
+          roiOptions.forEach((opt) => {
+            opt.classList.remove(
+              "bg-secondary",
+              "text-primary",
+              "border-secondary"
+            );
+            opt.classList.add("border-border");
+          });
+
+          // Add active class to clicked option
+          this.classList.remove("border-border");
+          this.classList.add(
+            "bg-secondary",
+            "text-primary",
+            "border-secondary"
+          );
+
+          // Recalculate based on roof size
+          calculateROI();
+        });
+      });
+
+      // Animate chart bars
+      function animateChartBars() {
+        const chartBars = document.querySelectorAll(".chart-bar");
+
+        chartBars.forEach((bar) => {
+          const targetHeight = bar.getAttribute("data-height");
+          bar.style.height = targetHeight;
+        });
+      }
+
+      // Back to top button
+      const backToTopBtn = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.remove("opacity-0");
+          backToTopBtn.classList.add("opacity-100");
+        } else {
+          backToTopBtn.classList.remove("opacity-100");
+          backToTopBtn.classList.add("opacity-0");
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Initialize animations when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        // Start count-up animation
+        animateCountUp();
+
+        // Animate chart bars with delay
+        setTimeout(animateChartBars, 500);
+
+        // Set first ROI option as active
+        if (roiOptions.length > 0) {
+          roiOptions[1].click(); // Set medium as default
+        }
+
+        // Animate elements on scroll
+        const observerOptions = {
+          threshold: 0.2,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-fade-in");
+            }
+          });
+        }, observerOptions);
+
+        // Observe elements to animate
+        document
+          .querySelectorAll(".roi-card, .case-study-card")
+          .forEach((card) => {
+            observer.observe(card);
+          });
+      });
+    </script>
+  </body>
+</html>
